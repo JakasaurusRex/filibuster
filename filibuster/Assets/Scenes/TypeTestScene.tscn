@@ -63,6 +63,5 @@ autowrap_mode = 0
 vertical_alignment = 1
 
 [connection signal="completed_sentence" from="TypingController" to="TestController" method="_on_typing_controller_completed_sentence"]
-[connection signal="completed_word" from="TypingController" to="TestController" method="_on_typing_controller_completed_word"]
 [connection signal="correct_letter" from="TypingController" to="TestController" method="_on_typing_controller_correct_letter"]
 [connection signal="incorrect_letter" from="TypingController" to="TestController" method="_on_typing_controller_incorrect_letter"]

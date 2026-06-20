@@ -9,6 +9,7 @@ var current_word_idx : int = 0
 var current_document : String
 var current_document_tokens : Array
 var current_char_idx : int = 0
+var word_char_idx : int = 0
 
 var bad_characters := "?!-'()"
 var text_box_font
@@ -19,6 +20,9 @@ signal incorrect_letter()
 signal correct_letter()
 signal completed_word()
 signal completed_sentence()
+
+var voices = DisplayServer.tts_get_voices_for_language("en")
+var voice_id = voices[0]
 	
 func load_font_data(label):
 	text_box_font = label.get_theme_default_font()
@@ -27,18 +31,34 @@ func load_font_data(label):
 	
 # Advance the index into the word
 func advance_idx():
+	# First advance the character
+	if(current_sentence[current_char_idx] != " "):
+		word_char_idx += 1
 	current_char_idx += 1
 	emit_signal("correct_letter")
-	#if current_char_idx == current_word.length():\
+	
+	# Then lets advance the word
+	if word_char_idx == current_word.length():
+		word_char_idx = 0
+		DisplayServer.tts_speak(current_word, voice_id)
+		current_word_idx += 1
+		emit_signal("completed_word")
+		if current_word_idx < len(document_words):
+			current_word = document_words[current_word_idx]
+
+	
+	# If we are at the end of the sentence, get new sentence
 	if current_char_idx == current_sentence.length():
 		current_char_idx = 0
-		current_word_idx += 1
-		if len(current_document_tokens) == 0: #finished current document
+		
+		# If we are at the end of the doc, lets get the next doc
+		if len(current_document_tokens) == 0:
 			DocumentHandler.get_next_document()
 			parse_document(DocumentHandler.get_current_file())
 		current_sentence = get_line_of_text(current_document_tokens)
-		current_word = document_words[current_word_idx]
+		current_word = document_words[0]
 		emit_signal("completed_sentence")
+		
 
 # Read the file and split words into document_words
 func parse_document(document_name: String):

@@ -29,21 +29,13 @@ func _ready() -> void:
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
 	
-func _on_typing_controller_completed_word() -> void:
-	label.text = type_controller.current_sentence
-	last_incorrect = -1
-
 func _on_typing_controller_completed_sentence() -> void:
 	label.text = type_controller.current_sentence
 	last_incorrect = -1
 	
 func _on_typing_controller_correct_letter() -> void:
-	#var current_word = type_controller.current_word
 	var current_sentence = type_controller.current_sentence
 	var current_char_idx = type_controller.current_char_idx
-	
-	#var highlighted_green = current_word.substr(0, current_char_idx)
-	#var non_highlighted = current_word.substr(current_char_idx)
 	
 	var highlighted_green = current_sentence.substr(0, current_char_idx)
 	var current_character = current_sentence.substr(current_char_idx, 1)
@@ -53,29 +45,14 @@ func _on_typing_controller_correct_letter() -> void:
 	
 
 func _on_typing_controller_incorrect_letter() -> void:
-	
 	var current_char_idx = type_controller.current_char_idx
 	if current_char_idx == last_incorrect:
 		return
 	last_incorrect = current_char_idx
-
-	
-	#var current_label_text = label.text
-	
-	#var current_label_idx = current_label_text.find("[/color]")
-	#if current_label_idx == -1:
-		#current_label_idx = 0
-	#else:
-		#current_label_idx += 8
 	
 	var current_label_text = label.get_parsed_text()
 	var no_change_begin =  open_green + current_label_text.substr(0, current_char_idx) + close_green
 	var red_text = open_red + open_cursor + current_label_text[current_char_idx] + close_cursor + close_red
 	var no_change_end = current_label_text.substr(current_char_idx + 1)
-	#var no_change = ""
-	#if current_label_idx != 0:
-	#	no_change = current_label_text.substr(0, current_label_idx)
-	#var red_text = open_red + open_cursor + current_label_text[current_label_idx] + close_cursor + end_red
-	#var no_change2 = current_label_text.substr(current_label_idx + 1)
 	
 	label.text = no_change_begin + red_text + no_change_end
