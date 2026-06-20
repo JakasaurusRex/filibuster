@@ -102,6 +102,7 @@ func play_word(word: String):
 	await play_sounds(voice)
 
 func play_sounds(voice):
+	print(remaining_sounds)
 	while len(remaining_sounds) > 0:			
 		var next_symbol = remaining_sounds.pop_front()
 		# Skip to next sound if no sound exists for text
@@ -118,6 +119,40 @@ func play_sounds(voice):
 
 
 func parse_word(word: String):
+	remaining_sounds.clear()
+	word = word.remove_chars(",")
+	#for i in range(len(word)):
+		#remaining_sounds.append(sounds[randi() % len(sounds)])
+	#return
 	for i in range(len(word)):
-		remaining_sounds.append(sounds[randi() % len(sounds)])
-	
+		var syllable = word[i]
+		if i+1 < len(word): syllable += word[i+1]
+		if syllable in sounds:
+			remaining_sounds.append(syllable)
+			continue
+		var syllable_sound
+		match syllable:
+			"ca":
+				syllable_sound = "ka"
+			"ci", "cy", "ky":
+				syllable_sound = "ki"
+			"cu":
+				syllable_sound = "ku"
+			"ce":
+				syllable_sound = "ke"
+			"co":
+				syllable_sound = "ko"
+			"sh":
+				syllable_sound = "si"
+			"ch":
+				syllable_sound = "chi"
+			"dy", "py", "ry", "zy", "sy", "ty", "ny", "my", "hy":
+				syllable_sound = syllable[0] + "i"
+			"ja", "ji", "jo", "je", "ju":
+				syllable_sound = "g" + syllable[1]
+			_:
+				if syllable[0] in sounds:
+					remaining_sounds.append(syllable[0])
+					continue
+				else:
+					remaining_sounds.append(sounds[randi() % len(sounds)])
