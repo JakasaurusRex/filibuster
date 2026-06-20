@@ -4,10 +4,17 @@
 [ext_resource type="Script" uid="uid://dpndwnjh1yn2j" path="res://Scripts/TestController.gd" id="2_8radk"]
 [ext_resource type="Theme" uid="uid://ds0qdd0mxjpdv" path="res://Assets/Themes/default_text_theme.tres" id="3_c3hvi"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3hvi"]
+content_margin_left = 24.0
+content_margin_right = 24.0
+
 [node name="TypeTestScene" type="Node2D" unique_id=1161709082]
 
 [node name="TestController" type="Node" parent="." unique_id=2016974219]
 script = ExtResource("2_8radk")
+success_color = Color(0.29411766, 0.5019608, 0, 1)
+failure_color = Color(0.54901963, 0.1764706, 0, 1)
+cursor_color = Color(0.8, 0.7294118, 0.60784316, 1)
 
 [node name="TypingController" type="Node" parent="." unique_id=1542978980]
 script = ExtResource("1_d6bb4")
@@ -48,13 +55,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"typingLabel"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c3hvi")
 bbcode_enabled = true
 text = "Exampledsaddsadas"
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="completed_sentence" from="TypingController" to="TestController" method="_on_typing_controller_completed_sentence"]
 [connection signal="completed_word" from="TypingController" to="TestController" method="_on_typing_controller_completed_word"]
 [connection signal="correct_letter" from="TypingController" to="TestController" method="_on_typing_controller_correct_letter"]
 [connection signal="incorrect_letter" from="TypingController" to="TestController" method="_on_typing_controller_incorrect_letter"]
