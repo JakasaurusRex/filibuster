@@ -14,7 +14,6 @@ const jake_path = "/sounds_jake/"
 
 # All the possible sounds
 const sounds = ["a","i","u","e","o","ka","ki","ku","ke","ko","ga","gi","gu","ge","go","sa","shi","su","se","so","za","zi","zu","ze","zo","ta","chi","tsu","te","to","da","di","du","de","do","na","ni","nu","ne","no","ma","mi","mu","me","mo","ha","hi","hu","he","ho","fa","fi","fu","fe","fo","pa","pi","pu","pe","po","ra","ri","ru","re","ro","wa","ya","yu","yo"]
-
 # The actual SFX
 const jake_sounds = {
 	'a': preload(root_path + jake_path + "a.wav"),

@@ -3,8 +3,9 @@ class_name TypingController
 
 var can_type := true
 
-var document_words
+#var document_words
 var current_sentence : String
+var current_sentence_tokens : Array
 var current_word : String
 var current_word_idx : int = 0
 var current_document : String
@@ -29,19 +30,20 @@ func load_font_data(label):
 	
 # Advance the index into the word
 func advance_idx():
+	
 	# First advance the character
 	if(current_sentence[current_char_idx] != " "):
 		word_char_idx += 1
 	current_char_idx += 1
 	emit_signal("correct_letter")
-	
+	print(current_word, " ", current_word_idx, " ", word_char_idx, " ", current_word.length())
 	# Then lets advance the word
 	if word_char_idx == current_word.length():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
-		if current_word_idx < len(document_words):
-			current_word = document_words[current_word_idx]
+		if current_word_idx < len(current_sentence_tokens):
+			current_word = current_sentence_tokens[current_word_idx]
 
 	
 	# If we are at the end of the sentence, get new sentence
@@ -53,8 +55,12 @@ func advance_idx():
 			DocumentHandler.get_next_document()
 			parse_document(DocumentHandler.get_current_file())
 		else:
-			current_sentence = get_line_of_text(current_document_tokens)
-		current_word = document_words[0]
+			var current_text = get_line_of_text(current_document_tokens)
+			current_sentence = current_text[0]
+			current_sentence_tokens = current_text[1]
+			current_word_idx = 0
+			current_char_idx = 0
+		current_word = current_sentence_tokens[0]
 		emit_signal("completed_sentence")
 		
 
@@ -69,9 +75,11 @@ func parse_document(document_name: String):
 		var content = file.get_as_text()
 		content = content.remove_chars(bad_characters).replace("\n", " ").to_lower()
 		current_document_tokens = content.split(" ")
-		document_words = content.split(" ")
-		current_sentence = get_line_of_text(current_document_tokens)
-		current_word = document_words[0]
+		#document_words = content.split(" ")
+		var current_text = get_line_of_text(current_document_tokens)
+		current_sentence = current_text[0]
+		current_sentence_tokens = current_text[1]
+		current_word = current_sentence_tokens[0]
 		current_word_idx = 0
 		current_char_idx = 0
 		file.close()
@@ -80,14 +88,18 @@ func parse_document(document_name: String):
 	return
 
 func get_line_of_text(document_tokens):
-	var text_to_add = document_tokens.pop_at(0)
+	var first_token = document_tokens.pop_at(0)
+	var text_tokens = [first_token]
+	var text_to_add = first_token
 	while text_box_font.get_multiline_string_size(text_to_add + " " + document_tokens[0], HorizontalAlignment.HORIZONTAL_ALIGNMENT_CENTER, -1, text_box_font_size).x < text_box_length:
-		text_to_add += " " + document_tokens.pop_at(0)
+		var new_token = document_tokens.pop_at(0)
+		text_tokens.append(new_token)
+		text_to_add += " " + new_token
 		if len(document_tokens) == 0:
 			break
 	if text_to_add[-1] != " ": text_to_add += " "
-	print(text_to_add[-1])
-	return text_to_add
+	print("SENTENCE TOKENS: ", text_tokens)
+	return [text_to_add, text_tokens]
 
 func pause_typing(time):
 	can_type = false
