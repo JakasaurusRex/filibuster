@@ -2,7 +2,7 @@ extends Node
 
 @onready var label = $"../UILayer/UI/textBoxPanel/textLabel"
 @onready var type_controller = $"../TypingController"
-
+@onready var animalese_player = $"../AnimalesePlayer"
 @export var success_color : Color
 @export var failure_color : Color
 @export var cursor_color : Color
@@ -28,7 +28,8 @@ func _ready() -> void:
 	close_green = "[/color]"
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
-	
+
+
 func _on_typing_controller_completed_sentence() -> void:
 	label.text = type_controller.current_sentence
 	last_incorrect = -1
@@ -56,3 +57,8 @@ func _on_typing_controller_incorrect_letter() -> void:
 	var no_change_end = current_label_text.substr(current_char_idx + 1)
 	
 	label.text = no_change_begin + red_text + no_change_end
+
+
+func _on_typing_controller_completed_word(word) -> void:
+	animalese_player.play_word(word)
+	

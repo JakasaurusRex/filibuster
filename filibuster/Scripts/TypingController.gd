@@ -18,11 +18,8 @@ var text_box_length
 
 signal incorrect_letter()
 signal correct_letter()
-signal completed_word()
+signal completed_word(word)
 signal completed_sentence()
-
-var voices = DisplayServer.tts_get_voices_for_language("en")
-var voice_id = voices[0]
 	
 func load_font_data(label):
 	text_box_font = label.get_theme_default_font()
@@ -40,9 +37,8 @@ func advance_idx():
 	# Then lets advance the word
 	if word_char_idx == current_word.length():
 		word_char_idx = 0
-		DisplayServer.tts_speak(current_word, voice_id)
 		current_word_idx += 1
-		emit_signal("completed_word")
+		emit_signal("completed_word", current_word)
 		if current_word_idx < len(document_words):
 			current_word = document_words[current_word_idx]
 
