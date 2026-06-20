@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cxslce0tf3asi"]
+
+[ext_resource type="Script" uid="uid://bek0qr7yoxe12" path="res://Scripts/TypingController.gd" id="1_d6bb4"]
+[ext_resource type="Script" uid="uid://dpndwnjh1yn2j" path="res://Scripts/TestController.gd" id="2_8radk"]
+
+[node name="TypeTestScene" type="Node2D" unique_id=1161709082]
+
+[node name="TestController" type="Node" parent="." unique_id=2016974219]
+script = ExtResource("2_8radk")
+
+[node name="TypingController" type="Node" parent="." unique_id=1542978980]
+script = ExtResource("1_d6bb4")
+metadata/_custom_type_script = "uid://bek0qr7yoxe12"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=47775656]
+offset_right = 1152.0
+offset_bottom = 645.0
+bbcode_enabled = true
+text = "Example"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="completed_word" from="TypingController" to="TestController" method="_on_typing_controller_completed_word"]
+[connection signal="correct_letter" from="TypingController" to="TestController" method="_on_typing_controller_correct_letter"]
+[connection signal="incorrect_letter" from="TypingController" to="TestController" method="_on_typing_controller_incorrect_letter"]
