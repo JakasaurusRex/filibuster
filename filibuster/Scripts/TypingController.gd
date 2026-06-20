@@ -1,8 +1,9 @@
 extends Node
 class_name TypingController
 
-var document_words
+var can_type := true
 
+var document_words
 var current_sentence : String
 var current_word : String
 var current_word_idx : int = 0
@@ -51,7 +52,8 @@ func advance_idx():
 		if len(current_document_tokens) == 0:
 			DocumentHandler.get_next_document()
 			parse_document(DocumentHandler.get_current_file())
-		current_sentence = get_line_of_text(current_document_tokens)
+		else:
+			current_sentence = get_line_of_text(current_document_tokens)
 		current_word = document_words[0]
 		emit_signal("completed_sentence")
 		
@@ -86,10 +88,16 @@ func get_line_of_text(document_tokens):
 	if text_to_add[-1] != " ": text_to_add += " "
 	print(text_to_add[-1])
 	return text_to_add
+
+func pause_typing(time):
+	can_type = false
+	await get_tree().create_timer(time).timeout
+	can_type = true
 	
 # Handle keyboard events
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and not event.is_pressed():
+		if not can_type: return
 		var typed_event = event as InputEventKey
 		var key_typed = PackedByteArray([typed_event.keycode]).get_string_from_utf8()
 		
@@ -99,5 +107,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			advance_idx()
 			
-		
-		

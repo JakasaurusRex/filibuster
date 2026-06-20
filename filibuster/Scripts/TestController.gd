@@ -18,7 +18,7 @@ var last_incorrect = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DocumentHandler.get_specific_document("tiny_test")
+	DocumentHandler.get_specific_document("anything_else")
 	type_controller.load_font_data(label)
 	type_controller.parse_document(DocumentHandler.get_current_file())
 	label.text = type_controller.current_sentence
@@ -46,6 +46,7 @@ func _on_typing_controller_correct_letter() -> void:
 	
 
 func _on_typing_controller_incorrect_letter() -> void:
+	type_controller.pause_typing(0.5)
 	var current_char_idx = type_controller.current_char_idx
 	if current_char_idx == last_incorrect:
 		return

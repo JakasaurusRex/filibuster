@@ -20,6 +20,21 @@ extends Node
 		"file": "tiny_test.txt",
 		"next": null,
 		"typed": false
+	},
+	"vampire":  {
+		"file": "vampire.txt",
+		"next": null,
+		"typed": false
+	},
+	"anything_else":  {
+		"file": "anything_else.txt",
+		"next": null,
+		"typed": false
+	},
+	"platypus_control":  {
+		"file": "platypus_control.txt",
+		"next": null,
+		"typed": false
 	}
 }
 

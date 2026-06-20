@@ -94,7 +94,8 @@ const voices = [jake_sounds]
 var remaining_sounds := []
 
 func _ready():
-	connect("finished", play_sounds)
+	pass
+	#connect("finished", play_sounds)
 
 func play_word(word: String):
 	var voice = voices[randi_range(0, len(voices) - 1)]

@@ -65,7 +65,6 @@ vertical_alignment = 1
 
 [node name="AnimalesePlayer" type="AudioStreamPlayer" parent="." unique_id=818523951]
 script = ExtResource("4_wxdwo")
-base_pitch = null
 metadata/_custom_type_script = "uid://l610haepoubh"
 
 [connection signal="completed_sentence" from="TypingController" to="TestController" method="_on_typing_controller_completed_sentence"]
