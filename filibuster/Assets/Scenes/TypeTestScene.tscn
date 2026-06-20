@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bek0qr7yoxe12" path="res://Scripts/TypingController.gd" id="1_d6bb4"]
 [ext_resource type="Script" uid="uid://dpndwnjh1yn2j" path="res://Scripts/TestController.gd" id="2_8radk"]
 [ext_resource type="Theme" uid="uid://ds0qdd0mxjpdv" path="res://Assets/Themes/default_text_theme.tres" id="3_c3hvi"]
+[ext_resource type="Script" uid="uid://bkm0srgt773b4" path="res://Scripts/ui.gd" id="3_wkavi"]
 [ext_resource type="Script" uid="uid://l610haepoubh" path="res://Scripts/AnimalesePlayer.gd" id="4_wxdwo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3hvi"]
@@ -22,6 +23,7 @@ script = ExtResource("1_d6bb4")
 metadata/_custom_type_script = "uid://bek0qr7yoxe12"
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=1360491517]
+script = ExtResource("3_wkavi")
 
 [node name="UI" type="Control" parent="UILayer" unique_id=339211803]
 layout_mode = 3
@@ -62,6 +64,19 @@ text = "Exampledsaddsadas"
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
+
+[node name="scoreLabel" type="Label" parent="UILayer/UI" unique_id=51817857]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "SCORE: "
 
 [node name="AnimalesePlayer" type="AudioStreamPlayer" parent="." unique_id=818523951]
 script = ExtResource("4_wxdwo")

@@ -3,6 +3,7 @@ extends Node
 @onready var label = $"../UILayer/UI/textBoxPanel/textLabel"
 @onready var type_controller = $"../TypingController"
 @onready var animalese_player = $"../AnimalesePlayer"
+@onready var ui := $"../UILayer"
 @export var success_color : Color
 @export var failure_color : Color
 @export var cursor_color : Color
@@ -62,4 +63,5 @@ func _on_typing_controller_incorrect_letter() -> void:
 
 func _on_typing_controller_completed_word(word) -> void:
 	animalese_player.play_word(word)
+	ui.addScore()
 	
