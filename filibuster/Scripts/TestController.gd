@@ -18,7 +18,7 @@ var last_incorrect = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	DocumentHandler.get_next_document()
+	DocumentHandler.get_specific_document("tiny_test")
 	type_controller.load_font_data(label)
 	type_controller.parse_document(DocumentHandler.get_current_file())
 	label.text = type_controller.current_sentence

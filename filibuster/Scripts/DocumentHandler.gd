@@ -15,6 +15,11 @@ extends Node
 		"file": "jam_info.txt",
 		"next": null,
 		"typed": false
+	},
+	"tiny_test":  {
+		"file": "tiny_test.txt",
+		"next": null,
+		"typed": false
 	}
 }
 
@@ -37,6 +42,8 @@ func get_next_document():
 			current_document = get_random_document()
 	return current_document
 
-
+func get_specific_document(doc):
+	current_document = doc
+	
 func get_current_file():
 	return documents[current_document]['file']

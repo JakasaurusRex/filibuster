@@ -33,6 +33,9 @@ func advance_idx():
 	if current_char_idx == current_sentence.length():
 		current_char_idx = 0
 		current_word_idx += 1
+		if len(current_document_tokens) == 0: #finished current document
+			DocumentHandler.get_next_document()
+			parse_document(DocumentHandler.get_current_file())
 		current_sentence = get_line_of_text(current_document_tokens)
 		current_word = document_words[current_word_idx]
 		emit_signal("completed_sentence")
