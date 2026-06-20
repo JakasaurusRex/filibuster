@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://ds0qdd0mxjpdv"]
+
+[ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="1_y7okx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3hvi"]
+bg_color = Color(0.9254902, 0.8745098, 0.7490196, 1)
+border_width_left = 16
+border_width_top = 16
+border_width_right = 16
+border_width_bottom = 16
+border_color = Color(0.8, 0.7294118, 0.60784316, 1)
+
+[resource]
+default_font = ExtResource("1_y7okx")
+default_font_size = 32
+textBoxPanel/base_type = &"Panel"
+textBoxPanel/styles/panel = SubResource("StyleBoxFlat_c3hvi")
+typingLabel/base_type = &"RichTextLabel"
+typingLabel/colors/default_color = Color(0.18039216, 0.2, 0.20392157, 1)

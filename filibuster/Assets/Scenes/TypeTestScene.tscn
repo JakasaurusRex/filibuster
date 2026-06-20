@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bek0qr7yoxe12" path="res://Scripts/TypingController.gd" id="1_d6bb4"]
 [ext_resource type="Script" uid="uid://dpndwnjh1yn2j" path="res://Scripts/TestController.gd" id="2_8radk"]
+[ext_resource type="Theme" uid="uid://ds0qdd0mxjpdv" path="res://Assets/Themes/default_text_theme.tres" id="3_c3hvi"]
 
 [node name="TypeTestScene" type="Node2D" unique_id=1161709082]
 
@@ -12,11 +13,45 @@ script = ExtResource("2_8radk")
 script = ExtResource("1_d6bb4")
 metadata/_custom_type_script = "uid://bek0qr7yoxe12"
 
-[node name="Label" type="RichTextLabel" parent="." unique_id=47775656]
-offset_right = 1152.0
-offset_bottom = 645.0
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1360491517]
+
+[node name="UI" type="Control" parent="UILayer" unique_id=339211803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_c3hvi")
+
+[node name="textBoxPanel" type="Panel" parent="UILayer/UI" unique_id=1787153691]
+custom_minimum_size = Vector2(640, 90)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -45.0
+offset_right = 320.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"textBoxPanel"
+
+[node name="textLabel" type="RichTextLabel" parent="UILayer/UI/textBoxPanel" unique_id=47775656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"typingLabel"
 bbcode_enabled = true
-text = "Example"
+text = "Exampledsaddsadas"
+scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
