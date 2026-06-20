@@ -16,7 +16,6 @@ func _on_typing_controller_completed_word() -> void:
 	label.text = type_controller.current_sentence
 	last_incorrect = -1
 
-
 func _on_typing_controller_correct_letter() -> void:
 	var open_green = "[color=green]"
 	var end_green =  "[/color]"
