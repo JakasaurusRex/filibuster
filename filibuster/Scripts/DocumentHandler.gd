@@ -35,7 +35,13 @@ extends Node
 		"file": "platypus_control.txt",
 		"next": null,
 		"typed": false
+	},
+	"batman_begin":  {
+		"file": "batman_begin.txt",
+		"next": null,
+		"typed": false
 	}
+	
 }
 
 var current_document : String

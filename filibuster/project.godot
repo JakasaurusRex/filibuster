@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Filibuster"
-run/main_scene="uid://cxslce0tf3asi"
+run/main_scene="uid://bqhmk4u6yxoyy"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

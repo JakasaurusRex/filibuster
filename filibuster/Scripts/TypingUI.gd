@@ -14,58 +14,6 @@ func addScore():
 @export var failure_color : Color
 @export var cursor_color : Color
 
-var open_red
-var close_red
-var open_green
-var close_green
-var open_cursor
-var close_cursor
-
-var last_incorrect = -1
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	DocumentHandler.get_specific_document("anything_else")
-	load_font_data(label)
-	parse_document(DocumentHandler.get_current_file())
-	label.text = current_sentence
-	open_red = "[color=%s]" % failure_color.to_html()
-	close_red = "[/color]"
-	open_green = "[color=%s]" % success_color.to_html()
-	close_green = "[/color]"
-	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
-	close_cursor = "[/bgcolor]"
-
-
-func on_completed_sentence() -> void:
-	label.text = current_sentence
-	last_incorrect = -1
-	
-func on_correct_letter() -> void:	
-	var highlighted_green = current_sentence.substr(0, current_char_idx)
-	var current_character = current_sentence.substr(current_char_idx, 1)
-	var non_highlighted = current_sentence.substr(current_char_idx+1)
-	
-	label.text = open_green + highlighted_green + close_green + open_cursor + current_character + close_cursor + non_highlighted
-	
-func on_incorrect_letter() -> void:
-	pause_typing(0.5)
-	if current_char_idx == last_incorrect:
-		return
-	last_incorrect = current_char_idx
-	
-	var current_label_text = label.get_parsed_text()
-	var no_change_begin =  open_green + current_label_text.substr(0, current_char_idx) + close_green
-	var red_text = open_red + open_cursor + current_label_text[current_char_idx] + close_cursor + close_red
-	var no_change_end = current_label_text.substr(current_char_idx + 1)
-	
-	label.text = no_change_begin + red_text + no_change_end
-
-func on_completed_word(word) -> void:
-	animalese_player.play_word(word)
-	addScore()
-	
-
 ## INPUT HANDLING
 
 var can_type := true
@@ -85,7 +33,7 @@ var current_document_tokens : Array
 var current_char_idx : int = 0
 var word_char_idx : int = 0
 
-var bad_characters := "?!-'()"
+var bad_characters := "-()"
 var text_box_font
 var text_box_font_size
 var text_box_length
@@ -95,6 +43,58 @@ signal incorrect_letter()
 signal correct_letter()
 signal completed_word(word)
 signal completed_sentence()
+	
+var open_red
+var close_red
+var open_green
+var close_green
+var open_cursor
+var close_cursor
+
+var last_incorrect = -1
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	open_red = "[color=%s]" % failure_color.to_html()
+	close_red = "[/color]"
+	open_green = "[color=%s]" % success_color.to_html()
+	close_green = "[/color]"
+	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
+	close_cursor = "[/bgcolor]"
+	
+	DocumentHandler.get_specific_document("batman_begin")
+	#DocumentHandler.get_next_document()
+	load_font_data(label)
+	parse_document(DocumentHandler.get_current_file())
+	label.text = current_sentence
+	
+func on_completed_sentence() -> void:
+	label.text = current_sentence
+	last_incorrect = -1
+	
+func on_correct_letter() -> void:	
+	var highlighted_green = current_sentence.substr(0, current_char_idx)
+	var current_character = current_sentence.substr(current_char_idx, 1)
+	var non_highlighted = current_sentence.substr(current_char_idx+1)
+	
+	label.text = open_green + highlighted_green + close_green + open_cursor + current_character + close_cursor + non_highlighted
+	
+func on_incorrect_letter() -> void:
+	#pause_typing(0.5)
+	if current_char_idx == last_incorrect:
+		return
+	last_incorrect = current_char_idx
+	
+	var current_label_text = label.get_parsed_text()
+	var no_change_begin =  open_green + current_label_text.substr(0, current_char_idx) + close_green
+	var red_text = open_red + open_cursor + current_label_text[current_char_idx] + close_cursor + close_red
+	var no_change_end = current_label_text.substr(current_char_idx + 1)
+	
+	label.text = no_change_begin + red_text + no_change_end
+
+func on_completed_word(word) -> void:
+	animalese_player.play_word(word)
+	addScore()
 	
 func load_font_data(label):
 	text_box = label
@@ -186,9 +186,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and not event.is_pressed():
 		if not can_type: return
 		var typed_event = event as InputEventKey
-		var key_typed = PackedByteArray([typed_event.keycode]).get_string_from_utf8()
 		
-		#if key_typed.to_lower() != current_word[current_char_idx].to_lower():
+		#handle shift
+		if typed_event.keycode == 4194325:
+			return
+		
+		var key_typed = PackedByteArray([typed_event.keycode]).get_string_from_utf8()
+		if key_typed == "/" and Input.is_key_pressed(KEY_SHIFT):
+			key_typed = "?"
+		if key_typed == "1" and Input.is_key_pressed(KEY_SHIFT):
+			key_typed = "!"
 		if key_typed.to_lower() != current_sentence[current_char_idx].to_lower():
 			emit_signal("incorrect_letter")
 		else:
