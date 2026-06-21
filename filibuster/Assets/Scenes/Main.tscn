@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
 [ext_resource type="PackedScene" uid="uid://dyyvoo0qmhqkn" path="res://Assets/Scenes/Brain.tscn" id="2_wkehv"]
+[ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gjahs"]
 noise_type = 2
@@ -81,3 +82,25 @@ gi_lightmap_texel_scale = 0.01
 size = Vector3(7.229492, 4.3554688, 1)
 
 [node name="TypingUI" parent="." unique_id=1360491517 instance=ExtResource("1_ygaiq")]
+
+[node name="ProgressDial" type="CanvasLayer" parent="." unique_id=1880418449]
+script = ExtResource("5_gjahs")
+
+[node name="Control" type="Control" parent="ProgressDial" unique_id=1666601909]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 478.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressDial/Control" unique_id=1462516162]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 494.0
+offset_right = 710.0
+offset_bottom = 521.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="ProgressDial" unique_id=2128178323]
+
+[connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
+[connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]

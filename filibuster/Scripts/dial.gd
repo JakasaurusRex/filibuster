@@ -1,7 +1,7 @@
-extends Node2D
+extends CanvasLayer
 
-@onready var progress_bar = $CanvasLayer/Control/ProgressBar
-@onready var timer = $"../../Timer"
+@onready var progress_bar = $Control/ProgressBar
+@onready var timer = $Timer
 
 @export var starting_progress = 50
 var current_progress : int
