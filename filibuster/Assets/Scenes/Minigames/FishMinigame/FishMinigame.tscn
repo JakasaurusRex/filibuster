@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://den4f1q4bwtp6"]
+
+[ext_resource type="PackedScene" uid="uid://clkmttbo583vg" path="res://Assets/Scenes/Minigames/FishMinigame/Fish.tscn" id="1_b5tc4"]
+[ext_resource type="Script" uid="uid://b2clissygsedc" path="res://Scripts/fish.gd" id="2_3y5ks"]
+[ext_resource type="Texture2D" uid="uid://b2mq3ek4rt0ja" path="res://Assets/Models/Fish/sand.png" id="2_wefrl"]
+[ext_resource type="PackedScene" uid="uid://btde1d8fit0fo" path="res://Assets/Scenes/Minigames/FishMinigame/rock.tscn" id="3_50cnp"]
+[ext_resource type="PackedScene" uid="uid://bb2kxagwukg5j" path="res://Assets/Scenes/Minigames/FishMinigame/palm.tscn" id="3_w3a5j"]
+[ext_resource type="PackedScene" uid="uid://cy16rj32j8jcg" path="res://Assets/Scenes/Minigames/FishMinigame/seaweed.tscn" id="4_wefrl"]
+[ext_resource type="PackedScene" uid="uid://gi7fx8l78uoh" path="res://Assets/Scenes/Minigames/FishMinigame/flower.tscn" id="6_7uirn"]
+[ext_resource type="PackedScene" uid="uid://byt80d4q3pj7p" path="res://Assets/Scenes/Minigames/FishMinigame/bowl.tscn" id="7_7uirn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
+transparency = 1
+albedo_color = Color(0.21568628, 1, 1, 0.36078432)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3y5ks"]
+albedo_texture = ExtResource("2_wefrl")
+
+[sub_resource type="Gradient" id="Gradient_3y5ks"]
+colors = PackedColorArray(0.6069508, 0.39327598, 0.029928472, 1, 1, 0.5764706, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0hmt"]
+gradient = SubResource("Gradient_3y5ks")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qm3oo"]
+panorama = SubResource("GradientTexture2D_u0hmt")
+
+[sub_resource type="Sky" id="Sky_5fmbj"]
+sky_material = SubResource("PanoramaSkyMaterial_qm3oo")
+
+[sub_resource type="Environment" id="Environment_f2gcx"]
+background_mode = 2
+sky = SubResource("Sky_5fmbj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xtg8h"]
+
+[node name="FishMinigame" type="Node3D" unique_id=48956698]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1599981593]
+transform = Transform3D(1, 0, 0, 0, 0.9525526, 0.304374, 0, -0.304374, 0.9525526, 0, 0.6784786, 1.4048752)
+fov = 90.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1642822408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00020611286, 0.48990756, 0.0016174316)
+flip_faces = true
+size = Vector3(1.9546509, 0.009155273, 1.9047241)
+material = SubResource("StandardMaterial3D_xtg8h")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGBox3D" unique_id=1671386965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00020611286, 0.0045565963, -0.0016174316)
+operation = 1
+inner_radius = 0.001
+outer_radius = 0.8
+sides = 39
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=469926760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00020611286, -0.5454154, 0.0016174316)
+flip_faces = true
+size = Vector3(1.9546509, 0.001, 1.9047241)
+material = SubResource("StandardMaterial3D_3y5ks")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGBox3D2" unique_id=1910425487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00020611286, 0.0045823455, -0.0016174316)
+operation = 1
+inner_radius = 0.001
+outer_radius = 0.76
+sides = 39
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=917520245]
+environment = SubResource("Environment_f2gcx")
+
+[node name="Objects" type="Node3D" parent="." unique_id=316121666]
+
+[node name="Trees" type="Node3D" parent="Objects" unique_id=1320567389]
+
+[node name="palm" parent="Objects/Trees" unique_id=1978045230 instance=ExtResource("3_w3a5j")]
+transform = Transform3D(0.055, 0, 0, 0, 0.055, 0, 0, 0, 0.055, -0.36961418, -0.5247803, 0.35927528)
+
+[node name="palm2" parent="Objects/Trees" unique_id=1527571334 instance=ExtResource("3_w3a5j")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0.30499673, -0.5247803, -0.37461913)
+
+[node name="Rocks" type="Node3D" parent="Objects" unique_id=1051787692]
+
+[node name="rock1" parent="Objects/Rocks" unique_id=1206529581 instance=ExtResource("3_50cnp")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -0.22583574, -0.4956093, -0.22594625)
+
+[node name="rock2" parent="Objects/Rocks" unique_id=546063633 instance=ExtResource("3_50cnp")]
+transform = Transform3D(-0.008483626, 0, 0.16978818, 0, 0.17, 0, -0.16978818, 0, -0.008483626, -0.22583574, -0.4956093, -0.36891484)
+
+[node name="rock3" parent="Objects/Rocks" unique_id=1779157732 instance=ExtResource("3_50cnp")]
+transform = Transform3D(-0.14852867, 0, -0.08269969, 0, 0.17, 0, 0.08269969, 0, -0.14852867, 0.40300572, -0.4956093, 0.038957417)
+
+[node name="rock4" parent="Objects/Rocks" unique_id=1552614397 instance=ExtResource("3_50cnp")]
+transform = Transform3D(0.090008765, 0, -0.14421655, 0, 0.17, 0, 0.14421655, 0, 0.090008765, 0.47255546, -0.4956093, 0.16386878)
+
+[node name="rock5" parent="Objects/Rocks" unique_id=1851994640 instance=ExtResource("3_50cnp")]
+transform = Transform3D(0.12971853, 0, -0.20784155, 0, 0.245, 0, 0.20784155, 0, 0.12971853, 0.5346856, -0.4956093, 0.05447024)
+
+[node name="Seaweed" type="Node3D" parent="Objects" unique_id=657420784]
+
+[node name="seaweed" parent="Objects/Seaweed" unique_id=959192156 instance=ExtResource("4_wefrl")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, -0.445, -0.295, 0)
+
+[node name="seaweed2" parent="Objects/Seaweed" unique_id=1987432190 instance=ExtResource("4_wefrl")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, -0.445, -0.4, -0.165)
+
+[node name="seaweed4" parent="Objects/Seaweed" unique_id=671254741 instance=ExtResource("4_wefrl")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0.5173001, -0.295, 0)
+
+[node name="seaweed5" parent="Objects/Seaweed" unique_id=1219300590 instance=ExtResource("4_wefrl")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0.5173001, -0.4, -0.165)
+
+[node name="seaweed3" parent="Objects/Seaweed" unique_id=1652995853 instance=ExtResource("4_wefrl")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0.2654925, -0.36423787, 0.4225394)
+
+[node name="Flowers" type="Node3D" parent="Objects" unique_id=1133832727]
+
+[node name="flower" parent="Objects/Flowers" unique_id=2008118161 instance=ExtResource("6_7uirn")]
+transform = Transform3D(0.001875727, 0, 0.124985926, 0, 0.125, 0, -0.124985926, 0, 0.001875727, -0.22141576, -0.512252, 0.42178774)
+
+[node name="flower2" parent="Objects/Flowers" unique_id=1372633572 instance=ExtResource("6_7uirn")]
+transform = Transform3D(0.041817185, 0, -0.05613665, 0, 0.07, 0, 0.05613665, 0, 0.041817185, 0.18934202, -0.5042884, 0.36002925)
+
+[node name="flower3" parent="Objects/Flowers" unique_id=1539196664 instance=ExtResource("6_7uirn")]
+transform = Transform3D(0.063674025, 0, 0.029079504, 0, 0.06999999, 0, -0.029079504, 0, 0.063674025, -0.0020523816, -0.5042884, 0.24795571)
+
+[node name="flower4" parent="Objects/Flowers" unique_id=648429157 instance=ExtResource("6_7uirn")]
+transform = Transform3D(0.063674025, 0, 0.029079504, 0, 0.06999999, 0, -0.029079504, 0, 0.063674025, -0.0020523816, -0.5042884, -0.0836598)
+
+[node name="flower5" parent="Objects/Flowers" unique_id=1231861793 instance=ExtResource("6_7uirn")]
+transform = Transform3D(-0.032900948, 0, 0.13607913, 0, 0.13999999, 0, -0.13607913, 0, -0.032900948, 0.24961738, -0.48592183, -0.14897364)
+
+[node name="flower6" parent="Objects/Flowers" unique_id=1466428024 instance=ExtResource("6_7uirn")]
+transform = Transform3D(-0.032900948, 0, 0.13607913, 0, 0.13999999, 0, -0.13607913, 0, -0.032900948, 0.37097096, -0.48592183, 0.26831985)
+
+[node name="Bowl" parent="." unique_id=2057442995 instance=ExtResource("7_7uirn")]
+
+[node name="FishController" type="CharacterBody3D" parent="." unique_id=683300402 node_paths=PackedStringArray("water_mesh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03879732, 0.00015586615)
+script = ExtResource("2_3y5ks")
+water_mesh = NodePath("../SwimmableArea")
+speed = 0.25
+
+[node name="Fish" parent="FishController" unique_id=761931964 instance=ExtResource("1_b5tc4")]
+transform = Transform3D(-3.278354e-09, 0.0005235945, -0.07499817, 0, 0.07499817, 0.0005235945, 0.074999996, 2.2887041e-11, -3.278274e-09, 0, 0, 0)
+
+[node name="SwimmableArea" type="MeshInstance3D" parent="." unique_id=519007123]
+visible = false
+mesh = SubResource("BoxMesh_xtg8h")

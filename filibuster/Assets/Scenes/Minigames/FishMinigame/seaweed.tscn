@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cy16rj32j8jcg"]
+
+[ext_resource type="PackedScene" uid="uid://cug2ywkjopv42" path="res://Assets/Models/Fish/seaweed.blend" id="1_51aqa"]
+[ext_resource type="Texture2D" uid="uid://58vehgk4ui36" path="res://Assets/Models/Fish/seaweed.png" id="2_5dxp5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgtgy"]
+albedo_texture = ExtResource("2_5dxp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iear8"]
+albedo_texture = ExtResource("2_5dxp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgsnx"]
+albedo_texture = ExtResource("2_5dxp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4td18"]
+albedo_texture = ExtResource("2_5dxp5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htmtk"]
+albedo_texture = ExtResource("2_5dxp5")
+
+[node name="seaweed" unique_id=959192156 instance=ExtResource("1_51aqa")]
+
+[node name="Cube" parent="." index="0" unique_id=867760113]
+material_override = SubResource("StandardMaterial3D_qgtgy")
+
+[node name="Cube_001" parent="." index="1" unique_id=2131175000]
+material_override = SubResource("StandardMaterial3D_iear8")
+
+[node name="Cube_002" parent="." index="2" unique_id=982707490]
+material_override = SubResource("StandardMaterial3D_dgsnx")
+
+[node name="Cube_003" parent="." index="3" unique_id=1474550326]
+material_override = SubResource("StandardMaterial3D_4td18")
+
+[node name="Cube_004" parent="." index="4" unique_id=217906922]
+material_override = SubResource("StandardMaterial3D_htmtk")

@@ -74,7 +74,7 @@ refraction_scale = 1.0
 [sub_resource type="SphereMesh" id="SphereMesh_uobsy"]
 material = SubResource("StandardMaterial3D_7ei7i")
 
-[node name="Brain" type="Node3D" unique_id=1526959569]
+[node name="BrainScene" type="Node3D" unique_id=1526959569]
 
 [node name="Brain" parent="." unique_id=2080311670 instance=ExtResource("1_7ei7i")]
 transform = Transform3D(-0.9861532, 0, -0.16583695, 0, 1, 0, 0.16583695, 0, -0.9861532, 0, 0, 0)

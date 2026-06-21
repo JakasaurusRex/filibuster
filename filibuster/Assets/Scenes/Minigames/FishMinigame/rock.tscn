@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://btde1d8fit0fo"]
+
+[ext_resource type="PackedScene" uid="uid://gquxyicrblwq" path="res://Assets/Models/Fish/rock1.blend" id="1_76ofq"]
+[ext_resource type="Texture2D" uid="uid://bfitq5t77ma3u" path="res://Assets/Models/Fish/rock1.png" id="2_hyttw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nil2a"]
+albedo_texture = ExtResource("2_hyttw")
+
+[node name="rock1" unique_id=1206529581 instance=ExtResource("1_76ofq")]
+
+[node name="Icosphere" parent="." index="0" unique_id=2072339696]
+material_override = SubResource("StandardMaterial3D_nil2a")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://gi7fx8l78uoh"]
+
+[ext_resource type="PackedScene" uid="uid://7indx5magp5d" path="res://Assets/Models/Fish/flower.blend" id="1_b515i"]
+[ext_resource type="Texture2D" uid="uid://dmng52ucpkm7f" path="res://Assets/Models/Fish/stem.png" id="2_6i8yh"]
+[ext_resource type="Texture2D" uid="uid://caudqrnuv2m6s" path="res://Assets/Models/Fish/flower.png" id="3_36ciq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56omy"]
+albedo_texture = ExtResource("2_6i8yh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4lq6"]
+albedo_texture = ExtResource("3_36ciq")
+
+[node name="flower" unique_id=2008118161 instance=ExtResource("1_b515i")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1277704373]
+material_override = SubResource("StandardMaterial3D_56omy")
+
+[node name="Sphere" parent="." index="1" unique_id=1192521571]
+material_override = SubResource("StandardMaterial3D_y4lq6")
+
+[node name="Sphere_001" parent="." index="2" unique_id=1373764800]
+visible = false
+
+[node name="Sphere_002" parent="." index="3" unique_id=1454155643]
+visible = false
+
+[node name="Sphere_003" parent="." index="4" unique_id=225398193]
+visible = false
+
+[node name="Sphere_004" parent="." index="5" unique_id=857166253]
+visible = false
+
+[node name="Sphere_005" parent="." index="6" unique_id=860196823]
+visible = false
