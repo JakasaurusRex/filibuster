@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://c36r7nclpyqx8" path="res://Assets/Scenes/WordAnimationScene.gd" id="1_5neu1"]
 [ext_resource type="Script" uid="uid://dtghxscvy1mh0" path="res://Scripts/WordRigid.gd" id="2_3eb77"]
+[ext_resource type="Theme" uid="uid://ds0qdd0mxjpdv" path="res://Assets/Themes/default_text_theme.tres" id="3_3eb77"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [node name="wordAnimation" type="Node2D" unique_id=1236956256]
-z_index = 1
+z_as_relative = false
 script = ExtResource("1_5neu1")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=264427330]
@@ -24,9 +25,15 @@ offset_right = 20.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_3eb77")
 text = "word"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1820650432]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="deathTimer" type="Timer" parent="." unique_id=1299471700]
+wait_time = 1.5
+one_shot = true
+autostart = true

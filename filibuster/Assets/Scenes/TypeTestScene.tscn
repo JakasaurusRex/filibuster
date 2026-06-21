@@ -60,10 +60,12 @@ grow_vertical = 2
 theme_type_variation = &"typingLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_c3hvi")
 bbcode_enabled = true
-text = "Exampledsaddsadas"
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
+
+[node name="labelPos" type="Node2D" parent="UILayer/UI/textBoxPanel/textLabel" unique_id=1879333337]
 
 [node name="scoreLabel" type="Label" parent="UILayer/UI" unique_id=51817857]
 layout_mode = 1

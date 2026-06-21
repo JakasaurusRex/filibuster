@@ -5,6 +5,7 @@ var can_type := true
 
 #word animation
 var word_animation_scene = preload("res://Assets/Scenes/wordAnimation.tscn")
+const text_box_max_characters := 36.0
 const TEMP_ANIMATION_POS = Vector2(480, 170)
 
 #var document_words
@@ -21,6 +22,7 @@ var bad_characters := "?!-'()"
 var text_box_font
 var text_box_font_size
 var text_box_length
+var text_box : RichTextLabel
 
 signal incorrect_letter()
 signal correct_letter()
@@ -28,6 +30,7 @@ signal completed_word(word)
 signal completed_sentence()
 	
 func load_font_data(label):
+	text_box = label
 	text_box_font = label.get_theme_default_font()
 	text_box_font_size = label.get_theme_default_font_size()
 	text_box_length = label.size.x - 48
@@ -46,7 +49,8 @@ func advance_idx():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
-		animate_word(current_word, TEMP_ANIMATION_POS)
+		var word_pos = Vector2(current_char_idx*(text_box_length/text_box_max_characters), -20)
+		animate_word(current_word, text_box.get_child(0).to_global(word_pos))
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
@@ -133,8 +137,5 @@ func animate_word(word: String, pos: Vector2):
 	word_scene.position = pos
 	word_scene.set_word(word)
 	
-	# Add instance to scene and destroy after set time
+	# Add instance to scene
 	add_child(word_scene)
-	await get_tree().create_timer(3.0).timeout
-	if is_instance_valid(word_scene):
-		word_scene.queue_free()

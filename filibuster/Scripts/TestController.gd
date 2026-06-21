@@ -60,7 +60,6 @@ func _on_typing_controller_incorrect_letter() -> void:
 	
 	label.text = no_change_begin + red_text + no_change_end
 
-
 func _on_typing_controller_completed_word(word) -> void:
 	animalese_player.play_word(word)
 	ui.addScore()
