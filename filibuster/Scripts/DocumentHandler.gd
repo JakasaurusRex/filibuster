@@ -40,6 +40,11 @@ extends Node
 		"file": "batman_begin.txt",
 		"next": null,
 		"typed": false
+	},
+	"gettysburg":  {
+		"file": "gettysburg.txt",
+		"next": null,
+		"typed": false
 	}
 	
 }

@@ -62,7 +62,7 @@ func _ready() -> void:
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
 	
-	DocumentHandler.get_specific_document("batman_begin")
+	DocumentHandler.get_specific_document("gettysburg")
 	#DocumentHandler.get_next_document()
 	load_font_data(label)
 	parse_document(DocumentHandler.get_current_file())
@@ -166,6 +166,8 @@ func get_line_of_text(document_tokens):
 	var first_token = document_tokens.pop_at(0)
 	var text_tokens = [first_token]
 	var text_to_add = first_token
+	if len(document_tokens) == 0:
+		return [text_to_add, text_tokens] 
 	while text_box_font.get_multiline_string_size(text_to_add + " " + document_tokens[0], HorizontalAlignment.HORIZONTAL_ALIGNMENT_CENTER, -1, text_box_font_size).x < text_box_length:
 		var new_token = document_tokens.pop_at(0)
 		text_tokens.append(new_token)
