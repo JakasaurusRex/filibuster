@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://clkmttbo583vg" path="res://Assets/Scenes/Minigames/FishMinigame/Fish.tscn" id="1_b5tc4"]
 [ext_resource type="Script" uid="uid://sssp38pmm4dj" path="res://Scripts/FishMinigame.gd" id="1_f2gcx"]
 [ext_resource type="Script" uid="uid://b2clissygsedc" path="res://Scripts/fish.gd" id="2_3y5ks"]
+[ext_resource type="Script" uid="uid://w7kxdybw0wxr" path="res://Scripts/Minigames/FishMinigame/Camera.gd" id="2_7880h"]
 [ext_resource type="Shader" uid="uid://i1p2wm5ld06l" path="res://Assets/Materials/Water.gdshader" id="2_u0hmt"]
 [ext_resource type="Texture2D" uid="uid://b2mq3ek4rt0ja" path="res://Assets/Models/FishMinigame/sand.png" id="2_wefrl"]
 [ext_resource type="PackedScene" uid="uid://btde1d8fit0fo" path="res://Assets/Scenes/Minigames/FishMinigame/rock.tscn" id="3_50cnp"]
@@ -69,6 +70,7 @@ metadata/_custom_type_script = "uid://sssp38pmm4dj"
 transform = Transform3D(1, 0, 0, 0, 0.9525526, 0.304374, 0, -0.304374, 0.9525526, 0, 0.6784786, 1.4048752)
 current = true
 fov = 90.0
+script = ExtResource("2_7880h")
 
 [node name="Tank" type="Node3D" parent="." unique_id=1384717238]
 
@@ -187,8 +189,8 @@ size = Vector3(4, 0.37695313, 3)
 [node name="Plate" parent="." unique_id=791705099 instance=ExtResource("10_qm3oo")]
 transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 1.208418, -0.54918516, 0.5226718)
 
-[node name="bebe_carrot" parent="." unique_id=337479207 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.96936667, -0.53171045, 0.5044993)
+[node name="Plate2" parent="." unique_id=2038737492 instance=ExtResource("10_qm3oo")]
+transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, -1.2274836, -0.54918516, 0.5226718)
 
 [node name="bebe_carrot4" parent="." unique_id=722350835 instance=ExtResource("11_u0hmt")]
 transform = Transform3D(0.06569479, 0, -0.17294274, 0, 0.185, 0, 0.17294274, 0, 0.06569479, 1.4211913, -0.53171045, 0.6977572)
@@ -198,9 +200,6 @@ transform = Transform3D(0.16572604, 0, 0.08221851, 0, 0.185, 0, -0.08221851, 0, 
 
 [node name="bebe_carrot3" parent="." unique_id=1710194148 instance=ExtResource("11_u0hmt")]
 transform = Transform3D(0.1707957, 0, -0.07109033, 0, 0.185, 0, 0.07109033, 0, 0.1707957, 1.353273, -0.53171045, 0.5044993)
-
-[node name="Plate2" parent="." unique_id=2038737492 instance=ExtResource("10_qm3oo")]
-transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, -1.2274836, -0.54918516, 0.5226718)
 
 [node name="bebe_carrot5" parent="." unique_id=229730070 instance=ExtResource("11_u0hmt")]
 transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -1.466535, -0.53171045, 0.5044993)
@@ -213,3 +212,8 @@ transform = Transform3D(0.16572604, 0, 0.08221851, 0, 0.185, 0, -0.08221851, 0, 
 
 [node name="bebe_carrot8" parent="." unique_id=1203470226 instance=ExtResource("11_u0hmt")]
 transform = Transform3D(0.1707957, 0, -0.07109033, 0, 0.185, 0, 0.07109033, 0, 0.1707957, -1.0826286, -0.53171045, 0.5044993)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=834521204]
+
+[node name="bebe_carrot" parent="RigidBody3D" unique_id=337479207 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.9354068, -0.5279869, 0.53961504)
