@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1s8n4vfbjfjq"
-path.s3tc="res://.godot/imported/Eyeball-texture.png-525b59c26ab92fbc5491b54c496ff8c9.s3tc.ctex"
+uid="uid://caudqrnuv2m6s"
+path.s3tc="res://.godot/imported/flower.png-6dfd507935e563848358a96bab62197e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/Eyeball-texture.png"
-dest_files=["res://.godot/imported/Eyeball-texture.png-525b59c26ab92fbc5491b54c496ff8c9.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/flower.png"
+dest_files=["res://.godot/imported/flower.png-6dfd507935e563848358a96bab62197e.s3tc.ctex"]
 
 [params]
 

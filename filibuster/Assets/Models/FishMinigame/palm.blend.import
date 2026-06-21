@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cug2ywkjopv42"
-path="res://.godot/imported/seaweed.blend-7d7e8719de8d8bced308695a5d3d2b4c.scn"
+uid="uid://dvns8nufvsi1s"
+path="res://.godot/imported/palm.blend-d1cfcc80d3914fcd532731516fe187cb.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Fish/seaweed.blend"
-dest_files=["res://.godot/imported/seaweed.blend-7d7e8719de8d8bced308695a5d3d2b4c.scn"]
+source_file="res://Assets/Models/FishMinigame/palm.blend"
+dest_files=["res://.godot/imported/palm.blend-d1cfcc80d3914fcd532731516fe187cb.scn"]
 
 [params]
 

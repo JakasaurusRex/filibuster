@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gquxyicrblwq"
-path="res://.godot/imported/rock1.blend-6f4a756dcd2da27aed5386899fcd0077.scn"
+uid="uid://7indx5magp5d"
+path="res://.godot/imported/flower.blend-2dcd3195ac62b32503e6d9cfd04c3457.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Fish/rock1.blend"
-dest_files=["res://.godot/imported/rock1.blend-6f4a756dcd2da27aed5386899fcd0077.scn"]
+source_file="res://Assets/Models/FishMinigame/flower.blend"
+dest_files=["res://.godot/imported/flower.blend-2dcd3195ac62b32503e6d9cfd04c3457.scn"]
 
 [params]
 

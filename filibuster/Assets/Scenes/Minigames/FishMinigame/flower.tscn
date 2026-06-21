@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://gi7fx8l78uoh"]
 
-[ext_resource type="PackedScene" uid="uid://7indx5magp5d" path="res://Assets/Models/Fish/flower.blend" id="1_b515i"]
-[ext_resource type="Texture2D" uid="uid://dmng52ucpkm7f" path="res://Assets/Models/Fish/stem.png" id="2_6i8yh"]
-[ext_resource type="Texture2D" uid="uid://caudqrnuv2m6s" path="res://Assets/Models/Fish/flower.png" id="3_36ciq"]
+[ext_resource type="PackedScene" uid="uid://7indx5magp5d" path="res://Assets/Models/FishMinigame/flower.blend" id="1_b515i"]
+[ext_resource type="Texture2D" uid="uid://dmng52ucpkm7f" path="res://Assets/Models/FishMinigame/stem.png" id="2_6i8yh"]
+[ext_resource type="Texture2D" uid="uid://caudqrnuv2m6s" path="res://Assets/Models/FishMinigame/flower.png" id="3_36ciq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_56omy"]
 albedo_texture = ExtResource("2_6i8yh")

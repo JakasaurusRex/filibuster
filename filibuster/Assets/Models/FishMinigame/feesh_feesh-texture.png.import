@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xflu8lp2mk42"
-path.s3tc="res://.godot/imported/eyesmall.png-0792aee0f8c189af6a2d4dbf6c86c5d9.s3tc.ctex"
+uid="uid://dfbuk17ch4pol"
+path.s3tc="res://.godot/imported/feesh_feesh-texture.png-d38335efe56873a66361b3d3d505401b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/eyesmall.png"
-dest_files=["res://.godot/imported/eyesmall.png-0792aee0f8c189af6a2d4dbf6c86c5d9.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/feesh_feesh-texture.png"
+dest_files=["res://.godot/imported/feesh_feesh-texture.png-d38335efe56873a66361b3d3d505401b.s3tc.ctex"]
 
 [params]
 

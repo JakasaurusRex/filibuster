@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cufpmbgj1o1vq"
-path="res://.godot/imported/campfire.blend-a191e6f52d72518fdcd26d87bac928da.scn"
+path="res://.godot/imported/campfire.blend-8330f7d9044a683b51c14299bbe61bfe.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Fish/campfire.blend"
-dest_files=["res://.godot/imported/campfire.blend-a191e6f52d72518fdcd26d87bac928da.scn"]
+source_file="res://Assets/Models/FishMinigame/campfire.blend"
+dest_files=["res://.godot/imported/campfire.blend-8330f7d9044a683b51c14299bbe61bfe.scn"]
 
 [params]
 

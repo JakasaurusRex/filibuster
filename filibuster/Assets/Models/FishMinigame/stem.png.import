@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2mq3ek4rt0ja"
-path.s3tc="res://.godot/imported/sand.png-4be0f0a1d997de1770d97e63605fd7ec.s3tc.ctex"
+uid="uid://dmng52ucpkm7f"
+path.s3tc="res://.godot/imported/stem.png-709798f790867edd6801a3bd2ef98bbe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/sand.png"
-dest_files=["res://.godot/imported/sand.png-4be0f0a1d997de1770d97e63605fd7ec.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/stem.png"
+dest_files=["res://.godot/imported/stem.png-709798f790867edd6801a3bd2ef98bbe.s3tc.ctex"]
 
 [params]
 

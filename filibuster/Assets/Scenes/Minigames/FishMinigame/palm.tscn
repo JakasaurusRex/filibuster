@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bb2kxagwukg5j"]
 
-[ext_resource type="PackedScene" uid="uid://dvns8nufvsi1s" path="res://Assets/Models/Fish/palm.blend" id="1_58bk0"]
-[ext_resource type="Texture2D" uid="uid://6q7a4y3idi81" path="res://Assets/Models/Fish/campfirewood.png" id="2_q2k5j"]
-[ext_resource type="Texture2D" uid="uid://btmpfcwjhkiyu" path="res://Assets/Models/Fish/leaves.png" id="3_m4la6"]
+[ext_resource type="PackedScene" uid="uid://dvns8nufvsi1s" path="res://Assets/Models/FishMinigame/palm.blend" id="1_58bk0"]
+[ext_resource type="Texture2D" uid="uid://6q7a4y3idi81" path="res://Assets/Models/FishMinigame/campfirewood.png" id="2_q2k5j"]
+[ext_resource type="Texture2D" uid="uid://btmpfcwjhkiyu" path="res://Assets/Models/FishMinigame/leaves.png" id="3_m4la6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5b1t"]
 albedo_texture = ExtResource("2_q2k5j")
@@ -33,29 +33,29 @@ albedo_texture = ExtResource("3_m4la6")
 
 [node name="palm" unique_id=1978045230 instance=ExtResource("1_58bk0")]
 
-[node name="Cylinder" parent="." index="1" unique_id=1593166337]
+[node name="Cylinder" parent="." index="1" unique_id=564143323]
 material_override = SubResource("StandardMaterial3D_v5b1t")
 
-[node name="Cube_001" parent="." index="2" unique_id=2000359149]
+[node name="Cube_001" parent="." index="2" unique_id=1318010944]
 material_override = SubResource("StandardMaterial3D_pw1eg")
 
-[node name="Cube_002" parent="." index="3" unique_id=733494838]
+[node name="Cube_002" parent="." index="3" unique_id=2090279822]
 material_override = SubResource("StandardMaterial3D_08nlu")
 
-[node name="Cube_003" parent="." index="4" unique_id=1830433807]
+[node name="Cube_003" parent="." index="4" unique_id=1638202037]
 material_override = SubResource("StandardMaterial3D_lym02")
 
-[node name="Cube_004" parent="." index="5" unique_id=2107086754]
+[node name="Cube_004" parent="." index="5" unique_id=1434147650]
 material_override = SubResource("StandardMaterial3D_gv1cd")
 
-[node name="Cube_005" parent="." index="6" unique_id=286054074]
+[node name="Cube_005" parent="." index="6" unique_id=964982016]
 material_override = SubResource("StandardMaterial3D_qan8b")
 
-[node name="Cube_006" parent="." index="7" unique_id=1125970159]
+[node name="Cube_006" parent="." index="7" unique_id=240316957]
 material_override = SubResource("StandardMaterial3D_r72k0")
 
-[node name="Cube_007" parent="." index="8" unique_id=1136661778]
+[node name="Cube_007" parent="." index="8" unique_id=196081890]
 material_override = SubResource("StandardMaterial3D_3oec7")
 
-[node name="Cube_008" parent="." index="9" unique_id=666382236]
+[node name="Cube_008" parent="." index="9" unique_id=1680079819]
 material_override = SubResource("StandardMaterial3D_bwdcx")

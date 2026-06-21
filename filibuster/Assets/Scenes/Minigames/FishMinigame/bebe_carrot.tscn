@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://r2awais5t4if"]
+
+[ext_resource type="PackedScene" uid="uid://0v4611drsqfj" path="res://Assets/Models/FishMinigame/bebe_carrot.blend" id="1_dnrgp"]
+[ext_resource type="Texture2D" uid="uid://cpw3ics1cpk1s" path="res://Assets/Models/FishMinigame/bebe_carrot.png" id="2_aiw7y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljd3h"]
+albedo_texture = ExtResource("2_aiw7y")
+
+[node name="bebe_carrot" unique_id=337479207 instance=ExtResource("1_dnrgp")]
+
+[node name="Cube" parent="." index="0" unique_id=1592578595]
+material_override = SubResource("StandardMaterial3D_ljd3h")

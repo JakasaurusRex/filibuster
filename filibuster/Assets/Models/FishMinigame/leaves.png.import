@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfitq5t77ma3u"
-path.s3tc="res://.godot/imported/rock1.png-315ab8b462b113590ccf9d7e418ff0a1.s3tc.ctex"
+uid="uid://btmpfcwjhkiyu"
+path.s3tc="res://.godot/imported/leaves.png-c401088a32f6c5a161952cc14be28299.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/rock1.png"
-dest_files=["res://.godot/imported/rock1.png-315ab8b462b113590ccf9d7e418ff0a1.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/leaves.png"
+dest_files=["res://.godot/imported/leaves.png-c401088a32f6c5a161952cc14be28299.s3tc.ctex"]
 
 [params]
 

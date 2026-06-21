@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6wf16kuygs3h"
-path="res://.godot/imported/Fishtank.blend-630fe6db56f6c22bc0f8182eba106e03.scn"
+uid="uid://cl1rk7pxqb5ff"
+path="res://.godot/imported/Plate.blend-aa9f3599bc917a64ec016b7632882074.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Fish/Fishtank.blend"
-dest_files=["res://.godot/imported/Fishtank.blend-630fe6db56f6c22bc0f8182eba106e03.scn"]
+source_file="res://Assets/Models/FishMinigame/Plate.blend"
+dest_files=["res://.godot/imported/Plate.blend-aa9f3599bc917a64ec016b7632882074.scn"]
 
 [params]
 

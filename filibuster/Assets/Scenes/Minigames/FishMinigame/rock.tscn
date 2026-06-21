@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btde1d8fit0fo"]
 
-[ext_resource type="PackedScene" uid="uid://gquxyicrblwq" path="res://Assets/Models/Fish/rock1.blend" id="1_76ofq"]
-[ext_resource type="Texture2D" uid="uid://bfitq5t77ma3u" path="res://Assets/Models/Fish/rock1.png" id="2_hyttw"]
+[ext_resource type="PackedScene" uid="uid://gquxyicrblwq" path="res://Assets/Models/FishMinigame/rock1.blend" id="1_76ofq"]
+[ext_resource type="Texture2D" uid="uid://bfitq5t77ma3u" path="res://Assets/Models/FishMinigame/rock1.png" id="2_hyttw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nil2a"]
 albedo_texture = ExtResource("2_hyttw")

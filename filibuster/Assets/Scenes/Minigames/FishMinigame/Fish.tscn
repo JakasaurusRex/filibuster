@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://clkmttbo583vg"]
 
-[ext_resource type="Texture2D" uid="uid://dfbuk17ch4pol" path="res://Assets/Models/Fish/feesh_feesh-texture.png" id="1_oqbqo"]
-[ext_resource type="Texture2D" uid="uid://c1s8n4vfbjfjq" path="res://Assets/Models/Fish/Eyeball-texture.png" id="2_ii82d"]
-[ext_resource type="Texture2D" uid="uid://xflu8lp2mk42" path="res://Assets/Models/Fish/eyesmall.png" id="3_lp73n"]
+[ext_resource type="Texture2D" uid="uid://dfbuk17ch4pol" path="res://Assets/Models/FishMinigame/feesh_feesh-texture.png" id="1_oqbqo"]
+[ext_resource type="Texture2D" uid="uid://c1s8n4vfbjfjq" path="res://Assets/Models/FishMinigame/Eyeball-texture.png" id="2_ii82d"]
+[ext_resource type="Texture2D" uid="uid://xflu8lp2mk42" path="res://Assets/Models/FishMinigame/eyesmall.png" id="3_lp73n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3eq3h"]
 albedo_texture = ExtResource("1_oqbqo")

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mhv2y24rxlbl"
-path="res://.godot/imported/feesh.blend-795de5b40548dd3da36610c331286ce6.scn"
+uid="uid://gquxyicrblwq"
+path="res://.godot/imported/rock1.blend-f894494dc395e1851cf351d34ba0e8c0.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Fish/feesh.blend"
-dest_files=["res://.godot/imported/feesh.blend-795de5b40548dd3da36610c331286ce6.scn"]
+source_file="res://Assets/Models/FishMinigame/rock1.blend"
+dest_files=["res://.godot/imported/rock1.blend-f894494dc395e1851cf351d34ba0e8c0.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmng52ucpkm7f"
-path.s3tc="res://.godot/imported/stem.png-206dbd89bcbaef12aa791cf812df5570.s3tc.ctex"
+uid="uid://58vehgk4ui36"
+path.s3tc="res://.godot/imported/seaweed.png-15dd158437493899597a8bde05dfbbb4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/stem.png"
-dest_files=["res://.godot/imported/stem.png-206dbd89bcbaef12aa791cf812df5570.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/seaweed.png"
+dest_files=["res://.godot/imported/seaweed.png-15dd158437493899597a8bde05dfbbb4.s3tc.ctex"]
 
 [params]
 

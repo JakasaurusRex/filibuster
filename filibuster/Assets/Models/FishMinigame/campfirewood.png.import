@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfbuk17ch4pol"
-path.s3tc="res://.godot/imported/feesh_feesh-texture.png-ff0eb5ee4651385da3f6b786c017fff1.s3tc.ctex"
+uid="uid://6q7a4y3idi81"
+path.s3tc="res://.godot/imported/campfirewood.png-304351ca66577bf92d1e5033e7978a8f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/Fish/feesh_feesh-texture.png"
-dest_files=["res://.godot/imported/feesh_feesh-texture.png-ff0eb5ee4651385da3f6b786c017fff1.s3tc.ctex"]
+source_file="res://Assets/Models/FishMinigame/campfirewood.png"
+dest_files=["res://.godot/imported/campfirewood.png-304351ca66577bf92d1e5033e7978a8f.s3tc.ctex"]
 
 [params]
 
