@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://dwvouvw0gp0kj" path="res://Scripts/3DWordAnimationScene.gd" id="1_wpnxf"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="2_qiddx"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qiddx"]
+bounce = 0.4
+
 [sub_resource type="TextMesh" id="TextMesh_g4v7s"]
+resource_local_to_scene = true
 material = ExtResource("2_qiddx")
 text = "Hello"
 
@@ -47,7 +51,7 @@ tracks/0/path = NodePath("RigidBody3D/CollisionShape3D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 4, 6),
+"times": PackedFloat32Array(0, 0.6, 4, 6),
 "transitions": PackedFloat32Array(0.5, 0.5, -2, -2),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
@@ -59,7 +63,7 @@ tracks/1/path = NodePath("RigidBody3D/MeshInstance3D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 4, 6),
+"times": PackedFloat32Array(0, 0.6, 4, 6),
 "transitions": PackedFloat32Array(0.5, 0.5, -2, -2),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
@@ -75,6 +79,8 @@ _data = {
 script = ExtResource("1_wpnxf")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1925860145]
+physics_material_override = SubResource("PhysicsMaterial_qiddx")
+gravity_scale = 0.7
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=422023156]
 mesh = SubResource("TextMesh_g4v7s")
@@ -87,3 +93,5 @@ shape = SubResource("BoxShape3D_g4v7s")
 libraries/ = SubResource("AnimationLibrary_qiddx")
 
 [node name="deathTimer" type="Timer" parent="." unique_id=185311066]
+wait_time = 6.0
+autostart = true

@@ -19,9 +19,10 @@ func addScore():
 var can_type := true
 
 #word animation
-var word_animation_scene = preload("res://Assets/Scenes/wordAnimation.tscn")
+var word_animation_scene = preload("res://Assets/Scenes/2DWordAnimation.tscn")
+var word_animation_scene3D = preload("res://Assets/Scenes/3DWordAnimation.tscn")
 const text_box_max_characters := 36.0
-const TEMP_ANIMATION_POS = Vector2(480, 170)
+const TEMP_ANIMATION_POS = Vector3(-.06, .7, -1.65)
 
 #var document_words
 var current_sentence : String
@@ -116,7 +117,8 @@ func advance_idx():
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
 		var word_pos = Vector2(current_char_idx*(text_box_length/text_box_max_characters), -20)
-		animate_word(current_word, text_box.get_child(0).to_global(word_pos))
+		#animate_word(current_word, text_box.get_child(0).to_global(word_pos))
+		animate_word3D(current_word, TEMP_ANIMATION_POS)
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
@@ -207,8 +209,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Instantiates word animations given the word and position you would like the animation to be played
 func animate_word(word: String, pos: Vector2):
-	# Create instance and set the word and positoin of animation
+	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene.instantiate()
+	word_scene.position = pos
+	word_scene.set_word(word)
+	
+	# Add instance to scene
+	add_child(word_scene)
+
+# Instantiates word animations given the word and position you would like the animation to be played
+func animate_word3D(word: String, pos: Vector3):
+	# Create instance and set the word and position of animation
+	var word_scene = word_animation_scene3D.instantiate()
 	word_scene.position = pos
 	word_scene.set_word(word)
 	

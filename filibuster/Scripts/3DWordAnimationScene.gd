@@ -2,15 +2,20 @@ extends Node3D
 
 
 func _ready():
+	print("3D word created")
 	var deathTimer = self.get_node("deathTimer")
 	var rigidBody = self.get_node("RigidBody3D")
+	var animation = self.get_node("textAnimation")
 	
 	# Connect death timer
 	deathTimer.timeout.connect(queue_free)
 	
 	# Set random inital velocity for text rigid body
 	rigidBody.set_angular_velocity(Vector3(randf_range(-6,6),randf_range(-6,6),randf_range(-6,6)))
-	rigidBody.set_linear_velocity(Vector3(randf_range(-3,3), randf_range(2,4), randf_range(1,2.5)))
+	rigidBody.set_linear_velocity(Vector3(randf_range(-2,2), randf_range(1,3), randf_range(.1, .7)))
+	
+	# Start animation
+	animation.play("textAnimation")
 
 # Set text of mesh
 func set_word(word: String):

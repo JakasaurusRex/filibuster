@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dyyvoo0qmhqkn" path="res://Assets/Scenes/Brain.tscn" id="2_wkehv"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
+albedo_color = Color(1, 0.33333334, 0.29411766, 1)
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gjahs"]
 noise_type = 2
 frequency = 1.0
@@ -17,17 +20,12 @@ noise = SubResource("FastNoiseLite_gjahs")
 albedo_color = Color(0.39215687, 0.17254902, 0.09411765, 1)
 albedo_texture = SubResource("NoiseTexture2D_ygaiq")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
-albedo_color = Color(1, 0.33333334, 0.29411766, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(5.0387573, 0.37469482, 5.1046753)
 
 [node name="Main" type="Node3D" unique_id=1609154576]
 
 [node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
-
-[node name="Floor" type="CSGBox3D" parent="." unique_id=2039030333]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049883008, 0)
-size = Vector3(4.8825684, 0.2578125, 5.375)
-material = SubResource("StandardMaterial3D_wkehv")
 
 [node name="Podium" type="CSGBox3D" parent="." unique_id=55910847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23415351, 0.18090391, -1.2175014)
@@ -52,7 +50,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.53784, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20955062, 0.61269164, -0.76393765)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20955062, 0.61269164, -0.5670754)
 fov = 90.0
 
 [node name="Walls" type="Node3D" parent="." unique_id=31745741]
@@ -101,6 +99,18 @@ offset_bottom = 521.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="ProgressDial" unique_id=2128178323]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=379133879]
+freeze = true
+
+[node name="Floor" type="CSGBox3D" parent="RigidBody3D" unique_id=2039030333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049883008, 0)
+size = Vector3(4.8825684, 0.2578125, 5.375)
+material = SubResource("StandardMaterial3D_wkehv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1272257438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066233)
+shape = SubResource("BoxShape3D_g4v7s")
 
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
 [connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]
