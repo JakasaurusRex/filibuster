@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://den4f1q4bwtp6"]
 
 [ext_resource type="PackedScene" uid="uid://clkmttbo583vg" path="res://Assets/Scenes/Minigames/FishMinigame/Fish.tscn" id="1_b5tc4"]
-[ext_resource type="Script" uid="uid://sssp38pmm4dj" path="res://Scripts/FishMinigame.gd" id="1_f2gcx"]
+[ext_resource type="Script" uid="uid://sssp38pmm4dj" path="res://Scripts/Minigames/FishMinigame/FishMinigame.gd" id="1_f2gcx"]
 [ext_resource type="Script" uid="uid://b2clissygsedc" path="res://Scripts/fish.gd" id="2_3y5ks"]
 [ext_resource type="Script" uid="uid://w7kxdybw0wxr" path="res://Scripts/Minigames/FishMinigame/Camera.gd" id="2_7880h"]
 [ext_resource type="Shader" uid="uid://i1p2wm5ld06l" path="res://Assets/Materials/Water.gdshader" id="2_u0hmt"]
