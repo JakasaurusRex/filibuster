@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bw7lgvxhnagef"]
+
+[ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="1_ap0tl"]
+
+[node name="Dial" type="Node2D" unique_id=1859917532]
+script = ExtResource("1_ap0tl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1561418450]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1872077817]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=449449929]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 494.0
+offset_right = 602.0
+offset_bottom = 521.0
+value = 50.0
+show_percentage = false

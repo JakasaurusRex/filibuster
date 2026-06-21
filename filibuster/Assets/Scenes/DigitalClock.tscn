@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bdy0k77gcyi2f"]
+
+[ext_resource type="Script" uid="uid://d2ofjcwkx08cp" path="res://Scripts/digital_clock.gd" id="1_151vs"]
+
+[node name="DigitalClock" type="Node2D" unique_id=153189363]
+script = ExtResource("1_151vs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1672409403]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2065381215]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1168501917]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time: 12:00 PM"
+
+[node name="Timer" type="Timer" parent="." unique_id=1196656743]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

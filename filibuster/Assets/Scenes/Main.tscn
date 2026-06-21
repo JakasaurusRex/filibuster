@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bqhmk4u6yxoyy"]
+
+[ext_resource type="PackedScene" uid="uid://bdy0k77gcyi2f" path="res://Assets/Scenes/DigitalClock.tscn" id="1_2qpql"]
+[ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
+[ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
+[ext_resource type="PackedScene" uid="uid://dyyvoo0qmhqkn" path="res://Assets/Scenes/Brain.tscn" id="2_wkehv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gjahs"]
+noise_type = 2
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ygaiq"]
+noise = SubResource("FastNoiseLite_gjahs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkehv"]
+albedo_color = Color(0.39215687, 0.17254902, 0.09411765, 1)
+albedo_texture = SubResource("NoiseTexture2D_ygaiq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
+albedo_color = Color(1, 0.33333334, 0.29411766, 1)
+
+[node name="Main" type="Node3D" unique_id=1609154576]
+
+[node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=2039030333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049883008, 0)
+size = Vector3(4.8825684, 0.2578125, 5.375)
+material = SubResource("StandardMaterial3D_wkehv")
+
+[node name="Podium" type="CSGBox3D" parent="." unique_id=55910847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23415351, 0.18090391, -1.2175014)
+size = Vector3(0.44006348, 0.64941406, 0.3166504)
+material = SubResource("StandardMaterial3D_xtg8h")
+
+[node name="Fil" parent="." unique_id=106958347 instance=ExtResource("1_kwblh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064258575, 0.48205835, -1.6593407)
+
+[node name="BrainSubviewportContainer" type="SubViewportContainer" parent="." unique_id=1316226546]
+offset_left = 34.0
+offset_top = 385.0
+offset_right = 162.0
+offset_bottom = 513.0
+
+[node name="SubViewport" type="SubViewport" parent="BrainSubviewportContainer" unique_id=1142139682]
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="BrainScene" parent="BrainSubviewportContainer/SubViewport" unique_id=1526959569 instance=ExtResource("2_wkehv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.53784, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20955062, 0.61269164, -0.76393765)
+fov = 90.0
+
+[node name="Walls" type="Node3D" parent="." unique_id=31745741]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Walls" unique_id=249400069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, -3.1711)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Walls" unique_id=571052295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, 2.934961)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Walls" unique_id=455268034]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.890133, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Walls" unique_id=1911909940]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.93708, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="TypingUI" parent="." unique_id=1360491517 instance=ExtResource("1_ygaiq")]

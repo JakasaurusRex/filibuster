@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://tg8rgrqgu5ha"]
+
+[ext_resource type="PackedScene" uid="uid://c85nv8741fufa" path="res://Assets/Models/Politician1.fbx" id="1_hxtxa"]
+
+[node name="Fil" type="Node3D" unique_id=106958347]
+
+[node name="Politician1" parent="." unique_id=1445941990 instance=ExtResource("1_hxtxa")]
+transform = Transform3D(10.98, 0, 0, 0, 10.98, 0, 0, 0, 10.98, 0, -0.3910269, 0)
