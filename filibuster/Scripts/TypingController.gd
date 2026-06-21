@@ -3,6 +3,10 @@ class_name TypingController
 
 var can_type := true
 
+#word animation
+var word_animation_scene = preload("res://Assets/Scenes/wordAnimation.tscn")
+const TEMP_ANIMATION_POS = Vector2(480, 170)
+
 #var document_words
 var current_sentence : String
 var current_sentence_tokens : Array
@@ -42,6 +46,7 @@ func advance_idx():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
+		animate_word(current_word, TEMP_ANIMATION_POS)
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
@@ -119,3 +124,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			advance_idx()
 			
+
+
+# Instantiates word animations given the word and position you would like the animation to be played
+func animate_word(word: String, pos: Vector2):
+	# Create instance and set the word and positoin of animation
+	var word_scene = word_animation_scene.instantiate()
+	word_scene.position = pos
+	word_scene.set_word(word)
+	
+	# Add instance to scene and destroy after set time
+	add_child(word_scene)
+	await get_tree().create_timer(3.0).timeout
+	if is_instance_valid(word_scene):
+		word_scene.queue_free()
