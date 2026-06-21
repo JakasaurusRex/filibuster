@@ -26,6 +26,7 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_3eb77")
+theme_type_variation = &"wordLabel"
 text = "word"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
