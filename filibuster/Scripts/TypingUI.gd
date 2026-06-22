@@ -92,6 +92,9 @@ func on_incorrect_letter() -> void:
 	var no_change_end = current_label_text.substr(current_char_idx + 1)
 	
 	label.text = no_change_begin + red_text + no_change_end
+	
+	# Animate stutter word
+	stutter()
 
 func on_completed_word(word) -> void:
 	animalese_player.play_word(word)
@@ -218,11 +221,25 @@ func animate_word(word: String, pos: Vector2):
 	add_child(word_scene)
 
 # Instantiates word animations given the word and position you would like the animation to be played
-func animate_word3D(word: String, pos: Vector3):
+func animate_word3D(word: String, pos: Vector3, incorrect: bool=false):
 	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene3D.instantiate()
 	word_scene.position = pos
 	word_scene.set_word(word)
+	if incorrect: word_scene.set_incorrect_material()
 	
 	# Add instance to scene
 	add_child(word_scene)
+
+# Calls animate_word3D to produce a random stutter word
+func stutter():
+	var stutters = [
+		"Uh...",
+		"Erm...",
+		"...",
+		"Like...",
+		"Buh.",
+		"Let me think...",
+		"FUCK"
+	]
+	animate_word3D(stutters.pick_random(), TEMP_ANIMATION_POS, true)

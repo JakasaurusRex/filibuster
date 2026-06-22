@@ -20,5 +20,10 @@ func _ready():
 
 # Set text of mesh
 func set_word(word: String):
-	var mesh = self.get_node("RigidBody3D/MeshInstance3D")
+	var mesh = get_node("RigidBody3D/MeshInstance3D")
 	mesh.mesh.text = word
+
+func set_incorrect_material():
+	var incorrect_material = load("res://Assets/Materials/3DWordIncorrect.tres")
+	var mesh = get_node("RigidBody3D/MeshInstance3D")
+	mesh.set_surface_override_material(0, incorrect_material)
