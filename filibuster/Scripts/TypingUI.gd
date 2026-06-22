@@ -119,7 +119,7 @@ func advance_idx():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
-		var word_pos = Vector2(current_char_idx*(text_box_length/text_box_max_characters), -20)
+		#var word_pos = Vector2(current_char_idx*(text_box_length/text_box_max_characters), -20)
 		#animate_word(current_word, text_box.get_child(0).to_global(word_pos))
 		animate_word3D(current_word, TEMP_ANIMATION_POS)
 		if current_word_idx < len(current_sentence_tokens):

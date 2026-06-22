@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgf6vbqcmv74i"]
 
 [ext_resource type="Script" uid="uid://dwvouvw0gp0kj" path="res://Scripts/3DWordAnimationScene.gd" id="1_wpnxf"]
+[ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_ov58k"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="2_qiddx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qiddx"]
@@ -10,6 +11,7 @@ bounce = 0.4
 resource_local_to_scene = true
 material = ExtResource("2_qiddx")
 text = "Hello"
+font = ExtResource("2_ov58k")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.55, 0.122, 0.058)

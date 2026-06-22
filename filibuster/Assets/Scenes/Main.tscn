@@ -3,9 +3,100 @@
 [ext_resource type="PackedScene" uid="uid://bdy0k77gcyi2f" path="res://Assets/Scenes/DigitalClock.tscn" id="1_2qpql"]
 [ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
-[ext_resource type="PackedScene" uid="uid://den4f1q4bwtp6" path="res://Assets/Scenes/Minigames/FishMinigame/FishMinigame.tscn" id="2_g2icf"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
 [ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Assets/Scenes/game_manager.gd" id="6_g2icf"]
+
+[sub_resource type="Animation" id="Animation_g2icf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fxu2d"]
+resource_name = "closeMinigame"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [100.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8bicx"]
+resource_name = "loadMinigame"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxu2d"]
+_data = {
+&"RESET": SubResource("Animation_g2icf"),
+&"closeMinigame": SubResource("Animation_fxu2d"),
+&"loadMinigame": SubResource("Animation_8bicx")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
 albedo_color = Color(1, 0.33333334, 0.29411766, 1)
@@ -25,6 +116,15 @@ albedo_texture = SubResource("NoiseTexture2D_ygaiq")
 size = Vector3(5.0387573, 0.37469482, 5.1046753)
 
 [node name="Main" type="Node3D" unique_id=1609154576]
+
+[node name="GameManager" type="Node" parent="." unique_id=305402109]
+script = ExtResource("6_g2icf")
+
+[node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
+
+[node name="minigameAnim" type="AnimationPlayer" parent="GameManager" unique_id=592500140]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_fxu2d")
 
 [node name="Control" type="Control" parent="." unique_id=382622195]
 layout_mode = 3
@@ -50,7 +150,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=949118556]
 handle_input_locally = false
-size = Vector2i(960, 540)
+size = Vector2i(956, 540)
 render_target_update_mode = 4
 
 [node name="SenateFloor" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1331045080]
@@ -107,10 +207,8 @@ stretch = true
 own_world_3d = true
 handle_input_locally = false
 physics_object_picking = true
-size = Vector2i(2, 2)
+size = Vector2i(2, 540)
 render_target_update_mode = 0
-
-[node name="FishMinigame" parent="Control/HBoxContainer/MinigameSubViewportContainer/MinigameSubviewPort" unique_id=1278496533 instance=ExtResource("2_g2icf")]
 
 [node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
 
@@ -147,12 +245,7 @@ material = SubResource("StandardMaterial3D_wkehv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066233)
 shape = SubResource("BoxShape3D_g4v7s")
 
-[node name="GameManager" type="Node" parent="." unique_id=305402109]
-script = ExtResource("6_g2icf")
-
-[node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
-
+[connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
 [connection signal="dial_empty" from="ProgressDial" to="GameManager" method="on_dial_empty"]
 [connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]
-[connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]

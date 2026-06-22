@@ -8,6 +8,7 @@ enum GameState {
 
 @onready var minigame_subviewport_container := $"../Control/HBoxContainer/MinigameSubViewportContainer"
 @onready var minigame_subviewport := $"../Control/HBoxContainer/MinigameSubViewportContainer/MinigameSubviewPort"
+@onready var minigame_anim := $minigameAnim
 var rolling_out_mini_game = false
 var roll_out_speed = 0.5
 var rolling_off_mini_game = false
@@ -27,12 +28,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_state == GameState.GAME_OVER:
 		get_tree().quit()
-	if rolling_out_mini_game == true:
-		minigame_subviewport_container.size_flags_stretch_ratio = lerpf(minigame_subviewport_container.size_flags_stretch_ratio, 100, roll_out_speed * delta) 
-	elif rolling_off_mini_game == true:
-		minigame_subviewport_container.size_flags_stretch_ratio = lerpf(minigame_subviewport_container.size_flags_stretch_ratio, 0, roll_out_speed * delta)
-		if minigame_subviewport_container.size_flags_stretch_ratio < 20:
-			minigame_subviewport_container.visible = false
+	
 
 func on_dial_empty() -> void:
 	current_state = GameState.GAME_OVERING
@@ -46,11 +42,13 @@ func spawn_minigame() -> void:
 	var fish_minigame_instance = fish_minigame.instantiate()
 	fish_minigame_instance.completed.connect(on_minigame_complete)
 	minigame_subviewport.add_child(fish_minigame_instance)
-	rolling_out_mini_game = true
+	load_minigame_viewport(true)
 	
-	
-	
+func load_minigame_viewport(on: bool):
+	if on:
+		minigame_anim.play("loadMinigame")
+	else:
+		minigame_anim.play("closeMinigame")
+		
 func on_minigame_complete():
-	rolling_off_mini_game = true
-	rolling_out_mini_game = false
-	
+	load_minigame_viewport(false)

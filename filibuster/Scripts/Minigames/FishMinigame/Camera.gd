@@ -9,7 +9,7 @@ var held_object_depth
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if held_object:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var origin = project_ray_origin(mouse_pos)
@@ -28,7 +28,7 @@ func ray_cast():
 	result = result.get("collider")
 	return result
 	
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
 		var ray_cast_result = ray_cast()
 		if !ray_cast_result or ray_cast_result is StaticBody3D:
@@ -36,7 +36,6 @@ func _input(event: InputEvent) -> void:
 
 		var mouse_pos = get_viewport().get_mouse_position()
 		var origin = project_ray_origin(mouse_pos)
-		var end = project_ray_normal(mouse_pos)
 		held_object_depth = origin.distance_to(ray_cast_result.global_position)
 		
 		held_object = ray_cast_result

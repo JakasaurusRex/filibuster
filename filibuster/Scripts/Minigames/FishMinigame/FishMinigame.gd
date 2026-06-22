@@ -6,7 +6,7 @@ var carrots_dropped = 0
 func _ready() -> void:
 	carrots_dropped = 0
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if carrots_dropped == total_carrot_amount:
 		emit_signal("completed")
 

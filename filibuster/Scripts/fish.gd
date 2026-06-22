@@ -17,7 +17,7 @@ func _get_target_position():
 						randf_range(water_mesh.global_position.z - half_size.z, water_mesh.global_position.z + half_size.z)
 	)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if global_position.distance_to(target_position) < target_reached_distance:
 		target_position = _get_target_position()
 	
