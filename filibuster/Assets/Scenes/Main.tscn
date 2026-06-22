@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdy0k77gcyi2f" path="res://Assets/Scenes/DigitalClock.tscn" id="1_2qpql"]
 [ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
+[ext_resource type="PackedScene" uid="uid://den4f1q4bwtp6" path="res://Assets/Scenes/Minigames/FishMinigame/FishMinigame.tscn" id="2_g2icf"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
 [ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Assets/Scenes/game_manager.gd" id="6_g2icf"]
 
@@ -48,6 +49,7 @@ size_flags_stretch_ratio = 100.0
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=949118556]
+handle_input_locally = false
 size = Vector2i(960, 540)
 render_target_update_mode = 4
 
@@ -94,17 +96,21 @@ size = Vector3(7.229492, 4.3554688, 1)
 [node name="AreaLight3D" type="AreaLight3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=1715724377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62117505)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=436163377]
+[node name="MinigameSubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=436163377]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
+size_flags_stretch_ratio = 100.0
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer2" unique_id=1290096733]
+[node name="MinigameSubviewPort" type="SubViewport" parent="Control/HBoxContainer/MinigameSubViewportContainer" unique_id=1290096733]
+own_world_3d = true
 handle_input_locally = false
-size = Vector2i(2, 540)
+physics_object_picking = true
+size = Vector2i(478, 540)
 render_target_update_mode = 0
+
+[node name="FishMinigame" parent="Control/HBoxContainer/MinigameSubViewportContainer/MinigameSubviewPort" unique_id=1278496533 instance=ExtResource("2_g2icf")]
 
 [node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
 

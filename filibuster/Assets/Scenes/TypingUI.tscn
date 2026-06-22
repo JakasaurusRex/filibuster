@@ -21,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_c3hvi")
 
 [node name="textBoxPanel" type="Panel" parent="UI" unique_id=1787153691]
@@ -37,6 +38,7 @@ offset_right = 320.0
 offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_type_variation = &"textBoxPanel"
 
 [node name="textLabel" type="RichTextLabel" parent="UI/textBoxPanel" unique_id=47775656]
@@ -46,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_type_variation = &"typingLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_c3hvi")
 bbcode_enabled = true
