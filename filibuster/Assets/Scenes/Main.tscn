@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
 [ext_resource type="PackedScene" uid="uid://dyyvoo0qmhqkn" path="res://Assets/Scenes/Brain.tscn" id="2_wkehv"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
+[ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Assets/Scenes/game_manager.gd" id="6_g2icf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
 albedo_color = Color(1, 0.33333334, 0.29411766, 1)
@@ -112,5 +113,12 @@ material = SubResource("StandardMaterial3D_wkehv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066233)
 shape = SubResource("BoxShape3D_g4v7s")
 
+[node name="GameManager" type="Node" parent="." unique_id=305402109]
+script = ExtResource("6_g2icf")
+
+[node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
+
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
+[connection signal="dial_empty" from="ProgressDial" to="GameManager" method="on_dial_empty"]
 [connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]
+[connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
