@@ -1,6 +1,15 @@
 extends Minigame
 
-class_name FishMinigame
+var carrots_dropped = 0
+@export var total_carrot_amount = 8
 
-func start():
-	pass
+func _ready() -> void:
+	carrots_dropped = 0
+	
+func _process(delta: float) -> void:
+	if carrots_dropped == total_carrot_amount:
+		emit_signal("completed")
+
+func on_drop_area_entered(body: Node3D) -> void:
+	carrots_dropped += 1
+	body.queue_free()

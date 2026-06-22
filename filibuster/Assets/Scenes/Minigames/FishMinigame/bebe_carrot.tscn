@@ -1,12 +1,60 @@
-[gd_scene format=3 uid="uid://r2awais5t4if"]
+[gd_scene format=4 uid="uid://r2awais5t4if"]
 
-[ext_resource type="PackedScene" uid="uid://0v4611drsqfj" path="res://Assets/Models/FishMinigame/bebe_carrot.blend" id="1_dnrgp"]
 [ext_resource type="Texture2D" uid="uid://cpw3ics1cpk1s" path="res://Assets/Models/FishMinigame/bebe_carrot.png" id="2_aiw7y"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljd3h"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mekq"]
 albedo_texture = ExtResource("2_aiw7y")
 
-[node name="bebe_carrot" unique_id=337479207 instance=ExtResource("1_dnrgp")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_285cr"]
+resource_name = "Material"
+cull_mode = 2
+roughness = 0.5
 
-[node name="Cube" parent="." index="0" unique_id=1592578595]
-material_override = SubResource("StandardMaterial3D_ljd3h")
+[sub_resource type="ArrayMesh" id="ArrayMesh_uy8u7"]
+_surfaces = [{
+"aabb": AABB(-0.4916658, -0.4916658, -1.5516331, 0.9833316, 0.9833316, 3.3103707),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("CQABAAoAAwAKAAEACQAIAAEABgADAAEABgABAAgABQADAAYAAwAFAAoACwAGAAgACwAIAAkABQAGAAsABwALAAkABQACAAoABAAFAAsABQAEAAIABAALAAcAAAAKAAIABAAAAAIAAAAJAAoABAAHAAAABwAJAAAA"),
+"lods": [0.6337444, PackedByteArray("AAABAAIAAwACAAEABAAAAAIAAwAFAAIABQAEAAIABQADAAYABgADAAEABAAFAAcABQAGAAcABAAHAAAABgABAAgABwAGAAgAAAAIAAEABwAIAAAA")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("TNJM0gAAAADmLxjQ//8AALItTNIAAAAA5i/mL///AACyLbItAAAAAAAAAABufwAAGNDmL///AABM0rItAAAAABjQGND//wAA/////25/AAAAAP//bn8AAP//AABufwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dnrgp"]
+resource_name = "bebe_carrot_Cube"
+_surfaces = [{
+"aabb": AABB(-0.4916658, -0.4916658, -1.5516331, 0.9833316, 0.9833316, 3.3103707),
+"attribute_data": PackedByteArray("ZQv+/+YzDSlzNP//8gsNKQ0pGAEBUQ0pDSkNKQFRGAGyfwaUF4sNKSW0DSmki///mLP//0x0DSk+Sw0py0v+/79z/v/wyv//cfMNKf7z//99yw0pAAAAAA0pDSkAAA0pDSkAAAAABpXZPwaVi78GlLJ/BpTZPwaUi78GlWT/BpU="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("GQABABoAGQADAAEAAAAZABoAAAAaAAIABAAFAAYABAAHAAUACAAKABsACAAJAAoACwAIABsACwAbAAwAHAAPAB0AHAAQAA8ADQAcAB0ADQAdAA4AHgASAB8AHgAUABIAEQAeAB8AEQAfABMAFQAWABcAFQAYABYA"),
+"lods": [0.6337444, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACwAIAAoACwAKAAwADQAIAA4ACAAPAA4ACAAQAA8AEQASABMAEQAUABIAFQAWABcAFQAYABYA")],
+"material": SubResource("StandardMaterial3D_285cr"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("TNJM0gAA6enmLxjQ///n97ItTNIAAOnpGNAY0P//5/cY0OYv///n9+YvGND//+f3GNAY0P//5/fmL+Yv///n9wAAAABuf4/psi2yLQAAI/yyLUzSAAAk3OYv5i///wnP5i8Y0P//LcCyLbItAADp6UzSsi0AAOnpGNDmL///5/fmL+Yv///n90zSsi0AACTcGNAY0P//Cc9M0kzSAAAj/BjQ5i///y3Asi2yLQAAMORM0kzSAAAw5LItTNIAADDkTNKyLQAAMOT/////bn+26QAA//9uf7bpAAD//25/7sUAAAAAbn+26f//AABuf7bp//8AAG5/7sX/////bn+P6UNWlgkvaXecanZD1ngczxbPlodjL2l3nHgczxaG4y/p+soe6r7KZNUnyXC7z9Hm+jb6kMu7qWj2lIm7Kc+Wh2OG4y/p1zaORC8uGAVANZoqyAVuNCslF4rT2ud15/UrpRcK01rmNP4VAGrltB7jBLoYywDq/pUZS+Ac+kUENeAV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uy8u7")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xtg8h"]
+radius = 0.21044922
+height = 1.2421875
+
+[node name="Bebe Carrot" type="RigidBody3D" unique_id=1380712312]
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=1895118003]
+transform = Transform3D(0.369231, 0, 0, 0, 0.369231, 0, 0, 0, 0.369231, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_5mekq")
+mesh = SubResource("ArrayMesh_dnrgp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1383689468]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.023275793)
+shape = SubResource("CapsuleShape3D_xtg8h")

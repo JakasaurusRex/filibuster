@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://cl1rk7pxqb5ff" path="res://Assets/Models/FishMinigame/Plate.blend" id="10_qm3oo"]
 [ext_resource type="PackedScene" uid="uid://r2awais5t4if" path="res://Assets/Scenes/Minigames/FishMinigame/bebe_carrot.tscn" id="11_u0hmt"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_uobsy"]
+radius = 0.9263139
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7880h"]
 frequency = 0.005
 
@@ -43,6 +46,9 @@ shader_parameter/uv_scale = 0.825
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3y5ks"]
 albedo_texture = ExtResource("2_wefrl")
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_xtg8h"]
+radius = 0.9799189
+
 [sub_resource type="BoxMesh" id="BoxMesh_xtg8h"]
 
 [sub_resource type="Gradient" id="Gradient_3y5ks"]
@@ -62,12 +68,22 @@ sky_material = SubResource("PanoramaSkyMaterial_qm3oo")
 background_mode = 2
 sky = SubResource("Sky_5fmbj")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xtg8h"]
+height = 0.16119385
+radius = 0.46191406
+
 [node name="FishMinigame" type="Node" unique_id=1278496533]
 script = ExtResource("1_f2gcx")
 metadata/_custom_type_script = "uid://sssp38pmm4dj"
 
+[node name="DropArea" type="Area3D" parent="." unique_id=601583673]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DropArea" unique_id=2010943150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1326248, 0)
+shape = SubResource("SphereShape3D_uobsy")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1599981593]
-transform = Transform3D(1, 0, 0, 0, 0.9525526, 0.304374, 0, -0.304374, 0.9525526, 0, 0.6784786, 1.4048752)
+transform = Transform3D(1, 0, 0, 0, 0.9525526, 0.304374, 0, -0.304374, 0.9525526, 0, 0.6784786, 1.711165)
 current = true
 fov = 90.0
 script = ExtResource("2_7880h")
@@ -166,6 +182,9 @@ transform = Transform3D(-0.032900948, 0, 0.13607913, 0, 0.13999999, 0, -0.136079
 
 [node name="Bowl" parent="Tank" unique_id=2057442995 instance=ExtResource("7_7uirn")]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tank/Bowl" unique_id=1931717878]
+shape = SubResource("SphereShape3D_xtg8h")
+
 [node name="FishController" type="CharacterBody3D" parent="Tank" unique_id=683300402 node_paths=PackedStringArray("water_mesh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03879732, 0.00015586615)
 script = ExtResource("2_3y5ks")
@@ -186,34 +205,56 @@ environment = SubResource("Environment_f2gcx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7557579, 0)
 size = Vector3(4, 0.37695313, 3)
 
-[node name="Plate" parent="." unique_id=791705099 instance=ExtResource("10_qm3oo")]
-transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 1.208418, -0.54918516, 0.5226718)
+[node name="PlateBody" type="StaticBody3D" parent="Table" unique_id=1311754263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1352327, 0.20562208, 0.6246513)
 
-[node name="Plate2" parent="." unique_id=2038737492 instance=ExtResource("10_qm3oo")]
-transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, -1.2274836, -0.54918516, 0.5226718)
+[node name="Plate" parent="Table/PlateBody" unique_id=791705099 instance=ExtResource("10_qm3oo")]
+transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0.11214006, 0, -0.16908824)
 
-[node name="bebe_carrot4" parent="." unique_id=722350835 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.06569479, 0, -0.17294274, 0, 0.185, 0, 0.17294274, 0, 0.06569479, 1.4211913, -0.53171045, 0.6977572)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/PlateBody" unique_id=2048404028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101246595, -0.08093035, -0.19391292)
+shape = SubResource("CylinderShape3D_xtg8h")
 
-[node name="bebe_carrot2" parent="." unique_id=664427179 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.16572604, 0, 0.08221851, 0, 0.185, 0, -0.08221851, 0, 0.16572604, 1.1299748, -0.53171045, 0.5044993)
+[node name="PlateBody2" type="StaticBody3D" parent="Table" unique_id=17092351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1400459, 0.20562208, 0.6246513)
 
-[node name="bebe_carrot3" parent="." unique_id=1710194148 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.1707957, 0, -0.07109033, 0, 0.185, 0, 0.07109033, 0, 0.1707957, 1.353273, -0.53171045, 0.5044993)
+[node name="Plate" parent="Table/PlateBody2" unique_id=1771928158 instance=ExtResource("10_qm3oo")]
+transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, -0.13763654, 0, -0.10304785)
 
-[node name="bebe_carrot5" parent="." unique_id=229730070 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, -1.466535, -0.53171045, 0.5044993)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/PlateBody2" unique_id=121489203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.123491764, -0.08093035, -0.1084255)
+shape = SubResource("CylinderShape3D_xtg8h")
 
-[node name="bebe_carrot6" parent="." unique_id=873244718 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.06569479, 0, -0.17294274, 0, 0.185, 0, 0.17294274, 0, 0.06569479, -1.0147103, -0.53171045, 0.6977572)
+[node name="Bebe Carrot" parent="." unique_id=1380712312 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.1789534, 0, 0.01938258, 0, 0.18, 0, -0.01938258, 0, 0.1789534, -1.2996752, -0.5262562, 0.32657468)
+mass = 0.1
 
-[node name="bebe_carrot7" parent="." unique_id=900503691 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.16572604, 0, 0.08221851, 0, 0.185, 0, -0.08221851, 0, 0.16572604, -1.3059268, -0.53171045, 0.5044993)
+[node name="Bebe Carrot2" parent="." unique_id=1734214067 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.15560387, 0, 0.090484455, 0, 0.18, 0, -0.090484455, 0, 0.15560387, -1.5124406, -0.5262562, 0.5952997)
+mass = 0.1
 
-[node name="bebe_carrot8" parent="." unique_id=1203470226 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.1707957, 0, -0.07109033, 0, 0.185, 0, 0.07109033, 0, 0.1707957, -1.0826286, -0.53171045, 0.5044993)
+[node name="Bebe Carrot3" parent="." unique_id=1924253589 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.13675949, 0, -0.117033474, 0, 0.17999999, 0, 0.117033474, 0, 0.13675949, -1.0971206, -0.5262562, 0.5952997)
+mass = 0.1
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=834521204]
+[node name="Bebe Carrot4" parent="." unique_id=970017498 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.1737263, -0.0066646766, -0.046634026, 0.0045112064, 0.17972423, -0.008879538, 0.04689134, 0.0074013034, 0.1736272, -1.3298926, -0.5262562, 0.692654)
+mass = 0.1
 
-[node name="bebe_carrot" parent="RigidBody3D" unique_id=337479207 instance=ExtResource("11_u0hmt")]
-transform = Transform3D(0.185, 0, 0, 0, 0.185, 0, 0, 0, 0.185, 0.9354068, -0.5279869, 0.53961504)
+[node name="Bebe Carrot5" parent="." unique_id=2015081765 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.13681294, 0, 0.11697103, 0, 0.18, 0, -0.11697103, 0, 0.13681294, 1.4050697, -0.5262562, 0.32657468)
+mass = 0.1
+
+[node name="Bebe Carrot6" parent="." unique_id=1134224030 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(-0.02656775, 0, 0.17802851, 0, 0.17999999, 0, -0.17802851, 0, -0.02656775, 1.0859467, -0.5262562, 0.44708705)
+mass = 0.1
+
+[node name="Bebe Carrot7" parent="." unique_id=1013181022 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.17944574, 0, -0.014114223, 0, 0.17999999, 0, 0.014114223, 0, 0.17944574, 1.4078963, -0.5262562, 0.5952997)
+mass = 0.1
+
+[node name="Bebe Carrot8" parent="." unique_id=435232000 instance=ExtResource("11_u0hmt")]
+transform = Transform3D(0.17297629, -0.0018835762, 0.049755644, 0.0045112064, 0.17972422, -0.008879537, -0.04958651, 0.009780048, 0.17275852, 1.170156, -0.5262562, 0.6581467)
+mass = 0.1
+
+[connection signal="body_entered" from="DropArea" to="." method="on_drop_area_entered"]
