@@ -51,7 +51,7 @@ tracks/0/path = NodePath("RigidBody3D/CollisionShape3D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 4, 6),
+"times": PackedFloat32Array(0, 0.46666667, 4, 6),
 "transitions": PackedFloat32Array(0.5, 0.5, -2, -2),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
@@ -63,7 +63,7 @@ tracks/1/path = NodePath("RigidBody3D/MeshInstance3D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 4, 6),
+"times": PackedFloat32Array(0, 0.46666667, 4, 6),
 "transitions": PackedFloat32Array(0.5, 0.5, -2, -2),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
@@ -80,7 +80,8 @@ script = ExtResource("1_wpnxf")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1925860145]
 physics_material_override = SubResource("PhysicsMaterial_qiddx")
-gravity_scale = 0.7
+gravity_scale = -0.25
+linear_damp = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=422023156]
 mesh = SubResource("TextMesh_g4v7s")

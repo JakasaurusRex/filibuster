@@ -1,6 +1,5 @@
 extends Node3D
 
-
 func _ready():
 	print("3D word created")
 	var deathTimer = self.get_node("deathTimer")
@@ -11,8 +10,10 @@ func _ready():
 	deathTimer.timeout.connect(queue_free)
 	
 	# Set random inital velocity for text rigid body
-	rigidBody.set_angular_velocity(Vector3(randf_range(-6,6),randf_range(-6,6),randf_range(-6,6)))
-	rigidBody.set_linear_velocity(Vector3(randf_range(-2,2), randf_range(1,3), randf_range(.1, .7)))
+	# gravity scale = .7, linear->velocity->damp = 0
+	#rigidBody.set_angular_velocity(Vector3(randf_range(-6,6),randf_range(-6,6),randf_range(-6,6)))
+	#rigidBody.set_linear_velocity(Vector3(randf_range(-2,2), randf_range(1,3), randf_range(.1, .7)))
+	rigidBody.set_linear_velocity(Vector3(randf_range(-2,2), randf_range(0,0), randf_range(.1, .7)))
 	
 	# Start animation
 	animation.play("textAnimation")
