@@ -324,6 +324,11 @@ transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.3
 [node name="FilPrime" parent="." unique_id=579683172 instance=ExtResource("6_fxu2d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0023230314, 0.07444394, -1.7457545)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=269946108]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.0925257, -1.748916)
+light_energy = 14.824
+spot_angle = 15.0
+
 [connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
 [connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
