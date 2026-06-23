@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dnvupn84vpupw"]
+
+[ext_resource type="Script" uid="uid://c8wgrpmwuba8" path="res://Scripts/Minigames/minigame_template_3d.gd" id="1_cj2bk"]
+[ext_resource type="PackedScene" uid="uid://dlw7rb2st023n" path="res://Assets/Models/DogMinigame/capy.glb" id="2_0tr30"]
+[ext_resource type="PackedScene" uid="uid://3p6qkwuue8vd" path="res://Assets/Scenes/Minigames/PetDog/Glove.tscn" id="2_621eb"]
+[ext_resource type="Script" uid="uid://d2v5t0aadmm0r" path="res://Scripts/Minigames/DogMinigame/camera.gd" id="3_xoryj"]
+
+[sub_resource type="Gradient" id="Gradient_621eb"]
+colors = PackedColorArray(0.04836463, 0.48938662, 0.62881655, 1, 0.7117209, 0.79327357, 0.62666583, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u0hmt"]
+gradient = SubResource("Gradient_621eb")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xoryj"]
+panorama = SubResource("GradientTexture2D_u0hmt")
+
+[sub_resource type="Sky" id="Sky_5fmbj"]
+sky_material = SubResource("PanoramaSkyMaterial_xoryj")
+
+[sub_resource type="Environment" id="Environment_haowg"]
+background_mode = 2
+sky = SubResource("Sky_5fmbj")
+reflected_light_source = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
+albedo_color = Color(0, 0.36913243, 3.85046e-07, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtg8h"]
+size = Vector3(6.279297, 1, 6.198242)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xoryj"]
+radius = 0.89961743
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xoryj"]
+radius = 0.9863281
+height = 3.66214
+
+[node name="PetDog" type="Node3D" unique_id=514623287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2789388)
+script = ExtResource("1_cj2bk")
+
+[node name="Glove" parent="." unique_id=863966067 instance=ExtResource("2_621eb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5214784, -2.9187367)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
+transform = Transform3D(-1, 0, -8.742278e-08, -3.0344232e-08, 0.937829, 0.34709755, 8.1987615e-08, 0.34709755, -0.937829, 0, 1.785, -4.76)
+fov = 90.0
+script = ExtResource("3_xoryj")
+camera_positions = [Vector3(0, 1.785, -4.76), Vector3(2.1419888, 1.7254896, -1.9516239), Vector3(-1.3700969, -0.0679543, 0.83524346)]
+camera_rotations = [Vector3(-0.35447446, -3.1415925, -3.2355825e-08), Vector3(-0.48486012, 1.7360948, -3.0502438e-08), Vector3(0.2808833, -0.69105387, 0)]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=151905969]
+environment = SubResource("Environment_haowg")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=965924949]
+transform = Transform3D(2.0877237, 0, 0, 0, 1, 0, 0, 0, 2.2639875, 0, -1.6116664, -1.7831419)
+
+[node name="Table" type="CSGBox3D" parent="Floor" unique_id=1691164055]
+size = Vector3(6.465088, 0.37695313, 6.4365234)
+material = SubResource("StandardMaterial3D_xtg8h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1994621384]
+shape = SubResource("BoxShape3D_xtg8h")
+
+[node name="Capy" type="StaticBody3D" parent="." unique_id=1800209229]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742278e-08, 0, -0.99999994, 0, 0.4916134, -1.1119405)
+
+[node name="capy" parent="Capy" unique_id=339688047 instance=ExtResource("2_0tr30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, -0.498, 0.445)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Capy" unique_id=1988972038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08128767, 0.2733873, 2.208957)
+shape = SubResource("SphereShape3D_xoryj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Capy" unique_id=384561584]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.06871116, -0.077376276, -0.07350044)
+shape = SubResource("CapsuleShape3D_xoryj")
