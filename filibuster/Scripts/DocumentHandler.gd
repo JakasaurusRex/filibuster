@@ -45,8 +45,12 @@ extends Node
 		"file": "gettysburg.txt",
 		"next": null,
 		"typed": false
-	}
-	
+	},
+	"hate": {
+		"file": "hate.txt",
+		"next": null,
+		"typed": false
+	},
 }
 
 var current_document : String
