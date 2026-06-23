@@ -238,6 +238,9 @@ _data = {
 [node name="FilPrime" type="Node3D" unique_id=579683172]
 script = ExtResource("1_m10ay")
 
+[node name="wordPosition" type="Node3D" parent="." unique_id=2035222031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005492866, 0.6775564, 0.030608796)
+
 [node name="Politician" type="Node3D" parent="." unique_id=2104965760]
 transform = Transform3D(12, 0, 0, 0, 12, 0, 0, 0, 12, 0.005756974, 0, -0.009081483)
 

@@ -9,88 +9,16 @@
 
 [sub_resource type="Animation" id="Animation_g2icf"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [100.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_fxu2d"]
 resource_name = "closeMinigame"
 length = 1.5
 step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [100.0, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_8bicx"]
 resource_name = "loadMinigame"
 length = 1.5
 step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:size_flags_stretch_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [0.0, 100.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/HBoxContainer/MinigameSubViewportContainer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fxu2d"]
 _data = {
@@ -130,6 +58,46 @@ libraries/ = SubResource("AnimationLibrary_fxu2d")
 [node name="MinigameTimer" type="Timer" parent="GameManager" unique_id=702065762]
 one_shot = true
 
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
+transform = Transform3D(0.99093467, 0, -0.13434462, 0, 1, 0, 0.13434462, 0, 0.99093467, -0.20876706, 0.61269164, -1.0993736)
+fov = 90.0
+
+[node name="SenateFloor" type="Node3D" parent="." unique_id=1331045080]
+
+[node name="Podium" type="CSGBox3D" parent="SenateFloor" unique_id=55910847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10949212, 0.18090391, -1.5060787)
+size = Vector3(0.44006348, 0.64941406, 0.3166504)
+material = SubResource("StandardMaterial3D_xtg8h")
+
+[node name="Walls" type="Node3D" parent="SenateFloor" unique_id=31745741]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=249400069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, -3.1711)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=571052295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, 2.934961)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=455268034]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.890133, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=1911909940]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.93708, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="SenateFloor" unique_id=1715724377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62117505)
+
 [node name="Control" type="Control" parent="." unique_id=382622195]
 layout_mode = 3
 anchors_preset = 15
@@ -137,79 +105,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1034225886]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=245530724]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 100.0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=949118556]
-handle_input_locally = false
-size = Vector2i(960, 540)
-render_target_update_mode = 4
-
-[node name="SenateFloor" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1331045080]
-
-[node name="Podium" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=55910847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10949212, 0.18090391, -1.5060787)
-size = Vector3(0.44006348, 0.64941406, 0.3166504)
-material = SubResource("StandardMaterial3D_xtg8h")
-
-[node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=1790041204]
-transform = Transform3D(0.99093467, 0, -0.13434462, 0, 1, 0, 0.13434462, 0, 0.99093467, -0.20876706, 0.61269164, -1.0993736)
-fov = 90.0
-
-[node name="Walls" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=31745741]
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor/Walls" unique_id=249400069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, -3.1711)
-cast_shadow = 0
-gi_lightmap_texel_scale = 0.01
-size = Vector3(4.9833984, 4.3554688, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor/Walls" unique_id=571052295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, 2.934961)
-cast_shadow = 0
-gi_lightmap_texel_scale = 0.01
-size = Vector3(4.9833984, 4.3554688, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor/Walls" unique_id=455268034]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.890133, 0.13214648, -0.06976962)
-cast_shadow = 0
-gi_lightmap_texel_scale = 0.01
-size = Vector3(7.229492, 4.3554688, 1)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor/Walls" unique_id=1911909940]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.93708, 0.13214648, -0.06976962)
-cast_shadow = 0
-gi_lightmap_texel_scale = 0.01
-size = Vector3(7.229492, 4.3554688, 1)
-
-[node name="AreaLight3D" type="AreaLight3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=1715724377]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62117505)
-
-[node name="MinigameSubViewportContainer" type="SubViewportContainer" parent="Control/HBoxContainer" unique_id=436163377]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 100.0
-stretch = true
-
-[node name="MinigameSubviewPort" type="SubViewport" parent="Control/HBoxContainer/MinigameSubViewportContainer" unique_id=1290096733]
-own_world_3d = true
-handle_input_locally = false
-physics_object_picking = true
-size = Vector2i(2, 2)
-render_target_update_mode = 0
 
 [node name="slot1" type="Control" parent="Control" unique_id=1639935629]
 anchors_preset = 0

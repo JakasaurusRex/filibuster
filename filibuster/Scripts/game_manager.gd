@@ -6,8 +6,6 @@ enum GameState {
 	GAME_OVER,
 }
 
-@onready var minigame_subviewport_container := $"../Control/HBoxContainer/MinigameSubViewportContainer"
-@onready var minigame_subviewport := $"../Control/HBoxContainer/MinigameSubViewportContainer/MinigameSubviewPort"
 @onready var minigame_anim := $minigameAnim
 @onready var minigame_slots := {
 	"slot_1": $"../Control/slot1/minigameSlot1",
@@ -39,8 +37,6 @@ func _ready() -> void:
 	
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
 	current_state = GameState.PLAYING
-	minigame_subviewport_container.size_flags_stretch_ratio = 0
-	minigame_subviewport_container.visible = false
 
 func _process(delta: float) -> void:
 	if current_state == GameState.GAME_OVER:
