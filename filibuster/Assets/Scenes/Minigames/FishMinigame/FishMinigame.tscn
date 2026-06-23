@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cy16rj32j8jcg" path="res://Assets/Scenes/Minigames/FishMinigame/seaweed.tscn" id="4_wefrl"]
 [ext_resource type="PackedScene" uid="uid://gi7fx8l78uoh" path="res://Assets/Scenes/Minigames/FishMinigame/flower.tscn" id="6_7uirn"]
 [ext_resource type="PackedScene" uid="uid://byt80d4q3pj7p" path="res://Assets/Scenes/Minigames/FishMinigame/bowl.tscn" id="7_7uirn"]
-[ext_resource type="PackedScene" uid="uid://cl1rk7pxqb5ff" path="res://Assets/Models/FishMinigame/Plate.blend" id="10_qm3oo"]
 [ext_resource type="PackedScene" uid="uid://r2awais5t4if" path="res://Assets/Scenes/Minigames/FishMinigame/bebe_carrot.tscn" id="11_u0hmt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uobsy"]
@@ -208,7 +207,7 @@ size = Vector3(4, 0.37695313, 3)
 [node name="PlateBody" type="StaticBody3D" parent="Table" unique_id=1311754263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1352327, 0.20562208, 0.6246513)
 
-[node name="Plate" parent="Table/PlateBody" unique_id=791705099 instance=ExtResource("10_qm3oo")]
+[node name="Plate" parent="Table/PlateBody" unique_id=791705099]
 transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0.020205736, 0, -0.16908824)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/PlateBody" unique_id=2048404028]
@@ -218,7 +217,7 @@ shape = SubResource("CylinderShape3D_xtg8h")
 [node name="PlateBody2" type="StaticBody3D" parent="Table" unique_id=17092351]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1400459, 0.20562208, 0.6246513)
 
-[node name="Plate" parent="Table/PlateBody2" unique_id=1771928158 instance=ExtResource("10_qm3oo")]
+[node name="Plate" parent="Table/PlateBody2" unique_id=1771928158]
 transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0.08818805, 0, -0.10304785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/PlateBody2" unique_id=121489203]

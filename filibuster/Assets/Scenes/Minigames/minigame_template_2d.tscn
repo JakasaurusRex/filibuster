@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://mwpfkx4nmxpt"]
+
+[ext_resource type="Script" uid="uid://b2ep8c4kur4y8" path="res://Scripts/Minigames/minigame_template_2d.gd" id="1_hsmib"]
+
+[node name="template2DMinigame" type="Node2D" unique_id=1760642888]
+script = ExtResource("1_hsmib")
+
+[node name="minigameCamera" type="Camera2D" parent="." unique_id=102207933]
