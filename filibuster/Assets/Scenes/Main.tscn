@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
+[ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="6_8bicx"]
 [ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Assets/Scenes/game_manager.gd" id="6_g2icf"]
 
 [sub_resource type="Animation" id="Animation_g2icf"]
@@ -247,6 +248,9 @@ material = SubResource("StandardMaterial3D_wkehv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1272257438]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066233)
 shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="AnalogClock" parent="." unique_id=1881720282 instance=ExtResource("6_8bicx")]
+transform = Transform3D(0.008596195, -0.0068973796, 0.4521215, 0.45940134, 0.0045362115, -0.00844392, -0.0021749362, 0.93089515, 0.0033910964, -0.03829059, 1.0430778, -2.488384)
 
 [connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]

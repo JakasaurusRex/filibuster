@@ -41,10 +41,4 @@ mesh = SubResource("BoxMesh_yf5fn")
 [node name="Timer" type="Timer" parent="." unique_id=1298180825]
 autostart = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1276614392]
-transform = Transform3D(-0.5028259, 0.8643877, 0, 0.053927295, 0.03137023, 0.998052, 0.86270386, 0.50184643, -0.062387858, 0, 1.8252983, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1171643112]
-transform = Transform3D(1, 0, 0, 0, -0.033550207, 0.99943703, 0, -0.99943703, -0.033550207, 0, 3.8910651, 0)
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
