@@ -127,6 +127,9 @@ script = ExtResource("6_g2icf")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_fxu2d")
 
+[node name="MinigameTimer" type="Timer" parent="GameManager" unique_id=702065762]
+one_shot = true
+
 [node name="Control" type="Control" parent="." unique_id=382622195]
 layout_mode = 3
 anchors_preset = 15
@@ -210,6 +213,74 @@ handle_input_locally = false
 physics_object_picking = true
 size = Vector2i(2, 2)
 render_target_update_mode = 0
+
+[node name="slot1" type="Control" parent="Control" unique_id=1639935629]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 108.0
+offset_right = 160.0
+offset_bottom = 108.0
+
+[node name="minigameSlot1" type="SubViewportContainer" parent="Control/slot1" unique_id=1486421056]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot2" type="Control" parent="Control" unique_id=1110022262]
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 108.0
+offset_right = 800.0
+offset_bottom = 108.0
+
+[node name="minigameSlot2" type="SubViewportContainer" parent="Control/slot2" unique_id=783786498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot3" type="Control" parent="Control" unique_id=856316822]
+anchors_preset = 0
+offset_left = 192.0
+offset_top = 324.0
+offset_right = 192.0
+offset_bottom = 324.0
+
+[node name="minigameSlot3" type="SubViewportContainer" parent="Control/slot3" unique_id=1486598512]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot4" type="Control" parent="Control" unique_id=476252729]
+anchors_preset = 0
+offset_left = 768.0
+offset_top = 324.0
+offset_right = 768.0
+offset_bottom = 324.0
+
+[node name="minigameSlot4" type="SubViewportContainer" parent="Control/slot4" unique_id=753640560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
 
