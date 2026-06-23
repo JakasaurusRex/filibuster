@@ -29,7 +29,6 @@ func parse_time():
 		am_or_pm = "AM"
 	
 	return parsed_hour + ":" + parsed_minute + " " + am_or_pm
-		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

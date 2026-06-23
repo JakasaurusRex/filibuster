@@ -150,7 +150,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Control/HBoxContainer/SubViewportContainer" unique_id=949118556]
 handle_input_locally = false
-size = Vector2i(956, 540)
+size = Vector2i(960, 540)
 render_target_update_mode = 4
 
 [node name="SenateFloor" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1331045080]
@@ -207,7 +207,7 @@ stretch = true
 own_world_3d = true
 handle_input_locally = false
 physics_object_picking = true
-size = Vector2i(2, 540)
+size = Vector2i(2, 2)
 render_target_update_mode = 0
 
 [node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]

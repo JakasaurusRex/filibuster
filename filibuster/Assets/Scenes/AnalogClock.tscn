@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://wg14qkoomqsu"]
+
+[ext_resource type="Script" uid="uid://c0prkb3txhp2k" path="res://Scripts/analog_clock.gd" id="1_5kxqx"]
+[ext_resource type="Material" uid="uid://bbyi7rk6gwyjj" path="res://Assets/Materials/3DWordIncorrect.tres" id="1_6ju8q"]
+[ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="2_5kxqx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+top_radius = 2.0
+bottom_radius = 2.0
+height = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = ExtResource("1_6ju8q")
+size = Vector3(0.6587219, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+material = ExtResource("2_5kxqx")
+size = Vector3(1.7576904, 1, 1)
+
+[node name="AnalogClock" type="Node3D" unique_id=1881720282]
+script = ExtResource("1_5kxqx")
+
+[node name="ClockFace" type="MeshInstance3D" parent="." unique_id=1471528103]
+transform = Transform3D(1, 0, 0, 0, 0.079464555, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="HourPivot" type="Node3D" parent="ClockFace" unique_id=1006086041]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999997, 0, 1.9179474, 0)
+
+[node name="HourHand" type="MeshInstance3D" parent="ClockFace/HourPivot" unique_id=1586029417]
+transform = Transform3D(1.8659227, 0, 0, 0, 1, 0, 0, 0, 0.18946171, 0.63413835, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MinutePivot" type="Node3D" parent="ClockFace" unique_id=822465931]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="MinuteHand" type="MeshInstance3D" parent="ClockFace/MinutePivot" unique_id=214250762]
+transform = Transform3D(0.9999894, 0, 0, 0, 0.9999999, 0, 0, 0, 0.124334425, 0.8860242, 2.3274152, 0)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="Timer" type="Timer" parent="." unique_id=1298180825]
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1276614392]
+transform = Transform3D(-0.5028259, 0.8643877, 0, 0.053927295, 0.03137023, 0.998052, 0.86270386, 0.50184643, -0.062387858, 0, 1.8252983, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1171643112]
+transform = Transform3D(1, 0, 0, 0, -0.033550207, 0.99943703, 0, -0.99943703, -0.033550207, 0, 3.8910651, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
