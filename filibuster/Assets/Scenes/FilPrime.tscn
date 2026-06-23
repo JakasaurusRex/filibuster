@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ux1q1rr1q8v0" path="res://Assets/Textures/Politician/Politician1_FaceHands_Normal.png" id="6_m7a8p"]
 [ext_resource type="Texture2D" uid="uid://bvkgdoip584l7" path="res://Assets/Textures/Politician/Politician1_FaceHands_Roughness(1).png" id="7_dirkm"]
 [ext_resource type="Texture2D" uid="uid://dj45olx585a2e" path="res://Assets/Textures/Politician/Politician1_hair_BaseColor.png" id="8_4quen"]
+[ext_resource type="PackedScene" uid="uid://b2cjg1qtfuv3w" path="res://Assets/Scenes/GoogleyEyes/GooglyEye.tscn" id="8_dirkm"]
 [ext_resource type="Texture2D" uid="uid://dw7lftk04i2i0" path="res://Assets/Textures/Politician/Politician1_hair_Roughness.png" id="9_i55dx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2cme"]
@@ -250,6 +251,16 @@ mesh = SubResource("ArrayMesh_u1o4t")
 
 [node name="JawPivot" type="Node3D" parent="Politician" unique_id=71471098]
 transform = Transform3D(1, 0, 0, 0, 0.32287258, 0, 0, 0, 0.32287258, 0, 0.055636074, -0.0032664388)
+
+[node name="GooglyEyes" parent="Politician/JawPivot" unique_id=1605722839 instance=ExtResource("8_dirkm")]
+transform = Transform3D(0.00083333335, 0, 0, 0, 0.0025523289, 0.0003836211, 0, -0.0003836211, 0.0025523289, -0.0013364907, 0.010247737, 0.02466099)
+gravity_multiplier = 2.377
+bounciness = 0.669
+
+[node name="GooglyEyes2" parent="Politician/JawPivot" unique_id=1194037896 instance=ExtResource("8_dirkm")]
+transform = Transform3D(0.00083333335, 0, 0, 0, 0.0025523289, 0.0003836211, 0, -0.0003836211, 0.0025523289, 0.0012672445, 0.010247737, 0.02466099)
+gravity_multiplier = 1.3679999999999999
+bounciness = 0.642
 
 [node name="Head" type="MeshInstance3D" parent="Politician/JawPivot" unique_id=1998769580]
 transform = Transform3D(1, 0, 0, 0, 3.097198, 0, 0, 0, 3.097198, 1.4551915e-10, 0.0023678392, -0.0012080502)
