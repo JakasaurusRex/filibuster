@@ -11,8 +11,8 @@ const MINUTE_DEGREE = 360 / 60
 func set_time(hour, minute):
 	hour = float(fmod(hour,12))
 	minute = fmod(minute, 60)
-	hour_pivot.rotation_degrees = Vector3(0, -hour*HOUR_DEGREE-minute*HOUR_MINUTE_DEGREE, 0)
-	minute_pivot.rotation_degrees = Vector3(0, -minute*MINUTE_DEGREE, 0)
+	hour_pivot.rotation_degrees = Vector3(0, 0, -hour*HOUR_DEGREE-minute*HOUR_MINUTE_DEGREE)
+	minute_pivot.rotation_degrees = Vector3(0, 0, -minute*MINUTE_DEGREE)
 
 
 func _on_digital_clock_update_time(hour, minute) -> void:

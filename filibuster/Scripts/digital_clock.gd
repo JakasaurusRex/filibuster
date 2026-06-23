@@ -37,7 +37,7 @@ func parse_time():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = "Time: " + parse_time()
-	timer.start(1)
+	timer.start(.1)
 
 func _on_timer_timeout() -> void:
 	current_time_minute += .1

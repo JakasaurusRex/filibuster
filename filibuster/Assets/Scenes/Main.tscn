@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bqhmk4u6yxoyy"]
 
 [ext_resource type="PackedScene" uid="uid://bdy0k77gcyi2f" path="res://Assets/Scenes/DigitalClock.tscn" id="1_2qpql"]
-[ext_resource type="PackedScene" uid="uid://tg8rgrqgu5ha" path="res://Assets/Scenes/Fil.tscn" id="1_kwblh"]
 [ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
 [ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
 [ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="6_8bicx"]
-[ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Assets/Scenes/game_manager.gd" id="6_g2icf"]
+[ext_resource type="PackedScene" uid="uid://c6262tj8s7oq" path="res://Assets/Scenes/FilPrime.tscn" id="6_fxu2d"]
+[ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Scripts/game_manager.gd" id="6_g2icf"]
 
 [sub_resource type="Animation" id="Animation_g2icf"]
 length = 0.001
@@ -164,9 +164,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23415351, 0.18090391, -1.21
 size = Vector3(0.44006348, 0.64941406, 0.3166504)
 material = SubResource("StandardMaterial3D_xtg8h")
 
-[node name="Fil" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=106958347 instance=ExtResource("1_kwblh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.064258575, 0.48205835, -1.6593407)
-
 [node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=1790041204]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20955062, 0.61269164, -0.5670754)
 fov = 90.0
@@ -322,7 +319,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="AnalogClock" parent="." unique_id=1881720282 instance=ExtResource("6_8bicx")]
-transform = Transform3D(0.008596195, -0.0068973796, 0.4521215, 0.45940134, 0.0045362115, -0.00844392, -0.0021749362, 0.93089515, 0.0033910964, -0.03829059, 1.0430778, -2.488384)
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0.011068702, 1.1565045, -3.0817988)
+
+[node name="FilPrime" parent="." unique_id=579683172 instance=ExtResource("6_fxu2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0023230314, 0.07444394, -1.7457545)
 
 [connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
 [connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]

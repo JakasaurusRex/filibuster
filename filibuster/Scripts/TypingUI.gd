@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+
+@onready var fil = $"../FilPrime"
 ## UI CONTROLLING CODE
 @onready var scoreLabel := $UI/scoreLabel
 var score := 0
@@ -30,7 +32,8 @@ const STUTTERS := [
 	"Like...",
 	"Buh.",
 	"Let me think...",
-	"FUCK"
+	"FUCK",
+	"Um..."
 ]
 	
 #var document_words
@@ -130,6 +133,7 @@ func advance_idx():
 		#var word_pos = Vector2(current_char_idx*(text_box_length/text_box_max_characters), -20)
 		#animate_word(current_word, text_box.get_child(0).to_global(word_pos))
 		animate_word3D(current_word, TEMP_ANIMATION_POS)
+		fil.speak_animation()
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
@@ -222,7 +226,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 
 
-# Instantiates word animations given the word and position you would like the animation to be played
+## Instantiates word animations given the word and position you would like the animation to be played
 func animate_word(word: String, pos: Vector2):
 	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene.instantiate()
@@ -232,7 +236,7 @@ func animate_word(word: String, pos: Vector2):
 	# Add instance to scene
 	add_child(word_scene)
 
-# Instantiates word animations given the word and position you would like the animation to be played
+## Instantiates word animations given the word and position you would like the animation to be played
 func animate_word3D(word: String, pos: Vector3, incorrect: bool=false):
 	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene3D.instantiate()
@@ -243,6 +247,6 @@ func animate_word3D(word: String, pos: Vector3, incorrect: bool=false):
 	word_scene.set_word(word)
 	if incorrect: word_scene.set_incorrect_material()
 
-# Calls animate_word3D to produce a random stutter word
+## Calls animate_word3D to produce a random stutter word
 func stutter():
 	animate_word3D(STUTTERS.pick_random(), TEMP_ANIMATION_POS, true)
