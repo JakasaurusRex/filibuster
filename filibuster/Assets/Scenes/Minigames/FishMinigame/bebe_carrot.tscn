@@ -45,8 +45,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uy8u7")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xtg8h"]
-radius = 0.21044922
-height = 1.2421875
+radius = 0.4267578
+height = 1.4785156
 
 [node name="Bebe Carrot" type="RigidBody3D" unique_id=1380712312]
 
