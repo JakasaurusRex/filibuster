@@ -253,6 +253,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 transform = Transform3D(0.008596195, -0.0068973796, 0.4521215, 0.45940134, 0.0045362115, -0.00844392, -0.0021749362, 0.93089515, 0.0033910964, -0.03829059, 1.0430778, -2.488384)
 
 [connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
+[connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]
 [connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
 [connection signal="dial_empty" from="ProgressDial" to="GameManager" method="on_dial_empty"]
 [connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]

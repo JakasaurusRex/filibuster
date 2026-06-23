@@ -4,7 +4,11 @@
 [ext_resource type="Material" uid="uid://bbyi7rk6gwyjj" path="res://Assets/Materials/3DWordIncorrect.tres" id="1_6ju8q"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="2_5kxqx"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2icf"]
+albedo_color = Color(1, 0.5176471, 0.7411765, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_g2icf")
 top_radius = 2.0
 bottom_radius = 2.0
 height = 3.0
