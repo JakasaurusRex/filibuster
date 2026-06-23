@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b2kkwulaiib6o" path="res://Assets/Textures/Politician/Politician1_Clothes_BaseColor.png" id="2_nwku3"]
 [ext_resource type="Texture2D" uid="uid://b1yq4ohgtveek" path="res://Assets/Textures/Politician/Politician1_Clothes_Normal.png" id="3_dirkm"]
 [ext_resource type="Texture2D" uid="uid://2a4booqw8og2" path="res://Assets/Textures/Politician/Politician1_Clothes_Roughness.png" id="4_2exba"]
-[ext_resource type="Texture2D" uid="uid://bsea4ockk8a5x" path="res://Assets/Textures/Politician/Politician1_FaceHands_BaseColor.png" id="5_r2kxb"]
+[ext_resource type="Texture2D" uid="uid://11ybvaudg8sf" path="res://Assets/Textures/Politician/Politician1_FaceHands_BaseColor(1).png" id="5_nwku3"]
 [ext_resource type="Texture2D" uid="uid://ux1q1rr1q8v0" path="res://Assets/Textures/Politician/Politician1_FaceHands_Normal.png" id="6_m7a8p"]
-[ext_resource type="Texture2D" uid="uid://2y6pr160cn24" path="res://Assets/Textures/Politician/Politician1_FaceHands_Roughness.png" id="7_dlmlk"]
+[ext_resource type="Texture2D" uid="uid://bvkgdoip584l7" path="res://Assets/Textures/Politician/Politician1_FaceHands_Roughness(1).png" id="7_dirkm"]
 [ext_resource type="Texture2D" uid="uid://dj45olx585a2e" path="res://Assets/Textures/Politician/Politician1_hair_BaseColor.png" id="8_4quen"]
 [ext_resource type="Texture2D" uid="uid://dw7lftk04i2i0" path="res://Assets/Textures/Politician/Politician1_hair_Roughness.png" id="9_i55dx"]
 
@@ -29,8 +29,8 @@ vertex_color_use_as_albedo = true
 resource_name = "FaceHands"
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.96351457, 0.8691099, 0.7537771, 1)
-albedo_texture = ExtResource("5_r2kxb")
-roughness_texture = ExtResource("7_dlmlk")
+albedo_texture = ExtResource("5_nwku3")
+roughness_texture = ExtResource("7_dirkm")
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
 normal_enabled = true

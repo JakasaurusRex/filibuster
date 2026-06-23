@@ -160,12 +160,12 @@ render_target_update_mode = 4
 [node name="SenateFloor" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1331045080]
 
 [node name="Podium" type="CSGBox3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=55910847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23415351, 0.18090391, -1.2175014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10949212, 0.18090391, -1.5060787)
 size = Vector3(0.44006348, 0.64941406, 0.3166504)
 material = SubResource("StandardMaterial3D_xtg8h")
 
 [node name="Camera3D" type="Camera3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=1790041204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20955062, 0.61269164, -0.5670754)
+transform = Transform3D(0.99093467, 0, -0.13434462, 0, 1, 0, 0.13434462, 0, 0.99093467, -0.20876706, 0.61269164, -1.0993736)
 fov = 90.0
 
 [node name="Walls" type="Node3D" parent="Control/HBoxContainer/SubViewportContainer/SubViewport/SenateFloor" unique_id=31745741]
