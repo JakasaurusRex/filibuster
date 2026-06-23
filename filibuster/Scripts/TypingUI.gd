@@ -8,7 +8,7 @@ func addScore():
 	score += 1
 	scoreLabel.text = "Score: %s" % score
 
-@onready var label = $UI/textBoxPanel/textLabel
+@onready var label = $UI/UIMargins/textBoxPanel/textLabel
 @onready var animalese_player = $AnimalesePlayer
 @export var success_color : Color
 @export var failure_color : Color
@@ -23,7 +23,16 @@ var word_animation_scene = preload("res://Assets/Scenes/2DWordAnimation.tscn")
 var word_animation_scene3D = preload("res://Assets/Scenes/3DWordAnimation.tscn")
 const text_box_max_characters := 36.0
 const TEMP_ANIMATION_POS = Vector3(-.06, .7, -1.65)
-
+const STUTTERS := [
+	"Uh...",
+	"Erm...",
+	"...",
+	"Like...",
+	"Buh.",
+	"Let me think...",
+	"FUCK"
+]
+	
 #var document_words
 var current_sentence : String
 var current_sentence_tokens : Array
@@ -63,15 +72,14 @@ func _ready() -> void:
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
 	
-	DocumentHandler.get_specific_document("gettysburg")
-	#DocumentHandler.get_next_document()
+	#DocumentHandler.get_specific_document("gettysburg")
+	DocumentHandler.get_next_document()
 	load_font_data(label)
 	parse_document(DocumentHandler.get_current_file())
-	label.text = current_sentence
+	load_current_sentence()
 	
 func on_completed_sentence() -> void:
-	label.text = current_sentence
-	last_incorrect = -1
+	load_current_sentence()
 	
 func on_correct_letter() -> void:	
 	var highlighted_green = current_sentence.substr(0, current_char_idx)
@@ -183,6 +191,10 @@ func get_line_of_text(document_tokens):
 	print("SENTENCE TOKENS: ", text_tokens)
 	return [text_to_add, text_tokens]
 
+func load_current_sentence():
+	label.text = open_cursor + current_sentence[0] + close_cursor + current_sentence.substr(1)
+	last_incorrect = -1
+	
 func pause_typing(time):
 	can_type = false
 	await get_tree().create_timer(time).timeout
@@ -224,22 +236,13 @@ func animate_word(word: String, pos: Vector2):
 func animate_word3D(word: String, pos: Vector3, incorrect: bool=false):
 	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene3D.instantiate()
-	word_scene.position = pos
-	word_scene.set_word(word)
-	if incorrect: word_scene.set_incorrect_material()
 	
 	# Add instance to scene
 	add_child(word_scene)
+	word_scene.position = pos
+	word_scene.set_word(word)
+	if incorrect: word_scene.set_incorrect_material()
 
 # Calls animate_word3D to produce a random stutter word
 func stutter():
-	var stutters = [
-		"Uh...",
-		"Erm...",
-		"...",
-		"Like...",
-		"Buh.",
-		"Let me think...",
-		"FUCK"
-	]
-	animate_word3D(stutters.pick_random(), TEMP_ANIMATION_POS, true)
+	animate_word3D(STUTTERS.pick_random(), TEMP_ANIMATION_POS, true)

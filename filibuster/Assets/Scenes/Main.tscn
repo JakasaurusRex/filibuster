@@ -217,18 +217,21 @@ render_target_update_mode = 0
 [node name="ProgressDial" type="CanvasLayer" parent="." unique_id=1880418449]
 script = ExtResource("5_gjahs")
 
-[node name="Control" type="Control" parent="ProgressDial" unique_id=1666601909]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 478.0
-offset_bottom = 40.0
+[node name="progressDialMargins" type="MarginContainer" parent="ProgressDial" unique_id=1358494573]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="ProgressBar" type="ProgressBar" parent="ProgressDial/Control" unique_id=1462516162]
-layout_mode = 0
-offset_left = 317.0
-offset_top = 494.0
-offset_right = 710.0
-offset_bottom = 521.0
+[node name="ProgressBar" type="ProgressBar" parent="ProgressDial/progressDialMargins" unique_id=1462516162]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+size_flags_horizontal = 4
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="ProgressDial" unique_id=2128178323]

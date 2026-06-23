@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var progress_bar = $Control/ProgressBar
+@onready var progress_bar = $progressDialMargins/ProgressBar
 @onready var timer = $Timer
 
 @export var starting_progress = 50
@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 
 func _on_typing_controller_completed_word(word: Variant) -> void:
 	current_progress += 1
-
 
 func _on_timer_timeout() -> void:
 	timer.start(1)
