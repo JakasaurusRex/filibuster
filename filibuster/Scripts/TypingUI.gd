@@ -35,7 +35,23 @@ const STUTTERS := [
 	"FUCK",
 	"Um..."
 ]
+
+const TRANSITIONS := [
+	"In the sense that...",
+	"What I mean is...",
+	"Therefore...",
+	"However...",
+	"Within the context of...",
+	"Yet, we must also understand that...",
+	"And by the pythagorean theorum...",
+	"Like my mom always said...",
+	"Let alone the subject of...",
+	"What really strikes me is...",
+	"Still...",
+	"Moving on...",
 	
+]
+
 #var document_words
 var current_sentence : String
 var current_sentence_tokens : Array
@@ -75,7 +91,7 @@ func _ready() -> void:
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
 	
-	#DocumentHandler.get_specific_document("gettysburg")
+	#DocumentHandler.get_specific_document("tiny_test")
 	DocumentHandler.get_next_document()
 	load_font_data(label)
 	parse_document(DocumentHandler.get_current_file())
@@ -124,7 +140,6 @@ func advance_idx():
 		word_char_idx += 1
 	current_char_idx += 1
 	emit_signal("correct_letter")
-	print(current_word, " ", current_word_idx, " ", word_char_idx, " ", current_word.length())
 	# Then lets advance the word
 	if word_char_idx == current_word.length():
 		word_char_idx = 0
@@ -142,8 +157,20 @@ func advance_idx():
 		
 		# If we are at the end of the doc, lets get the next doc
 		if len(current_document_tokens) == 0:
-			DocumentHandler.get_next_document()
-			parse_document(DocumentHandler.get_current_file())
+			var current_doc = DocumentHandler.current_document
+			#if we are in a transition phrase, get a new random document
+			if current_doc == "transition_phrase":
+				DocumentHandler.get_next_document()
+				parse_document(DocumentHandler.get_current_file())
+			#if we are in a document that should transition into the next
+			elif DocumentHandler.documents[current_doc]["next"] == "transition_phrase":
+				DocumentHandler.toggle_document_typed(current_doc, true)
+				var new_transition = TRANSITIONS.pick_random()
+				parse_transition(new_transition)
+			else:
+				DocumentHandler.get_specific_document(DocumentHandler.documents[current_doc]['next'])
+				parse_document(DocumentHandler.get_current_file())
+		#otherwise, get the next sentence in current doc
 		else:
 			var current_text = get_line_of_text(current_document_tokens)
 			current_sentence = current_text[0]
@@ -177,6 +204,19 @@ func parse_document(document_name: String):
 	print("File does not exist: ", document_name)
 	return
 
+func parse_transition(t):
+	DocumentHandler.current_document = "transition_phrase"
+	var content = t
+	content = content.remove_chars(bad_characters).replace("\n", " ").to_lower()
+	current_document_tokens = content.split(" ")
+	#document_words = content.split(" ")
+	var current_text = get_line_of_text(current_document_tokens)
+	current_sentence = current_text[0]
+	current_sentence_tokens = current_text[1]
+	current_word = current_sentence_tokens[0]
+	current_word_idx = 0
+	current_char_idx = 0
+	
 func get_line_of_text(document_tokens):
 	var first_token = document_tokens.pop_at(0)
 	var text_tokens = [first_token]
@@ -190,7 +230,6 @@ func get_line_of_text(document_tokens):
 		if len(document_tokens) == 0:
 			break
 	if text_to_add[-1] != " ": text_to_add += " "
-	print("SENTENCE TOKENS: ", text_tokens)
 	return [text_to_add, text_tokens]
 
 func load_current_sentence():
