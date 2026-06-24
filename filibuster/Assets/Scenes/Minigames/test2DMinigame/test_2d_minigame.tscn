@@ -5,6 +5,7 @@
 
 [node name="test2DMinigame" type="Node2D" unique_id=1760642888]
 script = ExtResource("1_x8u2j")
+minigame_size = Vector2(180, 180)
 
 [node name="testButton" type="TextureButton" parent="." unique_id=1369152675]
 anchors_preset = 8

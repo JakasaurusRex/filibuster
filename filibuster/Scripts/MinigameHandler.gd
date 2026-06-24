@@ -12,6 +12,10 @@ extends Node
 	"bullseye": {
 		"scene": preload("res://Assets/Scenes/Minigames/Bullseye/Bullseye.tscn"),
 		"weight": 1
+	},
+	"whack_a_senator": {
+		"scene": preload("res://Assets/Scenes/Minigames/WhackASenator/WhackASenator.tscn"),
+		"weight": 1
 	}
 }
 
