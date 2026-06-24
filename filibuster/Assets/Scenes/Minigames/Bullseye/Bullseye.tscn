@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://blryxapw8f763"]
+
+[ext_resource type="Script" uid="uid://dm2ifmc06cj00" path="res://Scripts/Minigames/Bullseye/bullseye.gd" id="1_3ll0r"]
+[ext_resource type="Texture2D" uid="uid://ccrnt5spsekr" path="res://icon.svg" id="2_78dn5"]
+
+[node name="Bullseye" type="Node2D" unique_id=136599906]
+script = ExtResource("1_3ll0r")
+num_targets = 8
+max_runtime = 8.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1587127286]
+offset_right = 959.0
+offset_bottom = 539.0
+color = Color(0.6431373, 0.41568628, 0.0627451, 1)
+
+[node name="Target" type="Button" parent="." unique_id=1661880719]
+offset_right = 156.0
+offset_bottom = 156.0
+action_mode = 0
+icon = ExtResource("2_78dn5")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Target" to="." method="_on_target_pressed"]
