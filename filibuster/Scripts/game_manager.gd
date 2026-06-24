@@ -1,6 +1,7 @@
 extends Node
 
 enum GameState {
+	NOT_STARTED,
 	PLAYING,
 	GAME_OVERING,
 	GAME_OVER,
@@ -119,7 +120,6 @@ func get_random_camera_view():
 	return new_view
 	
 func transition_camera(duration:=2.0, view:=""):
-	print("TRANSITIONING CAMERA")
 	if view == "": view = get_random_camera_view()
 	current_camera_view = view
 	var camera_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_parallel(true)
