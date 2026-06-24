@@ -51,6 +51,96 @@ extends Node
 		"next": "transition_phrase",
 		"typed": false
 	},
+	"coconut_tree": {
+		"file": "coconut_tree.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"avatar": {
+		"file": "avatar.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"relations": {
+		"file": "relations.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"fish": {
+		"file": "one_fish_two_fish.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"syrup": {
+		"file": "syrup.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"had_a_dream": {
+		"file": "had_a_dream.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"tangled": {
+		"file": "tangled.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"six_seven": {
+		"file": "six_seven.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"birthday_gift": {
+		"file": "birthday_gift.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"tuesday": {
+		"file": "tuesday.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"with_the_fur": {
+		"file": "with_the_fur.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"abandon_hope": {
+		"file": "abandon_hope.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"leonardo_medusa": {
+		"file": "abandon_hope.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"zoe_wins": {
+		"file": "abandon_hope.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"books": {
+		"file": "books.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"absence_of_space": {
+		"file": "books.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"hog_rider": {
+		"file": "books.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"mars_cabal": {
+		"file": "books.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
 }
 
 var current_document : String

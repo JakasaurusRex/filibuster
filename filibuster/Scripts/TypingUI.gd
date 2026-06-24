@@ -30,10 +30,11 @@ const STUTTERS := [
 	"Erm...",
 	"...",
 	"Like...",
-	"Buh.",
+	"Buh...",
 	"Let me think...",
 	"FUCK",
-	"Um..."
+	"Um...",
+	"So...",
 ]
 
 const TRANSITIONS := [
@@ -49,7 +50,13 @@ const TRANSITIONS := [
 	"What really strikes me is...",
 	"Still...",
 	"Moving on...",
-	
+	"As history will tell you...",
+	"But we mustn't forget...",
+	"Now, look to the person sitting next to you and think...",
+	"The average person may say...",
+	"On the other hand...",
+	"But we can't overlook...",
+	"Despite this...",
 ]
 
 #var document_words
