@@ -1,10 +1,10 @@
 # Godot 4+ specific ignores
-.filibuster/godot/
+filibuster/.godot/
 
 # Godot-specific ignores
-.filibuster/import/
-.filibuster/Exports/
-.filibuster/Exports
+filibuster/.import/
+filibuster/Exports/
+filibuster/Exports
 export.cfg
 export_presets.cfg
 
