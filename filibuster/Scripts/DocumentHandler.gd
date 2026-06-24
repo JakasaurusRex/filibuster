@@ -141,6 +141,31 @@ extends Node
 		"next": "transition_phrase",
 		"typed": false
 	},
+	"juice": {
+		"file": "books.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"one_ring": {
+		"file": "one_ring.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"spider_pig": {
+		"file": "spider_pig.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"mlp": {
+		"file": "mlp.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"are_you_with_us": {
+		"file": "are_you_with_us.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
 }
 
 var current_document : String

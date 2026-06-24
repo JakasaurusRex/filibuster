@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6wf16kuygs3h"
-path="res://.godot/imported/Fishtank.blend-dc8b4bb9a275ad70b55ed0827b9de3cb.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/FishMinigame/Fishtank.blend"
-dest_files=["res://.godot/imported/Fishtank.blend-dc8b4bb9a275ad70b55ed0827b9de3cb.scn"]
 
 [params]
 
