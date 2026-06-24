@@ -263,6 +263,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			key_typed = "?"
 		if key_typed == "1" and Input.is_key_pressed(KEY_SHIFT):
 			key_typed = "!"
+		if key_typed == "8" and Input.is_key_pressed(KEY_SHIFT):
+			key_typed = "*"
 		if key_typed.to_lower() != current_sentence[current_char_idx].to_lower():
 			emit_signal("incorrect_letter")
 		else:

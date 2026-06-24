@@ -112,12 +112,12 @@ extends Node
 		"typed": false
 	},
 	"leonardo_medusa": {
-		"file": "abandon_hope.txt",
+		"file": "leonardo_medusa.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
 	"zoe_wins": {
-		"file": "abandon_hope.txt",
+		"file": "zoe_wins.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
@@ -127,22 +127,22 @@ extends Node
 		"typed": false
 	},
 	"absence_of_space": {
-		"file": "books.txt",
+		"file": "absence_of_space.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
 	"hog_rider": {
-		"file": "books.txt",
+		"file": "hog_rider.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
 	"mars_cabal": {
-		"file": "books.txt",
+		"file": "mars_cabal.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
 	"juice": {
-		"file": "books.txt",
+		"file": "juice.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
@@ -168,6 +168,46 @@ extends Node
 	},
 	"sue_kitty": {
 		"file": "sue_kitty.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"pathetic_card": {
+		"file": "pathetic_card.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"pot_of_greed": {
+		"file": "pot_of_greed.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"bakugan": {
+		"file": "bakugan.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"precise_gunplay": {
+		"file": "precise_gunplay.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"scatman": {
+		"file": "scatman.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"fifteen_minute_delay": {
+		"file": "fifteen_minute_delay.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"jam_a_man": {
+		"file": "jam_a_man.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
+	"dog_cam": {
+		"file": "jam_a_man.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
