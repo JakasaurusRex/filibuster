@@ -132,6 +132,8 @@ func on_incorrect_letter() -> void:
 
 func on_completed_word(word) -> void:
 	animalese_player.play_word(word)
+	animate_word3D(current_word, fil.wordPosition.global_position)
+	fil.speak_animation()
 	addScore()
 	
 func load_font_data(label):
@@ -152,8 +154,6 @@ func advance_idx():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
-		animate_word3D(current_word, fil.wordPosition.global_position)
-		fil.speak_animation()
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
