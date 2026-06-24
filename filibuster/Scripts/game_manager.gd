@@ -68,6 +68,7 @@ func spawn_minigame() -> void:
 	if len(open_slots) == 0: return
 	var new_minigame_viewport = SubViewport.new()
 	new_minigame_viewport.own_world_3d = true
+	new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	var minigame_slot = open_slots.pick_random()
 	
 	var random_minigame = MinigameHandler.get_random_minigame()
@@ -82,12 +83,6 @@ func spawn_minigame() -> void:
 	new_minigame.completed.connect(minigame_completed)
 	new_minigame.failed.connect(minigame_failed)
 	new_minigame.closed.connect(minigame_closed.bind(minigame_slot))
-	
-	#minigame_subviewport_container.visible = true
-	#var fish_minigame_instance = fish_minigame.instantiate()
-	#fish_minigame_instance.completed.connect(on_minigame_complete)
-	#minigame_subviewport.add_child(fish_minigame_instance)
-	#load_minigame_viewport(true)
 
 func minigame_completed(completion_event):
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
@@ -99,15 +94,6 @@ func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
 	minigames[slot].queue_free() 
 	minigames[slot] = null
-	
-func load_minigame_viewport(on: bool):
-	if on:
-		minigame_anim.play("loadMinigame")
-	else:
-		minigame_anim.play("closeMinigame")
-		
-func on_minigame_complete():
-	load_minigame_viewport(false)
 
 func load_camera_views():
 	for view in camera_angles.get_children():

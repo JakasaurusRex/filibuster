@@ -46,6 +46,9 @@ size = Vector3(5.0387573, 0.37469482, 5.1046753)
 
 [node name="Main" type="Node3D" unique_id=1609154576]
 
+[node name="SubViewport" type="SubViewport" parent="." unique_id=78923005]
+canvas_item_default_texture_filter = 0
+
 [node name="GameManager" type="Node" parent="." unique_id=305402109]
 script = ExtResource("6_g2icf")
 

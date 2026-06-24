@@ -1,6 +1,11 @@
 extends Node
 
 @onready var documents := {
+	#"tiny_test":  {
+		#"file": "tiny_test.txt",
+		#"next": "transition_phrase",
+		#"typed": false
+	#},
 	"genesis": {
 		"file": "genesis.txt",
 		"next": "transition_phrase",
@@ -13,11 +18,6 @@ extends Node
 	},
 	"game_jam_text": {
 		"file": "jam_info.txt",
-		"next": "transition_phrase",
-		"typed": false
-	},
-	"tiny_test":  {
-		"file": "tiny_test.txt",
 		"next": "transition_phrase",
 		"typed": false
 	},
