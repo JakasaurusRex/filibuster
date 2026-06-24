@@ -9,10 +9,10 @@ enum GameState {
 
 @onready var minigame_anim := $minigameAnim
 @onready var minigame_slots := {
-	"slot_1": $"../Control/slot1/minigameSlot1",
-	"slot_2": $"../Control/slot2/minigameSlot2",
-	"slot_3": $"../Control/slot3/minigameSlot3",
-	"slot_4": $"../Control/slot4/minigameSlot4",
+	"slot_1": $"../MinigameUI/MinigameCont/slot1/minigameSlot1",
+	"slot_2": $"../MinigameUI/MinigameCont/slot2/minigameSlot2",
+	"slot_3": $"../MinigameUI/MinigameCont/slot3/minigameSlot3",
+	"slot_4": $"../MinigameUI/MinigameCont/slot4/minigameSlot4",
 }
 @onready var minigames := {
 	"slot_1": null,

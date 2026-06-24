@@ -130,23 +130,39 @@ size = Vector3(7.229492, 4.3554688, 1)
 [node name="AreaLight3D" type="AreaLight3D" parent="SenateFloor" unique_id=1715724377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62117505)
 
-[node name="Control" type="Control" parent="." unique_id=382622195]
+[node name="MinigameUI" type="Control" parent="." unique_id=511916998]
+custom_minimum_size = Vector2(960, 540)
 layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MinigameCont" type="Control" parent="MinigameUI" unique_id=382622195]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="slot1" type="Control" parent="Control" unique_id=1639935629]
+[node name="slot1" type="Control" parent="MinigameUI/MinigameCont" unique_id=1639935629]
 anchors_preset = 0
 offset_left = 160.0
 offset_top = 108.0
 offset_right = 160.0
 offset_bottom = 108.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/slot1" unique_id=677441699]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot1" unique_id=677441699]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -162,7 +178,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.57254905, 1, 1)
 
-[node name="minigameSlot1" type="SubViewportContainer" parent="Control/slot1" unique_id=1486421056]
+[node name="minigameSlot1" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot1" unique_id=1486421056]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,15 +188,14 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="slot2" type="Control" parent="Control" unique_id=1110022262]
+[node name="slot2" type="Control" parent="MinigameUI/MinigameCont" unique_id=1110022262]
 anchors_preset = 0
 offset_left = 800.0
 offset_top = 108.0
 offset_right = 800.0
 offset_bottom = 108.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/slot2" unique_id=213302844]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot2" unique_id=213302844]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -196,7 +211,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.57254905, 1, 1)
 
-[node name="minigameSlot2" type="SubViewportContainer" parent="Control/slot2" unique_id=783786498]
+[node name="minigameSlot2" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot2" unique_id=783786498]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -206,15 +221,14 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="slot3" type="Control" parent="Control" unique_id=856316822]
+[node name="slot3" type="Control" parent="MinigameUI/MinigameCont" unique_id=856316822]
 anchors_preset = 0
 offset_left = 192.0
 offset_top = 324.0
 offset_right = 192.0
 offset_bottom = 324.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/slot3" unique_id=665548285]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot3" unique_id=665548285]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -230,7 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.57254905, 1, 1)
 
-[node name="minigameSlot3" type="SubViewportContainer" parent="Control/slot3" unique_id=1486598512]
+[node name="minigameSlot3" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot3" unique_id=1486598512]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -240,15 +254,14 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="slot4" type="Control" parent="Control" unique_id=476252729]
+[node name="slot4" type="Control" parent="MinigameUI/MinigameCont" unique_id=476252729]
 anchors_preset = 0
 offset_left = 768.0
 offset_top = 324.0
 offset_right = 768.0
 offset_bottom = 324.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/slot4" unique_id=640052584]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot4" unique_id=640052584]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -264,7 +277,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.57254905, 1, 1)
 
-[node name="minigameSlot4" type="SubViewportContainer" parent="Control/slot4" unique_id=753640560]
+[node name="minigameSlot4" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot4" unique_id=753640560]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
