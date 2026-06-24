@@ -166,6 +166,11 @@ extends Node
 		"next": "transition_phrase",
 		"typed": false
 	},
+	"sue_kitty": {
+		"file": "sue_kitty.txt",
+		"next": "transition_phrase",
+		"typed": false
+	},
 }
 
 var current_document : String
