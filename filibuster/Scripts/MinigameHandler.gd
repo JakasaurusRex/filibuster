@@ -9,10 +9,6 @@ extends Node
 		"scene": preload("res://Assets/Scenes/Minigames/FishMinigame/FishMinigame.tscn"),
 		"weight": 1
 	},
-	"dog_game": {
-		"scene": preload("res://Assets/Scenes/Minigames/PetDog/pet_dog_minigame.tscn"),
-		"weight": 1
-	},
 }
 
 func get_random_minigame():

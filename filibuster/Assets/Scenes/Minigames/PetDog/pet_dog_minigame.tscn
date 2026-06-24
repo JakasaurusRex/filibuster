@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dnvupn84vpupw"]
 
-[ext_resource type="Script" uid="uid://datytlf6fgwud" path="res://Scripts/Minigames/DogMinigame/dog_minigame.gd" id="1_xoryj"]
+[ext_resource type="Script" uid="uid://c8wgrpmwuba8" path="res://Scripts/Minigames/minigame_template_3d.gd" id="1_cj2bk"]
 [ext_resource type="PackedScene" uid="uid://dlw7rb2st023n" path="res://Assets/Models/DogMinigame/capy.glb" id="2_0tr30"]
 [ext_resource type="PackedScene" uid="uid://3p6qkwuue8vd" path="res://Assets/Scenes/Minigames/PetDog/Glove.tscn" id="2_621eb"]
 [ext_resource type="Script" uid="uid://d2v5t0aadmm0r" path="res://Scripts/Minigames/DogMinigame/camera.gd" id="3_xoryj"]
@@ -38,17 +38,17 @@ height = 3.66214
 
 [node name="PetDog" type="Node3D" unique_id=514623287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2789388)
-script = ExtResource("1_xoryj")
-camera_positions = [Vector3(0, 1.785, -4.76), Vector3(2.1419888, 1.7254896, -1.9516239), Vector3(-1.3700969, -0.0679543, 0.83524346)]
-camera_rotations = [Vector3(-0.35447446, -3.1415925, -3.2355825e-08), Vector3(-0.48486012, 1.7360948, -3.0502438e-08), Vector3(0.2808833, -0.69105387, 0)]
+script = ExtResource("1_cj2bk")
 
 [node name="Glove" parent="." unique_id=863966067 instance=ExtResource("2_621eb")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5214784, -2.9187367)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
-transform = Transform3D(-1, -1.7763568e-15, -8.742278e-08, -3.0344232e-08, 0.937829, 0.34709755, 8.1987615e-08, 0.34709755, -0.937829, 0, 1.785, -5.1435723)
+transform = Transform3D(-1, 0, -8.742278e-08, -3.0344232e-08, 0.937829, 0.34709755, 8.1987615e-08, 0.34709755, -0.937829, 0, 1.785, -4.76)
 fov = 90.0
 script = ExtResource("3_xoryj")
+camera_positions = [Vector3(0, 1.785, -4.76), Vector3(2.1419888, 1.7254896, -1.9516239), Vector3(-1.3700969, -0.0679543, 0.83524346)]
+camera_rotations = [Vector3(-0.35447446, -3.1415925, -3.2355825e-08), Vector3(-0.48486012, 1.7360948, -3.0502438e-08), Vector3(0.2808833, -0.69105387, 0)]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=151905969]
 environment = SubResource("Environment_haowg")
@@ -69,13 +69,10 @@ transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742278e-08, 0, -0.99999
 [node name="capy" parent="Capy" unique_id=339688047 instance=ExtResource("2_0tr30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, -0.498, 0.445)
 
-[node name="HeadCollider" type="CollisionShape3D" parent="Capy" unique_id=1988972038]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Capy" unique_id=1988972038]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08128767, 0.2733873, 2.208957)
 shape = SubResource("SphereShape3D_xoryj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Capy" unique_id=384561584]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.06871116, -0.077376276, -0.07350044)
 shape = SubResource("CapsuleShape3D_xoryj")
-
-[node name="WordSpawnPosition" type="Node3D" parent="." unique_id=477694957]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7885215, -4.087366)
