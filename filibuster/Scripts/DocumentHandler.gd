@@ -56,7 +56,6 @@ extends Node
 var current_document : String
 
 func get_random_document():
-	print(documents)
 	var random_document
 	var document_list = documents.keys()
 	var unread_documents = document_list.filter(func (doc): return not documents[doc]["typed"])

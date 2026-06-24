@@ -19,6 +19,9 @@ enum GameState {
 	"slot_3": null,
 	"slot_4": null,
 }
+@onready var camera := $"../Camera3D"
+@onready var camera_views := {}
+@onready var camera_angles := $"../CameraAngles"
 var minigame_timer_range_min = 2.5
 var minigame_timer_range_max = 5.0
 var rolling_out_mini_game = false
@@ -28,14 +31,19 @@ const fish_minigame = preload("res://Assets/Scenes/Minigames/FishMinigame/FishMi
 
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer
+@onready var camera_timer := $CameraTimer
 @export var game_over_time = 1
 
 var current_state = GameState.PLAYING
+var current_camera_view = "defaultView"
 
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
+	camera_timer.timeout.connect(transition_camera)
 	
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
+	camera_timer.start(5)
+	load_camera_views()
 	current_state = GameState.PLAYING
 
 func _process(delta: float) -> void:
@@ -99,3 +107,23 @@ func load_minigame_viewport(on: bool):
 		
 func on_minigame_complete():
 	load_minigame_viewport(false)
+
+func load_camera_views():
+	for view in camera_angles.get_children():
+		camera_views[view.name] = view
+
+func get_random_camera_view():
+	var new_view = camera_views.keys().pick_random()
+	while new_view == current_camera_view:
+		new_view = camera_views.keys().pick_random()
+	return new_view
+	
+func transition_camera(duration:=2.0, view:=""):
+	print("TRANSITIONING CAMERA")
+	if view == "": view = get_random_camera_view()
+	current_camera_view = view
+	var camera_tween = get_tree().create_tween().set_ease(Tween.EASE_IN_OUT).set_parallel(true)
+	var end_transform = camera_views[view].global_transform
+	var end_fov = camera_views[view].fov
+	camera_tween.tween_property(camera, "global_transform", end_transform, duration)
+	camera_tween.tween_property(camera, "fov", end_fov, duration)

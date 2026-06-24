@@ -51,15 +51,47 @@ script = ExtResource("6_g2icf")
 
 [node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
 
+[node name="MinigameTimer" type="Timer" parent="GameManager" unique_id=702065762]
+one_shot = true
+
+[node name="CameraTimer" type="Timer" parent="GameManager" unique_id=1478004751]
+
 [node name="minigameAnim" type="AnimationPlayer" parent="GameManager" unique_id=592500140]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_fxu2d")
 
-[node name="MinigameTimer" type="Timer" parent="GameManager" unique_id=702065762]
-one_shot = true
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
-transform = Transform3D(0.99093467, 0, -0.13434462, 0, 1, 0, 0.13434462, 0, 0.99093467, -0.20876706, 0.61269164, -1.0993736)
+transform = Transform3D(0.78043044, 0, -0.62524265, 0, 1, 0, 0.62524265, 0, 0.78043044, -0.14399984, 0.708, -1.1699998)
+fov = 90.0
+
+[node name="CameraAngles" type="Node3D" parent="." unique_id=2025333023]
+
+[node name="overTheShoulder" type="Camera3D" parent="CameraAngles" unique_id=699068640]
+transform = Transform3D(-0.92718375, 0, -0.3746066, 0, 1, 0, 0.3746066, 0, -0.92718375, -0.18499987, 0.768, -1.909)
+fov = 60.0
+
+[node name="courtSideView" type="Camera3D" parent="CameraAngles" unique_id=862052587]
+transform = Transform3D(-4.371139e-08, -0.19080906, 0.98162717, 0, 0.98162717, 0.19080906, -1, 8.340529e-09, -4.2908287e-08, 2.2199998, 1.0610001, -0.191)
+fov = 60.0
+
+[node name="profileView" type="Camera3D" parent="CameraAngles" unique_id=1652225344]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.95, 0.757, -1.626)
+fov = 15.0
+
+[node name="birdsEyeView" type="Camera3D" parent="CameraAngles" unique_id=1785370515]
+transform = Transform3D(-4.371139e-08, 0.9999619, -0.008727754, 0, 0.008727754, 0.9999619, 1, 4.3709722e-08, -3.8150222e-10, 0.018, 2.355, -0.086)
+fov = 70.0
+
+[node name="courtBackView" type="Camera3D" parent="CameraAngles" unique_id=1250781673]
+transform = Transform3D(1, 8.093202e-09, -2.3175805e-07, 0, 0.99939084, 0.034899633, 2.3189932e-07, -0.034899633, 0.99939084, 0.0409825, 1.0218527, 2.1597643)
+fov = 35.0
+
+[node name="fromTheFloor" type="Camera3D" parent="CameraAngles" unique_id=271393056]
+transform = Transform3D(0.67880243, -0.4788922, -0.5566771, 0, 0.7580843, -0.6521566, 0.7343208, 0.4426855, 0.5145895, -0.2949998, 0.32799998, -1.322)
+fov = 80.0
+
+[node name="defaultView" type="Camera3D" parent="CameraAngles" unique_id=1420193207]
+transform = Transform3D(0.78043044, 0, -0.62524265, 0, 1, 0, 0.62524265, 0, 0.78043044, -0.14399984, 0.708, -1.1699998)
 fov = 90.0
 
 [node name="SenateFloor" type="Node3D" parent="." unique_id=1331045080]
