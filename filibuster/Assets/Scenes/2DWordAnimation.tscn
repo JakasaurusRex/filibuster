@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqvqdag251slv"]
 
-[ext_resource type="Script" uid="uid://c36r7nclpyqx8" path="res://Scripts/2DWordAnimationScene.gd" id="1_5neu1"]
+[ext_resource type="Script" uid="uid://c36r7nclpyqx8" path="res://Scripts/WordAnimationScene.gd" id="1_5neu1"]
 [ext_resource type="Script" uid="uid://dtghxscvy1mh0" path="res://Scripts/WordRigid.gd" id="2_3eb77"]
 [ext_resource type="Theme" uid="uid://ds0qdd0mxjpdv" path="res://Assets/Themes/default_text_theme.tres" id="3_3eb77"]
 

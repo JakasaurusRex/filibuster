@@ -39,6 +39,8 @@ var minigame_timer_range_max = 5.0
 @export var RATING_ON_MINIGAME_LOSS = 1
 var current_rating : int = STARTING_RATING
 
+var word_animation_scene2D = preload("res://Assets/Scenes/2DWordAnimation.tscn")
+
 var current_state = GameState.PLAYING
 var current_camera_view = "defaultView"
 
@@ -87,17 +89,19 @@ func spawn_minigame() -> void:
 	
 	new_minigame_viewport.size = new_minigame.minigame_size
 	new_minigame.start()
-	new_minigame.completed.connect(minigame_completed)
-	new_minigame.failed.connect(minigame_failed)
+	new_minigame.completed.connect(minigame_completed.bind(minigame_slot))
+	new_minigame.failed.connect(minigame_failed.bind(minigame_slot))
 	new_minigame.closed.connect(minigame_closed.bind(minigame_slot))
 
-func minigame_completed(completion_event):
+func minigame_completed(completion_event, minigame_slot):
 	current_rating += RATING_ON_MINIGAME_WIN
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
+	animate_score("+" + str(RATING_ON_MINIGAME_WIN), minigame_slot)
 	
-func minigame_failed(failure_event):
+func minigame_failed(failure_event, minigame_slot):
 	current_rating += RATING_ON_MINIGAME_LOSS
 	print("FAILED MINIGAME WITH EVENT: %s" % failure_event)
+	animate_score(str(RATING_ON_MINIGAME_LOSS), minigame_slot, true)
 	
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
@@ -123,9 +127,30 @@ func transition_camera(duration:=2.0, view:=""):
 	camera_tween.tween_property(camera, "global_transform", end_transform, duration)
 	camera_tween.tween_property(camera, "fov", end_fov, duration)
 
-
 func on_rating_timer_timeout() -> void:
 	current_rating += RATING_PER_SEC
 	
 func on_completed_word(word: Variant) -> void:
 	current_rating += RATING_ON_WORD
+	
+func animate_score(word: String, slot: String, lost: bool=false):
+	# Create instance and set the word and position of animation
+	var word_scene = word_animation_scene2D.instantiate()
+	var minigame_viewport = minigames[slot].get_parent()
+	var minigame_position = minigame_viewport.global_position
+	var minigame_width = minigame_viewport.size.x / 2
+	var minigame_height = minigame_viewport.size.y / 2
+	
+	var random_x_left = randf_range(minigame_position.x - minigame_width / 2 - 50, minigame_position.x - minigame_height / 2 - 25)
+	var random_x_right = randf_range(minigame_position.x + minigame_width / 2 + 25, minigame_position.x + minigame_height / 2 + 50)
+	var random_y = randf_range(minigame_position.y - minigame_height / 2 - 25, minigame_position.y + minigame_height / 2 + 25)
+	var pos
+	if slot == "slot_2" or slot == "slot_4": pos = Vector2(random_x_left, random_y)
+	else: pos = Vector2(random_x_right, random_y)
+	
+	# Add instance to scene
+	add_child(word_scene)
+	word_scene.position = pos
+	word_scene.set_word(word)
+	if lost: word_scene.set_incorrect_material()
+	
