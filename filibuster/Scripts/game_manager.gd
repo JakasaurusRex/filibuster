@@ -93,9 +93,11 @@ func spawn_minigame() -> void:
 	new_minigame.closed.connect(minigame_closed.bind(minigame_slot))
 
 func minigame_completed(completion_event):
+	current_rating += RATING_ON_MINIGAME_WIN
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
 	
 func minigame_failed(failure_event):
+	current_rating += RATING_ON_MINIGAME_LOSS
 	print("FAILED MINIGAME WITH EVENT: %s" % failure_event)
 	
 func minigame_closed(slot):
