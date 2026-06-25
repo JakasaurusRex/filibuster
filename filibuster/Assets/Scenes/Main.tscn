@@ -51,6 +51,8 @@ canvas_item_default_texture_filter = 0
 
 [node name="GameManager" type="Node" parent="." unique_id=305402109]
 script = ExtResource("6_g2icf")
+RATING_ON_MINIGAME_WIN = 5
+RATING_ON_MINIGAME_LOSS = -5
 
 [node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
 
@@ -62,6 +64,9 @@ one_shot = true
 [node name="minigameAnim" type="AnimationPlayer" parent="GameManager" unique_id=592500140]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_fxu2d")
+
+[node name="RatingTimer" type="Timer" parent="GameManager" unique_id=285071336]
+autostart = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
 transform = Transform3D(0.78043044, 0, -0.62524265, 0, 1, 0, 0.62524265, 0, 0.78043044, -0.14399984, 0.708, -1.1699998)
@@ -313,9 +318,8 @@ theme_override_constants/margin_bottom = 16
 custom_minimum_size = Vector2(256, 32)
 layout_mode = 2
 size_flags_horizontal = 4
+value = 50.0
 show_percentage = false
-
-[node name="Timer" type="Timer" parent="ProgressDial" unique_id=2128178323]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=379133879]
 freeze = true
@@ -341,7 +345,7 @@ light_energy = 14.824
 spot_angle = 15.0
 
 [connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
+[connection signal="timeout" from="GameManager/RatingTimer" to="GameManager" method="on_rating_timer_timeout"]
 [connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]
-[connection signal="completed_word" from="TypingUI" to="ProgressDial" method="_on_typing_controller_completed_word"]
+[connection signal="completed_word" from="TypingUI" to="GameManager" method="on_completed_word"]
 [connection signal="dial_empty" from="ProgressDial" to="GameManager" method="on_dial_empty"]
-[connection signal="timeout" from="ProgressDial/Timer" to="ProgressDial" method="_on_timer_timeout"]

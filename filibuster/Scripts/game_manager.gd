@@ -25,15 +25,21 @@ enum GameState {
 @onready var camera_angles := $"../CameraAngles"
 var minigame_timer_range_min = 2.5
 var minigame_timer_range_max = 5.0
-var rolling_out_mini_game = false
-var roll_out_speed = 0.5
-var rolling_off_mini_game = false
-const fish_minigame = preload("res://Assets/Scenes/Minigames/FishMinigame/FishMinigame.tscn")
 
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer
 @onready var camera_timer := $CameraTimer
 @export var game_over_time = 1
+
+@onready var rating_timer = $RatingTimer
+@onready var progress_dial = $"../ProgressDial"
+@export var STARTING_RATING = 50
+@export var RATING_PER_SEC = -1
+@export var RATING_ON_WORD = 1
+@export var RATING_ON_MINIGAME_WIN = 1
+@export var RATING_ON_MINIGAME_LOSS = 1
+
+var current_rating : int = STARTING_RATING
 
 var current_state = GameState.PLAYING
 var current_camera_view = "defaultView"
@@ -115,3 +121,10 @@ func transition_camera(duration:=2.0, view:=""):
 	var end_fov = camera_views[view].fov
 	camera_tween.tween_property(camera, "global_transform", end_transform, duration)
 	camera_tween.tween_property(camera, "fov", end_fov, duration)
+
+
+func on_rating_timer_timeout() -> void:
+	current_rating += RATING_PER_SEC
+	
+func on_completed_word(word: Variant) -> void:
+	current_rating += RATING_ON_WORD

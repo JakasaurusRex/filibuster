@@ -193,3 +193,5 @@ transform = Transform3D(0.9999998, 9.539902e-08, 4.170024e-15, -9.539902e-08, 0.
 [node name="MinuteHand" type="MeshInstance3D" parent="ClockFace/MinutePivot" unique_id=656496781]
 transform = Transform3D(0.9999999, 0, 2.1175824e-22, 0, 0.9999999, 8.3518724e-23, 4.2351647e-22, 8.3518705e-23, 0.9999999, 3.553596e-09, 2.7689297e-05, -0.021600235)
 mesh = SubResource("ArrayMesh_xhqwk")
+
+[node name="Timer" type="Timer" parent="." unique_id=162274120]
