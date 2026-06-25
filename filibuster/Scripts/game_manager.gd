@@ -11,14 +11,10 @@ enum GameState {
 @onready var minigame_slots := {
 	"slot_1": $"../MinigameUI/MinigameCont/slot1/minigameSlot1",
 	"slot_2": $"../MinigameUI/MinigameCont/slot2/minigameSlot2",
-	#"slot_3": $"../MinigameUI/MinigameCont/slot3/minigameSlot3",
-	#"slot_4": $"../MinigameUI/MinigameCont/slot4/minigameSlot4",
 }
 @onready var minigames := {
 	"slot_1": null,
 	"slot_2": null,
-	#"slot_3": null,
-	#"slot_4": null,
 }
 @onready var tvs := {
 	"slot_1": $"../minigame1TVs".get_children(),
