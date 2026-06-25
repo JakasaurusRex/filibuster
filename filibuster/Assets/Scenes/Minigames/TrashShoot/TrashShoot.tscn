@@ -22,6 +22,7 @@ size = Vector3(0.5834656, 0.59792364, 0.59140015)
 
 [node name="TrashShoot" type="Node3D" unique_id=1785766331]
 script = ExtResource("1_eybes")
+fling_strength = 50.0
 max_runtime = 10.0
 
 [node name="Ball" parent="." unique_id=1969712766 instance=ExtResource("2_o62go")]

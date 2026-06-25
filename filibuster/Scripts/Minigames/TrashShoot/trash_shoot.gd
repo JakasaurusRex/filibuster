@@ -6,7 +6,7 @@ var end_pos = Vector2(0,0)
 @onready var ball_scene = preload("res://Assets/Scenes/Minigames/TrashShoot/ball.tscn")
 @onready var score_particles = $CanvasLayer/ScoreParticles
 @onready var arrow = $CanvasLayer/Arrow
-@export_range(0,20) var fling_strength: float = 15
+@export_range(0,100) var fling_strength: float = 15
 @export_range(0,90) var launch_angle: float = 45
 @onready var launch_vector = Vector2.RIGHT.rotated(deg_to_rad(launch_angle))
 var dragging = false
@@ -44,7 +44,7 @@ func fling_ball():
 	print("FLING")
 	var difference = start_pos - end_pos
 	var direction = difference.normalized()
-	var magnitude = (difference*Vector2(0,7)).length() / minigame_size.x / 10
+	var magnitude = (difference*Vector2(0,2)).length() / minigame_size.x / 10
 	var impulse = Vector3(direction.x, launch_vector[0], -launch_vector[1]) * magnitude * fling_strength
 	ball.freeze = false
 	ball.apply_impulse(impulse, Vector3.ZERO)
