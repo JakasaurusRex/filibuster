@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 DocumentHandler="*uid://xlk162wqagcl"
 MinigameHandler="*uid://rln8xs50ln77"
+AudioHandler="*uid://bd1b7apfsgyxv"
 
 [display]
 

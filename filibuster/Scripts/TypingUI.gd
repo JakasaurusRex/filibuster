@@ -154,6 +154,7 @@ func advance_idx():
 		word_char_idx = 0
 		current_word_idx += 1
 		emit_signal("completed_word", current_word)
+		#AudioHandler.playSound("test_sounds")
 		if current_word_idx < len(current_sentence_tokens):
 			current_word = current_sentence_tokens[current_word_idx]
 
@@ -185,6 +186,7 @@ func advance_idx():
 			current_word_idx = 0
 			current_char_idx = 0
 		current_word = current_sentence_tokens[0]
+		#AudioHandler.playSound("test_sound")
 		emit_signal("completed_sentence")
 		
 
