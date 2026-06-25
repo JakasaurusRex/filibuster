@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bik541sfxykph"]
+
+[ext_resource type="Script" uid="uid://c8wgrpmwuba8" path="res://Scripts/Minigames/minigame_template_3d.gd" id="1_pvdcv"]
+[ext_resource type="Script" uid="uid://bjnhoktdwjovk" path="res://Scripts/Minigames/PhoneCall/camera.gd" id="2_7614i"]
+[ext_resource type="Texture2D" uid="uid://bmc1rkp4eorfr" path="res://Assets/Graphics/phony-tonys.png" id="2_apmwa"]
+[ext_resource type="PackedScene" uid="uid://cmirgriuf0akq" path="res://Assets/Scenes/Minigames/PhoneCall/Phone.tscn" id="3_7gu1t"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7614i"]
+noise_type = 2
+cellular_distance_function = 2
+cellular_jitter = 2.215
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7gu1t"]
+noise = SubResource("FastNoiseLite_7614i")
+seamless = true
+in_3d_space = true
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apmwa"]
+albedo_color = Color(0.21532503, 0.10136687, 2.4065375e-08, 1)
+albedo_texture = SubResource("NoiseTexture2D_7gu1t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gu1t"]
+albedo_color = Color(0.557753, 0.5577531, 0.5577531, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_icn6r"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v1xf3"]
+noise = SubResource("FastNoiseLite_icn6r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7614i"]
+albedo_texture = SubResource("NoiseTexture2D_v1xf3")
+
+[sub_resource type="Environment" id="Environment_xtg8h"]
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqxvg"]
+albedo_texture = ExtResource("2_apmwa")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xtg8h"]
+material = SubResource("StandardMaterial3D_lqxvg")
+size = Vector2(3.025, 2)
+
+[node name="PhoneCall" type="Node3D" unique_id=514623287]
+script = ExtResource("1_pvdcv")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
+transform = Transform3D(0.5846225, 0.33710763, -0.7379533, 0, 0.90958744, 0.4155126, 0.8113055, -0.24291798, 0.5317653, -0.2969997, 0.29135537, 0.19738185)
+fov = 90.0
+script = ExtResource("2_7614i")
+
+[node name="TableTop" type="CSGBox3D" parent="." unique_id=675380373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1877296, -0.0687902, -0.08853069)
+size = Vector3(0.89453125, 0.05895996, 0.87109375)
+material = SubResource("StandardMaterial3D_apmwa")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="TableTop" unique_id=277726176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35338092, -0.57950723, -0.30997917)
+size = Vector3(0.17773438, 1.1367188, 0.24511719)
+material = SubResource("StandardMaterial3D_7gu1t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="TableTop" unique_id=449571974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35113996, -0.57950723, -0.30997917)
+size = Vector3(0.17773438, 1.1367188, 0.24511719)
+material = SubResource("StandardMaterial3D_7gu1t")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="TableTop" unique_id=887599351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35113996, -0.57950723, 0.30943564)
+size = Vector3(0.17773438, 1.1367188, 0.24511719)
+material = SubResource("StandardMaterial3D_7gu1t")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="TableTop" unique_id=339686861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34908724, -0.57950723, 0.30943564)
+size = Vector3(0.17773438, 1.1367188, 0.24511719)
+material = SubResource("StandardMaterial3D_7gu1t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=612027697]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.2187233, 0)
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=1686202679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22598338, -1.753716, 0)
+size = Vector3(13.477539, 1, 21.913818)
+material = SubResource("StandardMaterial3D_7614i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=925486972]
+environment = SubResource("Environment_xtg8h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1653191761]
+transform = Transform3D(0.030268341, 0, -0.095309116, 0, 0.1, 0, 0.095309116, 0, 0.030268341, 0.20483422, -0.036486983, 0.1408011)
+mesh = SubResource("PlaneMesh_xtg8h")
+
+[node name="Phone" parent="." unique_id=751762341 instance=ExtResource("3_7gu1t")]
+transform = Transform3D(-0.87356967, 0, 0.4866991, 0, 1, 0, -0.4866991, 0, -0.87356967, -0.08807826, 0, 0.022113651)
