@@ -1,0 +1,350 @@
+[gd_scene format=3 uid="uid://bqhmk4u6yxoyy"]
+
+[ext_resource type="PackedScene" uid="uid://bdy0k77gcyi2f" path="res://Assets/Scenes/DigitalClock.tscn" id="1_2qpql"]
+[ext_resource type="PackedScene" uid="uid://cxslce0tf3asi" path="res://Assets/Scenes/TypingUI.tscn" id="1_ygaiq"]
+[ext_resource type="Script" uid="uid://cnabeebqwe0yy" path="res://Scripts/dial.gd" id="5_gjahs"]
+[ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="6_8bicx"]
+[ext_resource type="PackedScene" uid="uid://c6262tj8s7oq" path="res://Assets/Scenes/FilPrime.tscn" id="6_fxu2d"]
+[ext_resource type="Script" uid="uid://d4noesaxi0052" path="res://Scripts/game_manager.gd" id="6_g2icf"]
+
+[sub_resource type="Animation" id="Animation_g2icf"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_fxu2d"]
+resource_name = "closeMinigame"
+length = 1.5
+step = 0.5
+
+[sub_resource type="Animation" id="Animation_8bicx"]
+resource_name = "loadMinigame"
+length = 1.5
+step = 0.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxu2d"]
+_data = {
+&"RESET": SubResource("Animation_g2icf"),
+&"closeMinigame": SubResource("Animation_fxu2d"),
+&"loadMinigame": SubResource("Animation_8bicx")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtg8h"]
+albedo_color = Color(1, 0.33333334, 0.29411766, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gjahs"]
+noise_type = 2
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ygaiq"]
+noise = SubResource("FastNoiseLite_gjahs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkehv"]
+albedo_color = Color(0.39215687, 0.17254902, 0.09411765, 1)
+albedo_texture = SubResource("NoiseTexture2D_ygaiq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(5.0387573, 0.37469482, 5.1046753)
+
+[node name="Main" type="Node3D" unique_id=1609154576]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=78923005]
+canvas_item_default_texture_filter = 0
+
+[node name="GameManager" type="Node" parent="." unique_id=305402109]
+script = ExtResource("6_g2icf")
+RATING_ON_MINIGAME_WIN = 5
+RATING_ON_MINIGAME_LOSS = -5
+
+[node name="GameOverTimer" type="Timer" parent="GameManager" unique_id=880021747]
+
+[node name="MinigameTimer" type="Timer" parent="GameManager" unique_id=702065762]
+one_shot = true
+
+[node name="CameraTimer" type="Timer" parent="GameManager" unique_id=1478004751]
+
+[node name="minigameAnim" type="AnimationPlayer" parent="GameManager" unique_id=592500140]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_fxu2d")
+
+[node name="RatingTimer" type="Timer" parent="GameManager" unique_id=285071336]
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1790041204]
+transform = Transform3D(0.78043044, 0, -0.62524265, 0, 1, 0, 0.62524265, 0, 0.78043044, -0.14399984, 0.708, -1.1699998)
+fov = 90.0
+
+[node name="CameraAngles" type="Node3D" parent="." unique_id=2025333023]
+
+[node name="overTheShoulder" type="Camera3D" parent="CameraAngles" unique_id=699068640]
+transform = Transform3D(-0.92718375, 0, -0.3746066, 0, 1, 0, 0.3746066, 0, -0.92718375, -0.18499987, 0.768, -1.909)
+fov = 60.0
+
+[node name="courtSideView" type="Camera3D" parent="CameraAngles" unique_id=862052587]
+transform = Transform3D(-4.371139e-08, -0.19080906, 0.98162717, 0, 0.98162717, 0.19080906, -1, 8.340529e-09, -4.2908287e-08, 2.2199998, 1.0610001, -0.191)
+fov = 60.0
+
+[node name="profileView" type="Camera3D" parent="CameraAngles" unique_id=1652225344]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.95, 0.757, -1.626)
+fov = 15.0
+
+[node name="birdsEyeView" type="Camera3D" parent="CameraAngles" unique_id=1785370515]
+transform = Transform3D(-4.371139e-08, 0.9999619, -0.008727754, 0, 0.008727754, 0.9999619, 1, 4.3709722e-08, -3.8150222e-10, 0.018, 2.355, -0.086)
+fov = 70.0
+
+[node name="courtBackView" type="Camera3D" parent="CameraAngles" unique_id=1250781673]
+transform = Transform3D(1, 8.093202e-09, -2.3175805e-07, 0, 0.99939084, 0.034899633, 2.3189932e-07, -0.034899633, 0.99939084, 0.0409825, 1.0218527, 2.1597643)
+fov = 35.0
+
+[node name="fromTheFloor" type="Camera3D" parent="CameraAngles" unique_id=271393056]
+transform = Transform3D(0.67880243, -0.4788922, -0.5566771, 0, 0.7580843, -0.6521566, 0.7343208, 0.4426855, 0.5145895, -0.2949998, 0.32799998, -1.322)
+fov = 80.0
+
+[node name="defaultView" type="Camera3D" parent="CameraAngles" unique_id=1420193207]
+transform = Transform3D(0.78043044, 0, -0.62524265, 0, 1, 0, 0.62524265, 0, 0.78043044, -0.14399984, 0.708, -1.1699998)
+fov = 90.0
+
+[node name="SenateFloor" type="Node3D" parent="." unique_id=1331045080]
+
+[node name="Podium" type="CSGBox3D" parent="SenateFloor" unique_id=55910847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10949212, 0.18090391, -1.5060787)
+size = Vector3(0.44006348, 0.64941406, 0.3166504)
+material = SubResource("StandardMaterial3D_xtg8h")
+
+[node name="Walls" type="Node3D" parent="SenateFloor" unique_id=31745741]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=249400069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, -3.1711)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=571052295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13214648, 2.934961)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(4.9833984, 4.3554688, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=455268034]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.890133, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="SenateFloor/Walls" unique_id=1911909940]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.93708, 0.13214648, -0.06976962)
+cast_shadow = 0
+gi_lightmap_texel_scale = 0.01
+size = Vector3(7.229492, 4.3554688, 1)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="SenateFloor" unique_id=1715724377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.62117505)
+
+[node name="MinigameUI" type="Control" parent="." unique_id=511916998]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MinigameCont" type="Control" parent="MinigameUI" unique_id=382622195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot1" type="Control" parent="MinigameUI/MinigameCont" unique_id=1639935629]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 108.0
+offset_right = 160.0
+offset_bottom = 108.0
+
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot1" unique_id=677441699]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.57254905, 1, 1)
+
+[node name="minigameSlot1" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot1" unique_id=1486421056]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot2" type="Control" parent="MinigameUI/MinigameCont" unique_id=1110022262]
+anchors_preset = 0
+offset_left = 800.0
+offset_top = 108.0
+offset_right = 800.0
+offset_bottom = 108.0
+
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot2" unique_id=213302844]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.57254905, 1, 1)
+
+[node name="minigameSlot2" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot2" unique_id=783786498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot3" type="Control" parent="MinigameUI/MinigameCont" unique_id=856316822]
+anchors_preset = 0
+offset_left = 192.0
+offset_top = 324.0
+offset_right = 192.0
+offset_bottom = 324.0
+
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot3" unique_id=665548285]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.57254905, 1, 1)
+
+[node name="minigameSlot3" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot3" unique_id=1486598512]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot4" type="Control" parent="MinigameUI/MinigameCont" unique_id=476252729]
+anchors_preset = 0
+offset_left = 768.0
+offset_top = 324.0
+offset_right = 768.0
+offset_bottom = 324.0
+
+[node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot4" unique_id=640052584]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.57254905, 1, 1)
+
+[node name="minigameSlot4" type="SubViewportContainer" parent="MinigameUI/MinigameCont/slot4" unique_id=753640560]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DigitalClock" parent="." unique_id=153189363 instance=ExtResource("1_2qpql")]
+
+[node name="TypingUI" parent="." unique_id=1360491517 instance=ExtResource("1_ygaiq")]
+
+[node name="ProgressDial" type="CanvasLayer" parent="." unique_id=1880418449]
+script = ExtResource("5_gjahs")
+
+[node name="progressDialMargins" type="MarginContainer" parent="ProgressDial" unique_id=1358494573]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressDial/progressDialMargins" unique_id=1462516162]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+value = 50.0
+show_percentage = false
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=379133879]
+freeze = true
+
+[node name="Floor" type="CSGBox3D" parent="RigidBody3D" unique_id=2039030333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049883008, 0)
+size = Vector3(4.8825684, 0.2578125, 5.375)
+material = SubResource("StandardMaterial3D_wkehv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1272257438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07974243, -0.104, -0.12066233)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="AnalogClock" parent="." unique_id=1881720282 instance=ExtResource("6_8bicx")]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 0.011068702, 1.1565045, -3.0817988)
+
+[node name="FilPrime" parent="." unique_id=579683172 instance=ExtResource("6_fxu2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0023230314, 0.07444394, -1.7457545)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=269946108]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.0925257, -1.748916)
+light_energy = 14.824
+spot_angle = 15.0
+
+[connection signal="timeout" from="GameManager/GameOverTimer" to="GameManager" method="on_timer_timeout"]
+[connection signal="timeout" from="GameManager/RatingTimer" to="GameManager" method="on_rating_timer_timeout"]
+[connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]
+[connection signal="completed_word" from="TypingUI" to="GameManager" method="on_completed_word"]

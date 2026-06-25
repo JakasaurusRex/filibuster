@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 	if glove.grabbing and looking_at_capy and current_mouse_delta:
 		current_scratch_time += delta
 		current_mouse_delta = null
-		if fmod(current_scratch_time, 0.10) < 0.005:
+		if fmod(current_scratch_time, 0.10) < 0.0001:
 			make_noise()
 	
 	if current_scratch_time > SCRATCH_TIME:
@@ -78,8 +78,9 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var ray_cast_result = camera.ray_cast()
-		if !ray_cast_result:
+		if !ray_cast_result or ray_cast_result is RigidBody3D:
 			return
+			
 		var result_position = ray_cast_result.get("position")
 		var result_object  = ray_cast_result.get("collider")
 
