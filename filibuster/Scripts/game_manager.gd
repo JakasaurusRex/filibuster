@@ -52,7 +52,7 @@ func _ready() -> void:
 	current_state = GameState.PLAYING
 
 func _process(delta: float) -> void:
-	if current_rating <= 0:
+	if current_rating <= 0 and game_over_timer.is_stopped():
 		current_state = GameState.GAME_OVERING
 		game_over_timer.start(game_over_time)
 		
