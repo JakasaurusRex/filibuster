@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b6xaqhf50lc8j" path="res://Scripts/Minigames/TrashShoot/trash_shoot.gd" id="1_eybes"]
 [ext_resource type="PackedScene" uid="uid://brpcaoarcqrwn" path="res://Assets/Scenes/Minigames/TrashShoot/ball.tscn" id="2_o62go"]
 [ext_resource type="PackedScene" uid="uid://dn4etuf4fn2qc" path="res://Assets/Scenes/Minigames/TrashShoot/score_particles.tscn" id="3_o62go"]
+[ext_resource type="Texture2D" uid="uid://b2bgpx1ts1cxc" path="res://Assets/Textures/TrashShoot/arrow.png" id="3_rrw2q"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
@@ -22,6 +23,7 @@ size = Vector3(0.5834656, 0.59792364, 0.59140015)
 
 [node name="TrashShoot" type="Node3D" unique_id=1785766331]
 script = ExtResource("1_eybes")
+fling_strength = 50.0
 max_runtime = 10.0
 
 [node name="Ball" parent="." unique_id=1969712766 instance=ExtResource("2_o62go")]
@@ -101,6 +103,9 @@ light_energy = 4.0
 
 [node name="Arrow" type="Line2D" parent="CanvasLayer" unique_id=1073323467]
 points = PackedVector2Array(0, 0, 0, 0)
+width = 60.0
+texture = ExtResource("3_rrw2q")
+texture_mode = 2
 
 [node name="ScoreParticles" parent="CanvasLayer" unique_id=1505723660 instance=ExtResource("3_o62go")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.69962835, -2)

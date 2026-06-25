@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cxalkwoiila0k"]
+
+[ext_resource type="Script" uid="uid://duk15nha4tbqc" path="res://Scripts/tv.gd" id="1_v50r0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g2icf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bicx"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_g2icf")
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fxu2d"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_8bicx")
+size = Vector2(1, 0.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etbef"]
+albedo_color = Color(0.28, 0.28, 0.28, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v50r0"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_etbef")
+size = Vector2(1, 0.75)
+
+[node name="tv" type="Node3D" unique_id=261666444]
+script = ExtResource("1_v50r0")
+
+[node name="tvOnScreen" type="MeshInstance3D" parent="." unique_id=1334916718]
+transform = Transform3D(1, 0, 0, 0, 2.2351742e-08, -1, 0, 1, 2.2351742e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_fxu2d")
+
+[node name="tvOffScreen" type="MeshInstance3D" parent="." unique_id=1509917754]
+transform = Transform3D(1, 0, 0, 0, 2.2351742e-08, -1, 0, 1, 2.2351742e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_v50r0")

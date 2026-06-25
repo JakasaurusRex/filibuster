@@ -99,6 +99,7 @@ func ray_cast():
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
 		var ray_cast_result = ray_cast()
+		if not ray_cast_result: return
 		if ray_cast_result is StaticBody3D: return
 		var possible_fil = ray_cast_result.get_parent().name
 		if possible_fil in fils and fil_status[possible_fil] == "up": 

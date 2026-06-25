@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dn4etuf4fn2qc"]
 
-[ext_resource type="Texture2D" uid="uid://wd11va0frj03" path="res://Assets/Textures/star.png" id="2_76ep4"]
+[ext_resource type="Texture2D" uid="uid://n6w0e6f2tcx4" path="res://Assets/Textures/TrashShoot/stars.png" id="1_x064k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ix76"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_76ep4")
+albedo_texture = ExtResource("1_x064k")
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
