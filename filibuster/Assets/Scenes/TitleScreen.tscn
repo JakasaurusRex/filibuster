@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dysm6h7j7bwfh"]
+
+[ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="1_6ft20"]
+[ext_resource type="Theme" uid="uid://bk3ecn2ouoc5x" path="res://Assets/Themes/title_button.tres" id="1_7qpe2"]
+[ext_resource type="Script" uid="uid://8jd0fc8hc24a" path="res://Scripts/play_button.gd" id="1_a33en"]
+[ext_resource type="Script" uid="uid://h6ua7w137hud" path="res://Scripts/credits_button.gd" id="2_qnvjd"]
+[ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_vu4bj"]
+[ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="3_a33en"]
+
+[sub_resource type="TextMesh" id="TextMesh_g4v7s"]
+material = ExtResource("3_a33en")
+text = "CLOTURE"
+font = ExtResource("2_vu4bj")
+font_size = 20
+
+[node name="TitleScreen" type="Node3D" unique_id=1245560389]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1244337215]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1958448183]
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.45
+anchor_right = 0.65
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=621268638]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7qpe2")
+text = "PLAY"
+script = ExtResource("1_a33en")
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=640646247]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_7qpe2")
+text = "CREDITS"
+script = ExtResource("2_qnvjd")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1950422070]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4375024, -0.84026736, -4.301531)
+
+[node name="3DSceneElements" type="Node3D" parent="." unique_id=320633356]
+
+[node name="AnalogClock" parent="3DSceneElements" unique_id=1881720282 instance=ExtResource("1_6ft20")]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.9999999, 1, -4.3711385e-08, 0, -4.371139e-08, -0.9999999, -4.3711385e-08, 0, 1.4297745, 1.50631)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DSceneElements" unique_id=1400141714]
+transform = Transform3D(0.80707645, 0.30465826, 0.5057776, 0, -0.85660124, 0.51597905, 0.59044695, -0.41643456, -0.6913427, 1.9496486, 1.4824893, -1.3016043)
+light_energy = 0.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="3DSceneElements" unique_id=56150514]
+transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -1.4986763, 1.481162, 1.3409934)
+mesh = SubResource("TextMesh_g4v7s")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="CanvasLayer/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/CreditsButton" to="CanvasLayer/VBoxContainer/CreditsButton" method="_on_pressed"]
