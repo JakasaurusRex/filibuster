@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 0.79601073, 0.60528255, 0, -0.60528255, 0.79
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=537389132]
 transform = Transform3D(1, 0, 0, 0, 0.21368644, 0.9769023, 0, -0.9769023, 0.21368644, 0, 3.7858853, -0.75186396)
 light_color = Color(0.36289978, 0.41798067, 0.3772161, 1)
-light_energy = 15.0
+light_energy = 20.0
 
 [node name="Trash" type="Node3D" parent="." unique_id=1809035985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9717942)
@@ -94,6 +94,7 @@ shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1895357409]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.5930176, 1.3822889)
+light_energy = 4.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=864925592]
 

@@ -44,7 +44,7 @@ func fling_ball():
 	print("FLING")
 	var difference = start_pos - end_pos
 	var direction = difference.normalized()
-	var magnitude = (difference*Vector2(0,3)).length() / minigame_size.x / 10
+	var magnitude = (difference*Vector2(0,7)).length() / minigame_size.x / 10
 	var impulse = Vector3(direction.x, launch_vector[0], -launch_vector[1]) * magnitude * fling_strength
 	ball.freeze = false
 	ball.apply_impulse(impulse, Vector3.ZERO)

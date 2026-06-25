@@ -20,6 +20,10 @@ extends Node
 	"states": {
 		"scene": preload("res://Assets/Scenes/Minigames/USStates/states.tscn"),
 		"weight": 1
+	},
+	"trashshoot": {
+		"scene": preload("res://Assets/Scenes/Minigames/TrashShoot/TrashShoot.tscn"),
+		"weight": 1
 	}
 }
 
