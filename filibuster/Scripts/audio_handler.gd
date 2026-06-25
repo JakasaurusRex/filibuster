@@ -32,7 +32,8 @@ func getAudio(audio):
 	var audio_name = audio
 	if audio_name in HAS_MULTIPLE_FILES: 
 		var audio_dir = SOUND_DIR + audio_name
-		var audio_files = DirAccess.get_files_at(audio_dir)
+		var audio_files = Array(DirAccess.get_files_at(audio_dir)).filter(func (file): return not file.ends_with("import"))
+		print(audio_files)
 		audio_name = "%s/%s" % [audio_name, audio_files.pick_random()]
 	else:
 		audio_name += ".wav"
