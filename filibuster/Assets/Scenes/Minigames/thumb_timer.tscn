@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://g0skxh5w8axf"]
+
+[ext_resource type="Texture2D" uid="uid://bu50vmapxltdr" path="res://Assets/Graphics/Thumb/thumb.png" id="1_wcgm8"]
+[ext_resource type="Texture2D" uid="uid://cqjyr2u5acscc" path="res://Assets/Graphics/Thumb/long.png" id="2_skh0t"]
+[ext_resource type="Texture2D" uid="uid://nv08u3u5qu8p" path="res://Assets/Graphics/Thumb/hand.png" id="3_xmqgp"]
+
+[node name="ThumbTimer" type="Node2D" unique_id=1753770616]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=733917820]
+offset_right = 200.0
+offset_bottom = 369.0
+theme_override_constants/separation = 0
+
+[node name="Thumb" type="TextureRect" parent="VBoxContainer" unique_id=1613405650]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_wcgm8")
+stretch_mode = 4
+
+[node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1159884940]
+texture_filter = 1
+layout_mode = 2
+offset_transform_position = Vector2(59.115, 10.45)
+value = 100.0
+fill_mode = 3
+texture_progress = ExtResource("2_skh0t")
+
+[node name="Hand" type="TextureRect" parent="VBoxContainer" unique_id=765354219]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("3_xmqgp")
+stretch_mode = 4

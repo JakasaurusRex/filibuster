@@ -171,6 +171,7 @@ offset_right = 160.0
 offset_bottom = 108.0
 
 [node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot1" unique_id=677441699]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -204,6 +205,7 @@ offset_right = 800.0
 offset_bottom = 108.0
 
 [node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot2" unique_id=213302844]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -237,6 +239,7 @@ offset_right = 192.0
 offset_bottom = 324.0
 
 [node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot3" unique_id=665548285]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
@@ -270,6 +273,7 @@ offset_right = 768.0
 offset_bottom = 324.0
 
 [node name="ColorRect" type="ColorRect" parent="MinigameUI/MinigameCont/slot4" unique_id=640052584]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
