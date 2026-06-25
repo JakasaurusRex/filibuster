@@ -32,13 +32,11 @@ var minigame_timer_range_max = 5.0
 @export var game_over_time = 1
 
 @onready var rating_timer = $RatingTimer
-@onready var progress_dial = $"../ProgressDial"
 @export var STARTING_RATING = 50
 @export var RATING_PER_SEC = -1
 @export var RATING_ON_WORD = 1
 @export var RATING_ON_MINIGAME_WIN = 1
 @export var RATING_ON_MINIGAME_LOSS = 1
-
 var current_rating : int = STARTING_RATING
 
 var current_state = GameState.PLAYING
@@ -54,12 +52,13 @@ func _ready() -> void:
 	current_state = GameState.PLAYING
 
 func _process(delta: float) -> void:
+	if current_rating <= 0:
+		current_state = GameState.GAME_OVERING
+		game_over_timer.start(game_over_time)
+		
 	if current_state == GameState.GAME_OVER:
 		get_tree().quit()
 	
-func on_dial_empty() -> void:
-	current_state = GameState.GAME_OVERING
-	game_over_timer.start(game_over_time)
 
 func on_timer_timeout() -> void:
 	current_state = GameState.GAME_OVER

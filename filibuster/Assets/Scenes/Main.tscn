@@ -348,4 +348,3 @@ spot_angle = 15.0
 [connection signal="timeout" from="GameManager/RatingTimer" to="GameManager" method="on_rating_timer_timeout"]
 [connection signal="update_time" from="DigitalClock" to="AnalogClock" method="_on_digital_clock_update_time"]
 [connection signal="completed_word" from="TypingUI" to="GameManager" method="on_completed_word"]
-[connection signal="dial_empty" from="ProgressDial" to="GameManager" method="on_dial_empty"]
