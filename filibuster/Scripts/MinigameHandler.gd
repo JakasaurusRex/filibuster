@@ -1,10 +1,6 @@
 extends Node
 
 @onready var minigames := {
-	"test_2d_minigame" : {
-		"scene": preload("res://Assets/Scenes/Minigames/test2DMinigame/test_2d_minigame.tscn"),
-		"weight": 1
-	},
 	"fish_game": {
 		"scene": preload("res://Assets/Scenes/Minigames/FishMinigame/FishMinigame.tscn"),
 		"weight": 1
@@ -19,6 +15,10 @@ extends Node
 	},
 	"pet_dog": {
 		"scene": preload("res://Assets/Scenes/Minigames/PetDog/pet_dog_minigame.tscn"),
+		"weight": 1
+	},
+	"states": {
+		"scene": preload("res://Assets/Scenes/Minigames/USStates/states.tscn"),
 		"weight": 1
 	}
 }

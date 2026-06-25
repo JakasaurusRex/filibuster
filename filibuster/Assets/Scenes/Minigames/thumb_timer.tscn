@@ -7,26 +7,26 @@
 [node name="ThumbTimer" type="Node2D" unique_id=1753770616]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=733917820]
-offset_right = 48.0
-offset_bottom = 860.0
+offset_right = 200.0
+offset_bottom = 369.0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1613405650]
+[node name="Thumb" type="TextureRect" parent="VBoxContainer" unique_id=1613405650]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_wcgm8")
+stretch_mode = 4
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1159884940]
+[node name="ProgressBar" type="TextureProgressBar" parent="VBoxContainer" unique_id=1159884940]
 texture_filter = 1
 layout_mode = 2
 offset_transform_position = Vector2(59.115, 10.45)
 value = 100.0
 fill_mode = 3
-nine_patch_stretch = true
-stretch_margin_top = 172
 texture_progress = ExtResource("2_skh0t")
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer" unique_id=765354219]
+[node name="Hand" type="TextureRect" parent="VBoxContainer" unique_id=765354219]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("3_xmqgp")
+stretch_mode = 4
