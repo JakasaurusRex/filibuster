@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cl1rk7pxqb5ff"
-path="res://.godot/imported/Plate.blend-aa9f3599bc917a64ec016b7632882074.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/FishMinigame/Plate.blend"
-dest_files=["res://.godot/imported/Plate.blend-aa9f3599bc917a64ec016b7632882074.scn"]
 
 [params]
 

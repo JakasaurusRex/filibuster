@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bd1b7apfsgyxv"]
+
+[ext_resource type="Script" uid="uid://betgdhf78buis" path="res://Scripts/audio_handler.gd" id="1_2t6dv"]
+
+[node name="audioHandler" type="Node" unique_id=226941446]
+script = ExtResource("1_2t6dv")
+
+[node name="soundEffectQueue" type="Node" parent="." unique_id=1519572336]
+
+[node name="bgMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1044769964]
