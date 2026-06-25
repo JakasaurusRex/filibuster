@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://dc5x2bifqf1st"]
+
+[ext_resource type="Script" uid="uid://b6xaqhf50lc8j" path="res://Scripts/Minigames/TrashShoot/trash_shoot.gd" id="1_eybes"]
+[ext_resource type="Texture2D" uid="uid://ccrnt5spsekr" path="res://icon.svg" id="2_3g4do"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(1.3583374, 1.6867981, 0.11254883)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(1, 0.6323707, 1)
+
+[node name="TrashShoot" type="Node3D" unique_id=1785766331]
+script = ExtResource("1_eybes")
+
+[node name="Ball" type="RigidBody3D" parent="." unique_id=2082550076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0034950376, 1.8420932, 2.3823636)
+freeze = true
+freeze_mode = 1
+
+[node name="BallModel" type="MeshInstance3D" parent="Ball" unique_id=1802101702]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=1549435974]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=664280422]
+transform = Transform3D(1, 0, 0, 0, 0.79601073, 0.60528255, 0, -0.60528255, 0.79601073, 0, 3.0311234, 3.2160888)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=537389132]
+transform = Transform3D(1, 0, 0, 0, 0.21368644, 0.9769023, 0, -0.9769023, 0.21368644, 0, 3.7858853, 1.0094807)
+light_color = Color(0.36289978, 0.41798067, 0.3772161, 1)
+light_energy = 10.0
+
+[node name="Trash" type="Node3D" parent="." unique_id=1809035985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9717942)
+
+[node name="TrashWall1" type="RigidBody3D" parent="Trash" unique_id=398077190]
+transform = Transform3D(1, 0, 0, 0, 0.99452186, 0.10452846, 0, -0.10452846, 0.99452186, 0, 0, -0.5)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall1" unique_id=786532297]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall1" unique_id=2076197026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall2" type="RigidBody3D" parent="Trash" unique_id=1644402860]
+transform = Transform3D(-4.371139e-08, -0.10452846, 0.99452186, 0, 0.99452186, 0.10452846, -1, 4.569084e-09, -4.3471932e-08, -0.5, 0, 0)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall2" unique_id=1957273078]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall2" unique_id=138655052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall3" type="RigidBody3D" parent="Trash" unique_id=781616657]
+transform = Transform3D(-4.371139e-08, 0.10452846, -0.99452186, 0, 0.99452186, 0.10452846, 1, 4.569084e-09, -4.3471932e-08, 0.5, 0, 0)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall3" unique_id=463134763]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall3" unique_id=64942526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall4" type="RigidBody3D" parent="Trash" unique_id=150076505]
+transform = Transform3D(-0.99999994, -9.138168e-09, 8.6943864e-08, 0, 0.99452186, 0.10452846, -8.742277e-08, 0.10452846, -0.99452186, 0, 0, 0.5)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall4" unique_id=1378908459]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall4" unique_id=1721159588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="ScoreDetector" type="Area3D" parent="Trash" unique_id=216915953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/ScoreDetector" unique_id=1424330089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995348, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1895357409]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.5930176, 1.3822889)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=864925592]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=689963817]
+texture = ExtResource("2_3g4do")
+
+[connection signal="area_entered" from="Trash/ScoreDetector" to="." method="_on_score_detector_area_entered"]

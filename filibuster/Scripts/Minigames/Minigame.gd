@@ -26,12 +26,14 @@ func lose():
 	
 #when you run out of time on the minigame
 func minigame_timed_out():
+	print("Minigame timed out")
 	if not is_done:
 		emit_signal("failed", null)
 		close()
 
 #closing the minigame after winning/losing
 func close():
+	print("Hey")
 	emit_signal("closed")
 	queue_free()
 	

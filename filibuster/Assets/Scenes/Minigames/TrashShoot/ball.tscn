@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://brpcaoarcqrwn"]
+
+[ext_resource type="Script" uid="uid://c82qcfhdexafr" path="res://Scripts/Minigames/TrashShoot/ball.gd" id="1_bqcms"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+
+[node name="Ball" type="RigidBody3D" unique_id=1969712766]
+freeze = true
+script = ExtResource("1_bqcms")
+
+[node name="BallModel" type="MeshInstance3D" parent="." unique_id=1881266006]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1213753480]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_g4v7s")

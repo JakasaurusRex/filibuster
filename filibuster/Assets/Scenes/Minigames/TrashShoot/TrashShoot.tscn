@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dc5x2bifqf1st"]
+
+[ext_resource type="Script" uid="uid://b6xaqhf50lc8j" path="res://Scripts/Minigames/TrashShoot/trash_shoot.gd" id="1_eybes"]
+[ext_resource type="PackedScene" uid="uid://brpcaoarcqrwn" path="res://Assets/Scenes/Minigames/TrashShoot/ball.tscn" id="2_o62go"]
+[ext_resource type="PackedScene" uid="uid://dn4etuf4fn2qc" path="res://Assets/Scenes/Minigames/TrashShoot/score_particles.tscn" id="3_o62go"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(1.3583374, 1.6867981, 0.11254883)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(0.5834656, 0.59792364, 0.59140015)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g4v7s"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yf5fn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_57qmd"]
+
+[node name="TrashShoot" type="Node3D" unique_id=1785766331]
+script = ExtResource("1_eybes")
+
+[node name="Ball" parent="." unique_id=1969712766 instance=ExtResource("2_o62go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.842, 2.382)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=664280422]
+transform = Transform3D(1, 0, 0, 0, 0.79601073, 0.60528255, 0, -0.60528255, 0.79601073, 0, 3.0311234, 3.2160888)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=537389132]
+transform = Transform3D(1, 0, 0, 0, 0.21368644, 0.9769023, 0, -0.9769023, 0.21368644, 0, 3.7858853, -0.75186396)
+light_color = Color(0.36289978, 0.41798067, 0.3772161, 1)
+light_energy = 15.0
+
+[node name="Trash" type="Node3D" parent="." unique_id=1809035985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9717942)
+
+[node name="TrashWall1" type="RigidBody3D" parent="Trash" unique_id=398077190]
+transform = Transform3D(1, 0, 0, 0, 0.99452186, 0.10452846, 0, -0.10452846, 0.99452186, 0, 0, -0.5)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall1" unique_id=786532297]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall1" unique_id=2076197026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall2" type="RigidBody3D" parent="Trash" unique_id=1644402860]
+transform = Transform3D(-4.371139e-08, -0.10452846, 0.99452186, 0, 0.99452186, 0.10452846, -1, 4.569084e-09, -4.3471932e-08, -0.5, 0, 0)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall2" unique_id=1957273078]
+transform = Transform3D(1.3553357, -8.881784e-16, 4.440892e-16, 8.881784e-16, 1.6865132, -2.2354376e-17, -3.5527137e-15, -3.3498692e-16, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall2" unique_id=138655052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall3" type="RigidBody3D" parent="Trash" unique_id=781616657]
+transform = Transform3D(-4.371139e-08, 0.10452846, -0.99452186, 0, 0.99452186, 0.10452846, 1, 4.569084e-09, -4.3471932e-08, 0.5, 0, 0)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall3" unique_id=463134763]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall3" unique_id=64942526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="TrashWall4" type="RigidBody3D" parent="Trash" unique_id=150076505]
+transform = Transform3D(-0.99999994, -9.138168e-09, 8.6943864e-08, 0, 0.99452186, 0.10452846, -8.742277e-08, 0.10452846, -0.99452186, 0, 0, 0.5)
+freeze = true
+
+[node name="TrashWall" type="MeshInstance3D" parent="Trash/TrashWall4" unique_id=1378908459]
+transform = Transform3D(1.3553357, 0, 0, 0, 1.6865132, 0, 0, 0, 0.11254454, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/TrashWall4" unique_id=1721159588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0517578e-05, -7.6293945e-05, -0.00036621094)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="ScoreDetector" type="Area3D" parent="Trash" unique_id=216915953]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trash/ScoreDetector" unique_id=1424330089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0013885498, -0.48231125, -0.019302249)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1895357409]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.5930176, 1.3822889)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=864925592]
+
+[node name="Arrow" type="Line2D" parent="CanvasLayer" unique_id=1073323467]
+points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="ScoreParticles" parent="CanvasLayer" unique_id=1505723660 instance=ExtResource("3_o62go")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.69962835, -2)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=56945649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.80468976, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=497783637]
+shape = SubResource("WorldBoundaryShape3D_g4v7s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=37216288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8996875, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=535562825]
+shape = SubResource("WorldBoundaryShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1873699671]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_yf5fn")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1951408130]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1551848199]
+shape = SubResource("WorldBoundaryShape3D_57qmd")
+
+[connection signal="area_entered" from="Trash/ScoreDetector" to="." method="_on_score_detector_area_entered"]
+[connection signal="body_entered" from="Trash/ScoreDetector" to="." method="_on_score_detector_body_entered"]
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]
