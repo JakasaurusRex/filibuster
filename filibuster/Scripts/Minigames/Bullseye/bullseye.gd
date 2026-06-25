@@ -21,3 +21,4 @@ func _on_target_pressed() -> void:
 	print("Bullseye minigame: %s/%s target(s) hit" % [str(targets_hit), str(num_targets)])
 	if targets_hit >= num_targets:
 		win()
+		close()
