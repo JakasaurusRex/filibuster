@@ -16,6 +16,10 @@ extends Node
 	"whack_a_senator": {
 		"scene": preload("res://Assets/Scenes/Minigames/WhackASenator/WhackASenator.tscn"),
 		"weight": 1
+	},
+	"pet_dog": {
+		"scene": preload("res://Assets/Scenes/Minigames/PetDog/pet_dog_minigame.tscn"),
+		"weight": 1
 	}
 }
 
