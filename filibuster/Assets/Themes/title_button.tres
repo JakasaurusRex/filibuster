@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bk3ecn2ouoc5x"]
+
+[ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="1_t7utb"]
+
+[resource]
+default_font = ExtResource("1_t7utb")
+default_font_size = 40
