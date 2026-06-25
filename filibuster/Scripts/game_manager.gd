@@ -11,15 +11,16 @@ enum GameState {
 @onready var minigame_slots := {
 	"slot_1": $"../MinigameUI/MinigameCont/slot1/minigameSlot1",
 	"slot_2": $"../MinigameUI/MinigameCont/slot2/minigameSlot2",
-	"slot_3": $"../MinigameUI/MinigameCont/slot3/minigameSlot3",
-	"slot_4": $"../MinigameUI/MinigameCont/slot4/minigameSlot4",
 }
 @onready var minigames := {
 	"slot_1": null,
 	"slot_2": null,
-	"slot_3": null,
-	"slot_4": null,
 }
+@onready var tvs := {
+	"slot_1": $"../minigame1TVs".get_children(),
+	"slot_2": $"../minigame2TVs".get_children(),
+}
+
 @onready var camera := $"../Camera3D"
 @onready var camera_views := {}
 @onready var camera_angles := $"../CameraAngles"
@@ -49,13 +50,14 @@ func _ready() -> void:
 	camera_timer.timeout.connect(transition_camera)
 	
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
-	camera_timer.start(5)
+	camera_timer.start(7.5)
 	load_camera_views()
 	current_state = GameState.PLAYING
 
 func _process(delta: float) -> void:
 	if current_rating <= 0 and game_over_timer.is_stopped():
 		current_state = GameState.GAME_OVERING
+		print("GAME OVER WNAKDNSKL:NDAN")
 		game_over_timer.start(game_over_time)
 		
 	if current_state == GameState.GAME_OVER:
@@ -93,6 +95,11 @@ func spawn_minigame() -> void:
 	new_minigame.failed.connect(minigame_failed.bind(minigame_slot))
 	new_minigame.closed.connect(minigame_closed.bind(minigame_slot))
 
+	for tv in tvs[minigame_slot]:
+		tv.turnOn(new_minigame_viewport.get_path())
+	#tvs[minigame_slot].visible = true
+	#tvs[minigame_slot].mesh.material.albedo_texture.viewport_path = new_minigame_viewport.get_path()
+	
 func minigame_completed(completion_event, minigame_slot):
 	current_rating += RATING_ON_MINIGAME_WIN
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
@@ -107,6 +114,8 @@ func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
 	minigames[slot].queue_free() 
 	minigames[slot] = null
+	for tv in tvs[slot]:
+		tv.turnOff()
 
 func load_camera_views():
 	for view in camera_angles.get_children():
