@@ -3,12 +3,17 @@ extends "res://Scripts/Minigames/minigame_template_2d.gd"
 @export var total_drink: int = 50
 @onready var num_drinked = 0
 @onready var animation_player = $AnimationPlayer
+@onready var drink_progress_bar = $CanvasLayer/DrinkProgress
+@onready var bottle = $BottledWater
+
+func _ready() -> void:
+	drink_progress_bar.max_value = total_drink
+	drink_progress_bar.value = total_drink
 
 func _on_drink_button_pressed() -> void:
-	print("DRINKING!!!!")
 	num_drinked += 1
+	drink_progress_bar.value -= 1
 	animation_player.play("drink")
-	print("HEYEY HHEYY HEYYH HEYY")
 	if num_drinked >= total_drink:
 		win()
 		close()

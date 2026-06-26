@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://drqd1mmsaxc3a"]
 
 [ext_resource type="Script" uid="uid://47atfwo6alaf" path="res://Scripts/Minigames/EnergyDrink/energy_drink.gd" id="1_kdylb"]
-[ext_resource type="PackedScene" uid="uid://ckx3u74hg28py" path="res://Assets/Models/EnergyDrink/BottledWater.blend" id="2_sm0ya"]
+[ext_resource type="PackedScene" uid="uid://dsnvty7prno2v" path="res://Assets/Models/EnergyDrink/Water Bottle.fbx" id="2_kdylb"]
 
 [sub_resource type="Animation" id="Animation_ob6mq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BottledWater:position")
+tracks/0/path = NodePath("Water Bottle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.053660274, 1.0713844, 0.032072067)]
+"values": [Vector3(0, 1, 0.397)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BottledWater:rotation")
+tracks/1/path = NodePath("Water Bottle:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -30,48 +30,45 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_qif24"]
+[sub_resource type="Animation" id="Animation_sm0ya"]
 resource_name = "drink"
 length = 0.1
-step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BottledWater:position")
+tracks/0/path = NodePath("Water Bottle:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.040027577, 0.060041368, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.053660274, 1.0713844, 0.032072067), Vector3(0.053660274, 1.0713844, 0.09325093), Vector3(0.053660274, 1.0713844, 0.032072067)]
+"values": [Vector3(0, 1, 0.397), Vector3(0, 1.2543793, 0.397), Vector3(0, 1.2543793, 0.397), Vector3(0, 1, 0.397)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BottledWater:rotation")
+tracks/1/path = NodePath("Water Bottle:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.040027577, 0.060041368, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.7792706, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.73383886, 0, 0), Vector3(0.73383886, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ob6mq"]
 _data = {
 &"RESET": SubResource("Animation_ob6mq"),
-&"drink": SubResource("Animation_qif24")
+&"drink": SubResource("Animation_sm0ya")
 }
 
 [node name="EnergyDrink" type="Node3D" unique_id=719331435]
 script = ExtResource("1_kdylb")
 total_drink = 30
+minigame_size = Vector2(120, 192)
 max_runtime = 10.0
-
-[node name="BottledWater" parent="." unique_id=307914519 instance=ExtResource("2_sm0ya")]
-transform = Transform3D(1, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, 0.053660274, 1.0713844, 0.032072067)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=232315088]
 transform = Transform3D(1, 0, 0, 0, 0.9525301, 0.30444452, 0, -0.30444452, 0.9525301, 0, 2.2984796, 1.5707011)
@@ -88,7 +85,25 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179192681]
-libraries/ = SubResource("AnimationLibrary_ob6mq")
+[node name="DrinkProgress" type="TextureProgressBar" parent="CanvasLayer" unique_id=345111466]
+offset_right = 40.0
+offset_bottom = 40.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=179192681]
+process_priority = 1
+process_physics_priority = 1
+libraries/ = SubResource("AnimationLibrary_ob6mq")
+autoplay = &"drink"
+
+[node name="Water Bottle" parent="." unique_id=306899769 instance=ExtResource("2_kdylb")]
+transform = Transform3D(0.14999999, 0, 0, 0, 0.15000002, 0, 0, 0, 0.15000002, 0, 1, 0.397)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1685602530]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.3775902, 0)
+light_energy = 10.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1824890000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1503375, 3.470657)
+
+[connection signal="button_down" from="CanvasLayer/DrinkButton" to="." method="_on_drink_button_button_down"]
 [connection signal="pressed" from="CanvasLayer/DrinkButton" to="." method="_on_drink_button_pressed"]

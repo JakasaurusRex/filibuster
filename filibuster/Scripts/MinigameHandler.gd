@@ -24,6 +24,10 @@ extends Node
 	"trashshoot": {
 		"scene": preload("res://Assets/Scenes/Minigames/TrashShoot/TrashShoot.tscn"),
 		"weight": 1
+	},
+	"energydrink": {
+		"scene": preload("res://Assets/Scenes/Minigames/EnergyDrink/EnergyDrink.tscn"),
+		"weight": 1
 	}
 }
 
