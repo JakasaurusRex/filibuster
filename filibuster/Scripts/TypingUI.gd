@@ -134,6 +134,7 @@ func on_incorrect_letter() -> void:
 	label.text = no_change_begin + red_text + no_change_end
 	
 	# Animate stutter word
+	AudioHandler.playSound("incorrect")
 	stutter()
 
 func on_completed_word(word) -> void:
