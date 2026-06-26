@@ -86,7 +86,7 @@ func _physics_process(_delta: float) -> void:
 	var elapsed_hours = elapsed_time_to_hours()
 	var elapsed_minutes = elapsed_hours - int(elapsed_hours)
 	digital_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
-	analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
+	analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60), _delta)
 	
 func start_game():
 	current_rating = STARTING_RATING
