@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dairghbsxkkxk"
-path="res://.godot/imported/CellPhone.blend-6a5514086778d3b67191077cfae4135f.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Models/PhoneCall/CellPhone.blend"
-dest_files=["res://.godot/imported/CellPhone.blend-6a5514086778d3b67191077cfae4135f.scn"]
 
 [params]
 

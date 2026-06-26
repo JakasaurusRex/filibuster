@@ -18,7 +18,3 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Time: 12:00 PM"
-
-[node name="Timer" type="Timer" parent="." unique_id=1196656743]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
