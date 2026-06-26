@@ -95,5 +95,8 @@ mesh = SubResource("PlaneMesh_xtg8h")
 [node name="Phone" parent="." unique_id=751762341 instance=ExtResource("3_7gu1t")]
 transform = Transform3D(-0.87356967, 0, 0.4866991, 0, 1, 0, -0.4866991, 0, -0.87356967, -0.08807826, 0, 0.022113651)
 
+[node name="Timer" type="Timer" parent="." unique_id=389579408]
+
 [connection signal="call_failed" from="Phone" to="." method="on_phone_call_failed"]
 [connection signal="call_successful" from="Phone" to="." method="on_phone_call_successful"]
+[connection signal="timeout" from="Timer" to="." method="on_timer_timeout"]

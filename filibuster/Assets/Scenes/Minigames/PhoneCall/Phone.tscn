@@ -622,3 +622,8 @@ shape = SubResource("BoxShape3D_xtg8h")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1714780489]
 libraries/ = SubResource("AnimationLibrary_48f04")
 speed_scale = 4.0
+
+[node name="Timer" type="Timer" parent="." unique_id=395425083]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="on_timer_timeout"]

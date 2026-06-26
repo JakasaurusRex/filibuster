@@ -2,6 +2,7 @@ extends Minigame
 
 @onready var phone = $Phone
 @onready var camera = $Camera3D
+@onready var timer = $Timer
 
 func _ready() -> void:
 	pass
@@ -15,6 +16,8 @@ func lose():
 	super.lose()
 	emit_signal("failed", "PLAYER LOST PHONE GAME")
 	close()
+	
+var did_win = false
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
@@ -22,18 +25,23 @@ func _input(event: InputEvent) -> void:
 		if !ray_cast_result:
 			return
 			
-		print(ray_cast_result)
-			
 		var result_position = ray_cast_result.get("position")
 		var result_object = ray_cast_result.get("collider").get_parent()
-		print(result_object)
 		
 		phone.on_click(result_object)
 
 
 func on_phone_call_failed() -> void:
-	lose()
+	AudioHandler.playSound("waranty")
+	timer.start(3)
 
 
 func on_phone_call_successful() -> void:
-	win()
+	AudioHandler.playSound("tony")
+	timer.start(2)
+	did_win = true
+
+
+func on_timer_timeout() -> void:
+	if did_win: win()
+	else: lose()
