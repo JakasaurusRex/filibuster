@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="1_6ft20"]
 [ext_resource type="Theme" uid="uid://bk3ecn2ouoc5x" path="res://Assets/Themes/title_button.tres" id="1_7qpe2"]
-[ext_resource type="Script" uid="uid://8jd0fc8hc24a" path="res://Scripts/play_button.gd" id="1_a33en"]
 [ext_resource type="Script" uid="uid://drjl8ennx2kdx" path="res://Scripts/title_screen.gd" id="1_g57u2"]
-[ext_resource type="Script" uid="uid://h6ua7w137hud" path="res://Scripts/credits_button.gd" id="2_qnvjd"]
 [ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_vu4bj"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="3_a33en"]
 [ext_resource type="Script" uid="uid://bldldgrxgxbci" path="res://Scripts/button_animation.gd" id="5_qxa0e"]
@@ -269,7 +267,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_7qpe2")
 text = "PLAY"
 flat = true
-script = ExtResource("1_a33en")
+script = ExtResource("5_qxa0e")
 
 [node name="CreditsButton" type="Button" parent="MainMenu/TitleButtons" unique_id=640646247]
 layout_mode = 2
@@ -277,7 +275,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_7qpe2")
 text = "CREDITS"
 flat = true
-script = ExtResource("2_qnvjd")
+script = ExtResource("5_qxa0e")
 
 [node name="CreditBackButton" type="Button" parent="MainMenu" unique_id=874254143]
 visible = false
