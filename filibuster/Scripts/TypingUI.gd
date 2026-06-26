@@ -1,11 +1,15 @@
 extends CanvasLayer
 
-
+enum TypingState {
+	CANT_TYPE,
+	TYPING,
+}
 @onready var fil = $"../FilPrime"
 @onready var camera := $"../Camera3D"
 ## UI CONTROLLING CODE
 @onready var scoreLabel := $UI/scoreLabel
 var score := 0
+var current_state := TypingState.CANT_TYPE
 
 func addScore():
 	score += 1
@@ -62,6 +66,7 @@ const TRANSITIONS := [
 	"On the other hand...",
 	"But we can't overlook...",
 	"Despite this...",
+	"I have a dream",
 ]
 
 #var document_words
@@ -84,6 +89,7 @@ signal incorrect_letter()
 signal correct_letter()
 signal completed_word(word)
 signal completed_sentence()
+signal intro_speech_finished
 	
 var open_red
 var close_red
@@ -96,18 +102,13 @@ var last_incorrect = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("DSAUDSADSA READSA")
 	open_red = "[color=%s]" % failure_color.to_html()
 	close_red = "[/color]"
 	open_green = "[color=%s]" % success_color.to_html()
 	close_green = "[/color]"
 	open_cursor = "[bgcolor=%s]" % cursor_color.to_html()
 	close_cursor = "[/bgcolor]"
-	
-	#DocumentHandler.get_specific_document("tiny_test")
-	DocumentHandler.get_next_document()
-	load_font_data(label)
-	parse_document(DocumentHandler.get_current_file())
-	load_current_sentence()
 	
 func on_completed_sentence() -> void:
 	load_current_sentence()
@@ -186,6 +187,11 @@ func advance_idx():
 				DocumentHandler.toggle_document_typed(current_doc, true)
 				var new_transition = TRANSITIONS.pick_random()
 				parse_transition(new_transition)
+			elif DocumentHandler.documents[current_doc]["next"] == "intro_speech_finished":
+				DocumentHandler.delete_intro_document()
+				toggleTyping(false)
+				emit_signal("intro_speech_finished")
+				return
 			else:
 				DocumentHandler.get_specific_document(DocumentHandler.documents[current_doc]['next'])
 				parse_document(DocumentHandler.get_current_file())
@@ -263,6 +269,7 @@ func pause_typing(time):
 	
 # Handle keyboard events
 func _unhandled_input(event: InputEvent) -> void:
+	if current_state != TypingState.TYPING: return
 	if event is InputEventKey and not event.is_pressed():
 		if not can_type: return
 		var typed_event = event as InputEventKey
@@ -299,3 +306,9 @@ func animate_word3D(word: String, pos: Vector3, incorrect: bool=false):
 ## Calls animate_word3D to produce a random stutter word
 func stutter():
 	animate_word3D(STUTTERS.pick_random(), fil.wordPosition.global_position, true)
+
+func toggleTyping(on:bool):
+	if on:
+		current_state = TypingState.TYPING
+	else:
+		current_state = TypingState.CANT_TYPE

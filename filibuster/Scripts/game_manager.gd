@@ -2,11 +2,13 @@ extends Node
 
 enum GameState {
 	NOT_STARTED,
+	INTRO,
 	PLAYING,
 	GAME_OVERING,
 	GAME_OVER,
 }
 
+@onready var typing_ui := $"../TypingUI"
 @onready var minigame_anim := $minigameAnim
 @onready var minigame_slots := {
 	"slot_1": $"../MinigameUI/MinigameCont/slot1/minigameSlot1",
@@ -59,37 +61,65 @@ var current_camera_view = "defaultView"
 
 var minigame_border := Vector2(16,16)
 
+@export var DO_INTRO := true
+
+
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
 	camera_timer.timeout.connect(transition_camera)
-	
+	typing_ui.intro_speech_finished.connect(intro_speech_finished)
 	time_ratio = (MINUTES_TO_24_HOURS * 60.0) / 86400
 	
 	load_camera_views()
-	start_game()
+	if DO_INTRO:
+		start_intro()
+	else:
+		start_game()
 	
 
 func _process(delta: float) -> void:
-	#lose game to approval rating
-	if current_rating <= 0: lose_game()
-	
-	#win game by lasting 24 hours
-	if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
+	if current_state == GameState.PLAYING:
+		#lose game to approval rating
+		if current_rating <= 0: lose_game()
+		
+		#win game by lasting 24 hours
+		if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
 
 func _physics_process(_delta: float) -> void:
-	get_current_time()
-	var elapsed_hours = elapsed_time_to_hours()
-	var elapsed_minutes = elapsed_hours - int(elapsed_hours)
-	digital_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
-	analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60), _delta)
+	if current_state == GameState.PLAYING:
+		get_current_time()
+		var elapsed_hours = elapsed_time_to_hours()
+		var elapsed_minutes = elapsed_hours - int(elapsed_hours)
+		digital_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
+		analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60), _delta)
+
+func start_intro():
+	current_state = GameState.INTRO
+	current_rating = STARTING_RATING
+	
+	DocumentHandler.get_specific_document("intro_speech")
+	typing_ui.load_font_data(typing_ui.label)
+	typing_ui.parse_document(DocumentHandler.get_current_file())
+	typing_ui.load_current_sentence()
+	typing_ui.toggleTyping(true)
+
+func intro_speech_finished():
+	start_game()
 	
 func start_game():
+	current_state = GameState.PLAYING
 	current_rating = STARTING_RATING
 	rating_timer.start(1.0)
-	current_state = GameState.PLAYING
 	start_time = Time.get_ticks_msec()
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
 	camera_timer.start(20.0)
+	
+	DocumentHandler.delete_intro_document()
+	DocumentHandler.get_next_document()
+	typing_ui.load_font_data(typing_ui.label)
+	typing_ui.parse_document(DocumentHandler.get_current_file())
+	typing_ui.load_current_sentence()
+	typing_ui.toggleTyping(true)
 
 func win_game():
 	print("GAME WON, 24 HOURS BUSTED")
@@ -194,10 +224,12 @@ func on_rating_timer_timeout() -> void:
 	print(current_rating)
 	
 func on_completed_word(word: Variant) -> void:
+	if not current_state == GameState.PLAYING: return
 	current_rating += RATING_ON_WORD
 	current_rating = min(current_rating, MAX_RATING)
 
 func on_incorrect_letter() -> void:
+	if not current_state == GameState.PLAYING: return
 	current_rating -= RATING_ON_TYPO
 
 func animate_score(word: String, slot: String, lost: bool=false):

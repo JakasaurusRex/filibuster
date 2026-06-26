@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_vu4bj"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="3_a33en"]
 [ext_resource type="Script" uid="uid://bldldgrxgxbci" path="res://Scripts/button_animation.gd" id="5_qxa0e"]
+[ext_resource type="Texture2D" uid="uid://cr5pi21d8q4tl" path="res://Assets/Textures/Floor/Floor_FloorTexture_BaseColor.png" id="7_vg1fd"]
+[ext_resource type="Texture2D" uid="uid://6hr1hqcw8xsn" path="res://Assets/Textures/Floor/Floor_FloorTexture_Normal.png" id="8_rp6fg"]
+[ext_resource type="Texture2D" uid="uid://d1y67ali1e2hc" path="res://Assets/Textures/Floor/Floor_FloorTexture_Roughness.png" id="9_7a2d0"]
 
 [sub_resource type="TextMesh" id="TextMesh_g4v7s"]
 material = ExtResource("3_a33en")
@@ -205,7 +208,16 @@ link"
 font = ExtResource("2_vu4bj")
 font_size = 72
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvpbu"]
+albedo_texture = ExtResource("7_vg1fd")
+roughness_texture = ExtResource("9_7a2d0")
+normal_enabled = true
+normal_texture = ExtResource("8_rp6fg")
+uv1_scale = Vector3(0.35, 0.35, 0.35)
+uv1_triplanar = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_fvpbu")
 
 [sub_resource type="Animation" id="Animation_vg1fd"]
 length = 0.001
@@ -320,7 +332,7 @@ transform = Transform3D(-1, 8.742276e-08, 8.643483e-15, 0, -4.371138e-08, 2.2618
 mesh = SubResource("TextMesh_yf5fn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1680420124]
-transform = Transform3D(12.976642, 0, 0, 0, -0.00015816186, 7.1244893, 0, -0.9995413, -0.0011273397, -0.96823597, -0.97828245, 2.5686517)
+transform = Transform3D(12.976642, 0, 0, 0, -0.00015816186, 7.1244893, 0, -0.9995413, -0.0011273397, -1.658, -0.065, 3.484)
 mesh = SubResource("PlaneMesh_g4v7s")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=694451851]

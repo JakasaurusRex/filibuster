@@ -6,6 +6,11 @@ extends Node
 		#"next": "transition_phrase",
 		#"typed": false
 	#},
+	"intro_speech": {
+		"file": "intro_speech.txt",
+		"next": "intro_speech_finished",
+		"typed": false,
+	},
 	"genesis": {
 		"file": "genesis.txt",
 		"next": "transition_phrase",
@@ -227,7 +232,7 @@ func get_random_document():
 	return random_document
 	
 func get_next_document():
-	if not current_document:
+	if not current_document or current_document == "":
 		current_document = get_random_document()
 	else:
 		if current_document == "transition_phrase":
@@ -248,3 +253,7 @@ func get_specific_document(doc):
 	
 func get_current_file():
 	return documents[current_document]['file']
+
+func delete_intro_document():
+	documents.erase("intro_speech")
+	current_document = ""
