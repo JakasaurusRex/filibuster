@@ -6,6 +6,7 @@ extends "res://Scripts/Minigames/minigame_template_2d.gd"
 @onready var drink_progress_bar = $CanvasLayer/DrinkProgress
 @onready var bottle = $BottledWater
 @onready var particles = $ScoreParticles
+@onready var button = $CanvasLayer/DrinkButton
 
 func _ready() -> void:
 	drink_progress_bar.max_value = total_drink
@@ -17,6 +18,7 @@ func _on_drink_button_pressed() -> void:
 	drink_progress_bar.value -= 1
 	animation_player.play("drink")
 	if num_drinked >= total_drink:
+		button.visible = false
 		win()
 		animation_player.play("win")
 		particles.emitting = true
