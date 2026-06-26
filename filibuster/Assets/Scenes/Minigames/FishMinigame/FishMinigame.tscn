@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://gi7fx8l78uoh" path="res://Assets/Scenes/Minigames/FishMinigame/flower.tscn" id="6_7uirn"]
 [ext_resource type="PackedScene" uid="uid://byt80d4q3pj7p" path="res://Assets/Scenes/Minigames/FishMinigame/bowl.tscn" id="7_7uirn"]
 [ext_resource type="PackedScene" uid="uid://r2awais5t4if" path="res://Assets/Scenes/Minigames/FishMinigame/bebe_carrot.tscn" id="11_u0hmt"]
+[ext_resource type="PackedScene" uid="uid://dn4etuf4fn2qc" path="res://Assets/Scenes/Minigames/TrashShoot/score_particles.tscn" id="13_7880h"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uobsy"]
 radius = 0.7555013
@@ -251,4 +252,12 @@ mass = 0.1
 transform = Transform3D(0.31231844, -0.0034009072, 0.08983664, 0.008145238, 0.32450208, -0.016032506, -0.08953124, 0.017658425, 0.3119252, 1.049782, -0.486, 0.6581467)
 mass = 0.1
 
+[node name="ScoreParticles" parent="." unique_id=1268238279 instance=ExtResource("13_7880h")]
+transform = Transform3D(1, 0, 0, 0, -0.10089846, -0.9948967, 0, 0.9948967, -0.10089846, 0, 0.70766413, 0)
+explosiveness = 1.0
+
+[node name="Timer" type="Timer" parent="." unique_id=666203423]
+one_shot = true
+
 [connection signal="body_entered" from="DropArea" to="." method="on_drop_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="on_timer_timeout"]
