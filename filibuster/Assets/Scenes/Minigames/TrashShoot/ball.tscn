@@ -7,6 +7,19 @@ bounce = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_g4v7s"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_63ich"]
+noise_type = 4
+frequency = 0.0004
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_koiq3"]
+noise = SubResource("FastNoiseLite_63ich")
+seamless = true
+seamless_blend_skirt = 0.743
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efgj1"]
+albedo_color = Color(0.54509807, 0.41568628, 0.56078434, 1)
+albedo_texture = SubResource("NoiseTexture2D_koiq3")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 
 [node name="Ball" type="RigidBody3D" unique_id=1969712766]
@@ -17,6 +30,7 @@ script = ExtResource("1_bqcms")
 [node name="BallModel" type="MeshInstance3D" parent="." unique_id=1881266006]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_g4v7s")
+surface_material_override/0 = SubResource("StandardMaterial3D_efgj1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1213753480]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

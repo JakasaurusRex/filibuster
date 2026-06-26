@@ -69,8 +69,12 @@ func _input(event: InputEvent) -> void:
 		did_win = result_object.name == picked_state
 		flashing_gameover = true
 		
-		if did_win: flash_material = state_correct_material
-		else: flash_material = state_incorrect_material
+		if did_win: 
+			flash_material = state_correct_material
+			AudioHandler.playSound("Correct")
+		else: 
+			flash_material = state_incorrect_material
+			AudioHandler.playSound("wrong")
 	
 		timer.start(FLASH_TIMER)
 	

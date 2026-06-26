@@ -41,7 +41,7 @@ func _reset_ball():
 
 ## Applys impulse to ball using start_pos and end_pos variables to calculate magnitude and direction
 func fling_ball():
-	print("FLING")
+	AudioHandler.playSound("fly")
 	var difference = start_pos - end_pos
 	var direction = difference.normalized()
 	var magnitude = (difference*Vector2(0,2)).length() / minigame_size.x / 10
@@ -51,8 +51,7 @@ func fling_ball():
 
 
 func _on_score_detector_body_entered(body: Node3D) -> void:
-	print(body)
-	print("Successful trash shoot")
+	AudioHandler.playSound("Correct")
 	score_particles.emitting = true
 	win()
 	get_tree().create_timer(2).timeout.connect(close)

@@ -33,7 +33,6 @@ func minigame_timed_out():
 
 #closing the minigame after winning/losing
 func close():
-	print("Hey")
 	emit_signal("closed")
 	queue_free()
 	

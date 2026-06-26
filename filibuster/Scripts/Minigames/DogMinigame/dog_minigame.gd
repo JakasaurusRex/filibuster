@@ -60,12 +60,18 @@ func _process(delta: float) -> void:
 	if glove.grabbing and looking_at_capy and current_mouse_delta:
 		current_scratch_time += delta
 		current_mouse_delta = null
-		if fmod(current_scratch_time, 0.10) < 0.0001:
+		
+		var rounded = snapped(current_scratch_time, 0.01)
+		
+		if fmod(rounded, 0.75) == 0:
+			AudioHandler.playSound("Scratching")
 			make_noise()
 	
 	if current_scratch_time > SCRATCH_TIME:
 		current_camera_index += 1
 		current_scratch_time = 0
+		
+		AudioHandler.playSound("meow")
 		
 		if current_camera_index == len(camera_rotations):
 			current_camera_index = 0

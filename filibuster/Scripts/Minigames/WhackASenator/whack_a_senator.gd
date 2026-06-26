@@ -77,12 +77,14 @@ func fillLowered(fil):
 	
 func filWhacked(fil):
 	score += 1
+	AudioHandler.playSound("Hurt")
 	if score >= 10:
 		win()
 	fil_status[fil] = "transition"
 	var fil_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	fil_tween.tween_property(fils[fil], "global_position", fils[fil].global_position - Vector3.UP * .25, 0.35)
 	fil_tween.tween_callback(fillLowered.bind(fil))
+	
 	
 func ray_cast():
 	var space_state = camera.get_world_3d().direct_space_state
@@ -98,6 +100,7 @@ func ray_cast():
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
+		AudioHandler.playSound("bonk")
 		var ray_cast_result = ray_cast()
 		if not ray_cast_result: return
 		if ray_cast_result is StaticBody3D: return
