@@ -73,6 +73,7 @@ func _ready() -> void:
 	time_ratio = (MINUTES_TO_24_HOURS * 60.0) / 86400
 	
 	load_camera_views()
+	
 	if DO_INTRO:
 		start_intro()
 	else:
@@ -102,6 +103,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 func start_intro():
 	current_state = GameState.INTRO
 	current_rating = STARTING_RATING
+	camera.global_transform = camera_views["courtBackView"].global_transform
+	camera.fov = camera_views["courtBackView"].fov
 	
 	DocumentHandler.get_specific_document("intro_speech")
 	typing_ui.load_font_data(typing_ui.label)
@@ -118,10 +121,13 @@ func skip_intro():
 func start_game():
 	current_state = GameState.PLAYING
 	current_rating = STARTING_RATING
-	rating_timer.start(1.0)
+	
 	start_time = Time.get_ticks_msec()
+	
+	rating_timer.start(1.0)
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
 	camera_timer.start(20.0)
+	transition_camera(2.0, "defaultView")
 	
 	DocumentHandler.delete_intro_document()
 	DocumentHandler.get_next_document()
@@ -129,7 +135,7 @@ func start_game():
 	typing_ui.parse_document(DocumentHandler.get_current_file())
 	typing_ui.load_current_sentence()
 	typing_ui.toggleTyping(true)
-
+	
 	skipLabel.visible = false
 	
 func win_game():
