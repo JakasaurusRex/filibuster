@@ -45,6 +45,14 @@ size_flags_vertical = 8
 mouse_filter = 2
 theme_type_variation = &"textBoxPanel"
 
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/UIMargins/textBoxPanel" unique_id=656952069]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="textLabel" type="RichTextLabel" parent="UI/UIMargins/textBoxPanel" unique_id=47775656]
 layout_mode = 1
 anchors_preset = 15

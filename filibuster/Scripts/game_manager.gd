@@ -24,6 +24,7 @@ enum GameState {
 @onready var camera := $"../Camera3D"
 @onready var camera_views := {}
 @onready var camera_angles := $"../CameraAngles"
+
 var minigame_timer_range_min = 2.5
 var minigame_timer_range_max = 5.0
 
@@ -34,7 +35,7 @@ var minigame_timer_range_max = 5.0
 
 @onready var rating_timer = $RatingTimer
 @export var STARTING_RATING = 50
-@export var RATING_PER_SEC = -1
+@export var RATING_LOSS_PER_SEC = -1
 @export var RATING_ON_WORD = 1
 @export var RATING_ON_MINIGAME_WIN = 1
 @export var RATING_ON_MINIGAME_LOSS = 1
@@ -101,14 +102,14 @@ func spawn_minigame() -> void:
 	#tvs[minigame_slot].mesh.material.albedo_texture.viewport_path = new_minigame_viewport.get_path()
 	
 func minigame_completed(completion_event, minigame_slot):
-	current_rating += RATING_ON_MINIGAME_WIN
+	#current_rating += RATING_ON_MINIGAME_WIN
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
-	animate_score("+" + str(RATING_ON_MINIGAME_WIN), minigame_slot)
+	#animate_score("+" + str(RATING_ON_MINIGAME_WIN), minigame_slot)
 	
 func minigame_failed(failure_event, minigame_slot):
-	current_rating += RATING_ON_MINIGAME_LOSS
+	current_rating -= RATING_ON_MINIGAME_LOSS
 	print("FAILED MINIGAME WITH EVENT: %s" % failure_event)
-	animate_score(str(RATING_ON_MINIGAME_LOSS), minigame_slot, true)
+	animate_score("-" + str(RATING_ON_MINIGAME_LOSS), minigame_slot, true)
 	
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
@@ -137,7 +138,7 @@ func transition_camera(duration:=2.0, view:=""):
 	camera_tween.tween_property(camera, "fov", end_fov, duration)
 
 func on_rating_timer_timeout() -> void:
-	current_rating += RATING_PER_SEC
+	current_rating -= RATING_LOSS_PER_SEC
 	
 func on_completed_word(word: Variant) -> void:
 	current_rating += RATING_ON_WORD

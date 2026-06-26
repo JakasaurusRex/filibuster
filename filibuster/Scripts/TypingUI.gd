@@ -140,6 +140,7 @@ func load_font_data(label):
 	text_box = label
 	text_box_font = label.get_theme_default_font()
 	text_box_font_size = label.get_theme_default_font_size()
+	#print("FONTER ", label.theme_override_font_sizes.normal_font_size)
 	text_box_length = label.size.x - 48
 	
 # Advance the index into the word
