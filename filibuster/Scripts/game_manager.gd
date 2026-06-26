@@ -94,7 +94,7 @@ func start_game():
 	current_state = GameState.PLAYING
 	start_time = Time.get_ticks_msec()
 	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
-	#camera_timer.start(7.5)
+	camera_timer.start(20.0)
 
 func win_game():
 	print("GAME WON, 24 HOURS BUSTED")
