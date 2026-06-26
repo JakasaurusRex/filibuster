@@ -28,6 +28,10 @@ extends Node
 	"energydrink": {
 		"scene": preload("res://Assets/Scenes/Minigames/EnergyDrink/EnergyDrink.tscn"),
 		"weight": 1
+	},
+	"matchtwo": {
+		"scene": preload("res://Assets/Scenes/MatchTwo/MatchTwo.tscn"),
+		"weight": 1
 	}
 }
 

@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://6tfigvc7mpqa"]
+
+[ext_resource type="Script" uid="uid://cg1f3gq4ylx2a" path="res://Scripts/Minigames/MatchTwo/match_two.gd" id="1_s1fou"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+
+[node name="MatchTwo" type="Node3D" unique_id=1255320847]
+script = ExtResource("1_s1fou")
+
+[node name="Background" type="MeshInstance3D" parent="." unique_id=1739694954]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("PlaneMesh_yf5fn")
+
+[node name="Camera3D" type="Camera3D" parent="Background" unique_id=1748014878]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 1.33, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=232865466]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1486414243]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1779492506]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1643736818]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1660153744]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=2124602460]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=415115166]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1132702114]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=312515280]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=1434536456]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=2029665892]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=329297194]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=39641513]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=724982269]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=947423987]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=23888858]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer3" unique_id=1213265818]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=424273819]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=1768079957]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=519333099]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=878272639]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"
+
+[node name="Button4" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer4" unique_id=816366356]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hello"

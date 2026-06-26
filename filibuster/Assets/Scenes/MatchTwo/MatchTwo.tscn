@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://6tfigvc7mpqa"]
+
+[ext_resource type="Script" uid="uid://cg1f3gq4ylx2a" path="res://Scripts/Minigames/MatchTwo/match_two.gd" id="1_s1fou"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+
+[node name="MatchTwo" type="Node3D" unique_id=1255320847]
+script = ExtResource("1_s1fou")
+max_runtime = 20.0
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1358501597]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2, 1.5, 2)
+light_energy = 5.0
+
+[node name="Background" type="MeshInstance3D" parent="." unique_id=1739694954]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2, 0, 2)
+mesh = SubResource("PlaneMesh_yf5fn")
+
+[node name="Camera3D" type="Camera3D" parent="Background" unique_id=1748014878]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, 0.5, 0, -0.5, -2.1855694e-08, 0, 1.5630822, 0)

@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://c04cekhrviyy8"]
+
+[ext_resource type="Script" uid="uid://cw04tyf8trtvk" path="res://Scripts/Minigames/MatchTwo/card.gd" id="1_tkaq2"]
+[ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_tkm45"]
+[ext_resource type="PackedScene" uid="uid://dn4etuf4fn2qc" path="res://Assets/Scenes/Minigames/TrashShoot/score_particles.tscn" id="3_h1bxv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhsg0"]
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_nhsg0")
+
+[sub_resource type="Animation" id="Animation_tkm45"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415927)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreParticles:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardMesh:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.27601227, 0.9999998, 0.4372207)]
+}
+
+[sub_resource type="Animation" id="Animation_h1bxv"]
+resource_name = "faceup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 3.1415927)]
+}
+
+[sub_resource type="Animation" id="Animation_kqjkv"]
+resource_name = "faceup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.1415927), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3tdd4"]
+resource_name = "match"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardMesh:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 12.566371, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardMesh:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.3, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CardMesh:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0.27601227, 0.9999998, 0.4372207), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1bxv"]
+_data = {
+&"RESET": SubResource("Animation_tkm45"),
+&"facedown": SubResource("Animation_h1bxv"),
+&"faceup": SubResource("Animation_kqjkv"),
+&"match": SubResource("Animation_3tdd4")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tkm45"]
+
+[node name="Card" type="Node3D" unique_id=1233285452]
+script = ExtResource("1_tkaq2")
+
+[node name="CardMesh" type="MeshInstance3D" parent="." unique_id=901293004]
+transform = Transform3D(-0.27601227, 8.742276e-08, 0, -2.412976e-08, -0.9999998, 0, 0, 0, 0.4372207, 0, 0, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="Number" type="Label3D" parent="CardMesh" unique_id=560180536]
+transform = Transform3D(3.623026, 0, 0, 0, -4.371139e-08, 1, 0, -2.287174, -9.997555e-08, 0, 0.0104004145, 0)
+modulate = Color(0, 0, 0, 1)
+text = "1"
+font = ExtResource("2_tkm45")
+font_size = 100
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=794770908]
+libraries/ = SubResource("AnimationLibrary_h1bxv")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=836330859]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1252633965]
+shape = SubResource("BoxShape3D_tkm45")
+
+[node name="ScoreParticles" parent="." unique_id=1268238279 instance=ExtResource("3_h1bxv")]
+amount = 8
+lifetime = 2.0
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
