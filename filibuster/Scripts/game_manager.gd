@@ -27,6 +27,8 @@ enum GameState {
 @onready var camera_views := {}
 @onready var camera_angles := $"../CameraAngles"
 
+@onready var skipLabel := $"../skipLabel"
+
 var minigame_timer_range_min = 15.0
 var minigame_timer_range_max = 30.0
 
@@ -93,6 +95,10 @@ func _physics_process(_delta: float) -> void:
 		digital_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
 		analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60), _delta)
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("escape") and current_state == GameState.INTRO:
+		start_game()
+	
 func start_intro():
 	current_state = GameState.INTRO
 	current_rating = STARTING_RATING
@@ -104,6 +110,9 @@ func start_intro():
 	typing_ui.toggleTyping(true)
 
 func intro_speech_finished():
+	start_game()
+
+func skip_intro():
 	start_game()
 	
 func start_game():
@@ -121,6 +130,8 @@ func start_game():
 	typing_ui.load_current_sentence()
 	typing_ui.toggleTyping(true)
 
+	skipLabel.visible = false
+	
 func win_game():
 	print("GAME WON, 24 HOURS BUSTED")
 	current_state = GameState.GAME_OVER
