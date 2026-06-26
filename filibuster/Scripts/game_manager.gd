@@ -91,7 +91,7 @@ func start_game():
 	rating_timer.start(1.0)
 	current_state = GameState.PLAYING
 	start_time = Time.get_ticks_msec()
-	#minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
+	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
 	#camera_timer.start(7.5)
 
 func win_game():
@@ -124,6 +124,7 @@ func spawn_minigame() -> void:
 	if len(open_slots) == 0: return
 	var new_minigame_viewport = SubViewport.new()
 	new_minigame_viewport.own_world_3d = true
+	new_minigame_viewport.physics_object_picking = true
 	new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	new_minigame_viewport.msaa_2d = Viewport.MSAA_8X
 	new_minigame_viewport.msaa_3d = Viewport.MSAA_8X
