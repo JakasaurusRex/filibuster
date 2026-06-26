@@ -92,6 +92,7 @@ mesh = SubResource("TextMesh_g4v7s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=63601345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024636865, -0.0055122375, -0.0021514893)
 shape = SubResource("BoxShape3D_g4v7s")
+disabled = true
 
 [node name="textAnimation" type="AnimationPlayer" parent="." unique_id=1160424898]
 libraries/ = SubResource("AnimationLibrary_qiddx")

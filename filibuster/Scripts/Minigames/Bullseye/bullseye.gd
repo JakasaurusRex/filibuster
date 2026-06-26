@@ -5,7 +5,7 @@ extends "res://Scripts/Minigames/minigame_template_2d.gd"
 
 @onready var targets_hit = 0
 @onready var target = $Target
-@onready var ICON_SIZE = minigame_size.x / 6
+@onready var ICON_SIZE = minigame_size.x / 3
 
 func _ready() -> void:
 	target.size = Vector2(ICON_SIZE,ICON_SIZE)

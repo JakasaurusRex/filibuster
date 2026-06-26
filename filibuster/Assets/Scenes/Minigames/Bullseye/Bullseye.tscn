@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blryxapw8f763"]
 
 [ext_resource type="Script" uid="uid://dm2ifmc06cj00" path="res://Scripts/Minigames/Bullseye/bullseye.gd" id="1_3ll0r"]
-[ext_resource type="Texture2D" uid="uid://ccrnt5spsekr" path="res://icon.svg" id="2_78dn5"]
+[ext_resource type="Texture2D" uid="uid://bfsu03tc7n8ml" path="res://Assets/Textures/Bullseye/paper.png" id="2_78dn5"]
 
 [node name="Bullseye" type="Node2D" unique_id=136599906]
 script = ExtResource("1_3ll0r")
