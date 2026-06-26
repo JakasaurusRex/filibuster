@@ -201,12 +201,16 @@ _data = {
 [sub_resource type="TextMesh" id="TextMesh_yf5fn"]
 material = ExtResource("3_a33en")
 text = "Credits:
-so here are the credits
-this is something else
-perhaps add google doc
-link"
+Birdboys
+InspiringPotato
+Kyro
+Jakasaurus
+Recari
+
+See itch.io for attributions"
 font = ExtResource("2_vu4bj")
 font_size = 72
+line_spacing = -36.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvpbu"]
 albedo_texture = ExtResource("7_vg1fd")
@@ -328,7 +332,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29778183, 1.4906805, 5.011
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4859715)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Credits" unique_id=873115363]
-transform = Transform3D(-1, 8.742276e-08, 8.643483e-15, 0, -4.371138e-08, 2.2618802, 8.742278e-08, 0.9999999, 9.8869926e-08, -1.1084838, 3.7751067, -5.658016)
+transform = Transform3D(-1, 8.742276e-08, 8.643483e-15, 0, -4.371138e-08, 2.2618802, 8.742278e-08, 0.9999999, 9.8869926e-08, -1.108, 3.7749999, -6.051204)
 mesh = SubResource("TextMesh_yf5fn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1680420124]
