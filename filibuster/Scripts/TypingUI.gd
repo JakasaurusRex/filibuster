@@ -74,7 +74,7 @@ var current_document_tokens : Array
 var current_char_idx : int = 0
 var word_char_idx : int = 0
 
-var bad_characters := "-()"
+var bad_characters := "-().,'\"*_—:;"
 var text_box_font
 var text_box_font_size
 var text_box_length
@@ -118,6 +118,7 @@ func on_correct_letter() -> void:
 	var non_highlighted = current_sentence.substr(current_char_idx+1)
 	
 	label.text = open_green + highlighted_green + close_green + open_cursor + current_character + close_cursor + non_highlighted
+	AudioHandler.playSound("typing_sounds")
 	
 func on_incorrect_letter() -> void:
 	#pause_typing(0.5)
@@ -140,6 +141,7 @@ func on_completed_word(word) -> void:
 	animate_word3D(current_word, fil.wordPosition.global_position)
 	fil.speak_animation()
 	addScore()
+	#AudioHandler.playSound("typing_ding")
 	
 func load_font_data(label):
 	text_box = label
@@ -153,6 +155,8 @@ func advance_idx():
 	# First advance the character
 	if(current_sentence[current_char_idx] != " "):
 		word_char_idx += 1
+		AudioHandler.playSound("typing_sound")
+		
 	current_char_idx += 1
 	emit_signal("correct_letter")
 	# Then lets advance the word
@@ -267,12 +271,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		
 		var key_typed = PackedByteArray([typed_event.keycode]).get_string_from_utf8()
-		if key_typed == "/" and Input.is_key_pressed(KEY_SHIFT):
-			key_typed = "?"
-		if key_typed == "1" and Input.is_key_pressed(KEY_SHIFT):
-			key_typed = "!"
-		if key_typed == "8" and Input.is_key_pressed(KEY_SHIFT):
-			key_typed = "*"
+		#if key_typed == "/" and Input.is_key_pressed(KEY_SHIFT):
+			#key_typed = "?"
+		#if key_typed == "1" and Input.is_key_pressed(KEY_SHIFT):
+			#key_typed = "!"
+		#if key_typed == "8" and Input.is_key_pressed(KEY_SHIFT):
+			#key_typed = "*"
 		if key_typed.to_lower() != current_sentence[current_char_idx].to_lower():
 			emit_signal("incorrect_letter")
 		else:

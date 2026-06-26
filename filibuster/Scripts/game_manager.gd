@@ -70,11 +70,6 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	#if current_rating <= 0 and game_over_timer.is_stopped():
-		#current_state = GameState.GAME_OVERING
-		#print("GAME OVER WNAKDNSKL:NDAN")
-		#game_over_timer.start(game_over_time)
-		
 	#lose game to approval rating
 	if current_rating <= 0: lose_game()
 	
