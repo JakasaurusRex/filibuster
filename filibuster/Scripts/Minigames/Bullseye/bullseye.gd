@@ -7,7 +7,7 @@ extends "res://Scripts/Minigames/minigame_template_2d.gd"
 @onready var target = $Target
 @onready var particles_scene = preload("res://Assets/Scenes/Minigames/Bullseye/shatter_particles.tscn")
 var particles: Node2D
-@onready var ICON_SIZE = minigame_size.x / 3
+@onready var ICON_SIZE = minigame_size.x / 4
 
 func _ready() -> void:
 	target.size = Vector2(ICON_SIZE,ICON_SIZE)
@@ -24,8 +24,11 @@ func target_random_pos():
 func _on_target_pressed() -> void:
 	targets_hit += 1
 	particles.emitting = true
+	AudioHandler.playSound("Bullseye")
 	print("Bullseye minigame: %s/%s target(s) hit" % [str(targets_hit), str(num_targets)])
 	if targets_hit >= num_targets:
+		target.visible = false
 		win()
-		close()
-	target_random_pos()
+		get_tree().create_timer(2).timeout.connect(close)
+	else:
+		target_random_pos()
