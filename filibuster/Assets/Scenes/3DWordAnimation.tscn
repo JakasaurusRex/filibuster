@@ -87,6 +87,7 @@ gravity_scale = -0.25
 linear_damp = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=422023156]
+cast_shadow = 0
 mesh = SubResource("TextMesh_g4v7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=63601345]
