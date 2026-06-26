@@ -4,8 +4,8 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1fou"]
 albedo_color = Color(0.44705883, 0.36862746, 1, 1)
-metallic = 0.45
-roughness = 0.7
+metallic = 0.8
+roughness = 0.92
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
 material = SubResource("StandardMaterial3D_s1fou")
