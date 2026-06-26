@@ -41,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.2789388)
 script = ExtResource("1_xoryj")
 camera_positions = [Vector3(0, 1.785, -4.76), Vector3(2.1419888, 1.7254896, -1.9516239), Vector3(-1.3700969, -0.0679543, 0.83524346)]
 camera_rotations = [Vector3(-0.35447446, -3.1415925, -3.2355825e-08), Vector3(-0.48486012, 1.7360948, -3.0502438e-08), Vector3(0.2808833, -0.69105387, 0)]
+max_runtime = 15.0
 
 [node name="Glove" parent="." unique_id=863966067 instance=ExtResource("2_621eb")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5214784, -2.9187367)

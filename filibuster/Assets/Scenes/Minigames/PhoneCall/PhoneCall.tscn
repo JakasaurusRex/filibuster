@@ -45,6 +45,7 @@ size = Vector2(3.025, 2)
 
 [node name="PhoneCall" type="Node3D" unique_id=514623287]
 script = ExtResource("1_pvdcv")
+max_runtime = 15.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
 transform = Transform3D(0.5846225, 0.33710763, -0.7379533, 0, 0.90958744, 0.4155126, 0.8113055, -0.24291798, 0.5317653, -0.2969997, 0.29135537, 0.19738185)

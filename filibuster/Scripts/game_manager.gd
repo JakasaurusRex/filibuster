@@ -25,8 +25,8 @@ enum GameState {
 @onready var camera_views := {}
 @onready var camera_angles := $"../CameraAngles"
 
-var minigame_timer_range_min = 2.5
-var minigame_timer_range_max = 5.0
+var minigame_timer_range_min = 15.0
+var minigame_timer_range_max = 30.0
 
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer
@@ -45,7 +45,7 @@ var minigame_timer_range_max = 5.0
 @onready var rating_timer = $RatingTimer
 var current_rating : int
 
-const MINUTES_TO_24_HOURS := 1
+const MINUTES_TO_24_HOURS := 3
 var start_time := 0.0 #TIME WE STARTED GAME AT
 var elapsed_time := 0.0 #TIME SINCE STARTING GAME IN SECONDS
 var time_ratio := 0.0 #RATIO OF REAL TIME TO IN GAME TIME
@@ -56,6 +56,8 @@ var word_animation_scene2D = preload("res://Assets/Scenes/2DWordAnimation.tscn")
 
 var current_state = GameState.NOT_STARTED
 var current_camera_view = "defaultView"
+
+var minigame_border := Vector2(16,16)
 
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
@@ -97,12 +99,14 @@ func start_game():
 func win_game():
 	print("GAME WON, 24 HOURS BUSTED")
 	current_state = GameState.GAME_OVER
+	$"../winLabel".visible = true
 	get_tree().paused = true
 	
 func lose_game():
 	print("GAME LOST, NO APPROVAL")
 	current_state = GameState.GAME_OVER
-	get_tree().quit()
+	$"../loseLabel".visible = true
+	get_tree().paused = true
 	
 func get_current_time():
 	elapsed_time = (Time.get_ticks_msec() - start_time)/1000
@@ -137,6 +141,9 @@ func spawn_minigame() -> void:
 	new_minigame_viewport.add_child(new_minigame)
 	minigames[minigame_slot] = new_minigame_viewport
 	
+	minigame_slots[minigame_slot].find_child("gameBorder").visible = true
+	minigame_slots[minigame_slot].find_child("gameBorder").size = new_minigame.minigame_size + minigame_border
+	minigame_slots[minigame_slot].find_child("gameBorder").global_position = minigame_slots[minigame_slot].get_parent().global_position - minigame_border/2
 	new_minigame_viewport.size = new_minigame.minigame_size
 	new_minigame.start()
 	new_minigame.completed.connect(minigame_completed.bind(minigame_slot))
@@ -160,6 +167,7 @@ func minigame_failed(failure_event, minigame_slot):
 	
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
+	minigame_slots[slot].find_child("gameBorder").visible = false
 	minigames[slot].queue_free() 
 	minigames[slot] = null
 	for tv in tvs[slot]:

@@ -8,7 +8,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if carrots_dropped == total_carrot_amount:
-		emit_signal("completed")
+		emit_signal("completed", "FISH_GAME")
 
 func on_drop_area_entered(body: Node3D) -> void:
 	carrots_dropped += 1

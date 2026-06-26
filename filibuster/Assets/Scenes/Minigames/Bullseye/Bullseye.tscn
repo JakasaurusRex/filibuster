@@ -6,7 +6,7 @@
 [node name="Bullseye" type="Node2D" unique_id=136599906]
 script = ExtResource("1_3ll0r")
 num_targets = 8
-max_runtime = 8.0
+max_runtime = 15.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1587127286]
 offset_right = 959.0
