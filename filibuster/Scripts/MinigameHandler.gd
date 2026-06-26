@@ -32,6 +32,10 @@ extends Node
 	"matchtwo": {
 		"scene": preload("res://Assets/Scenes/MatchTwo/MatchTwo.tscn"),
 		"weight": 1
+	},
+	"phonecall": {
+		"scene": preload("res://Assets/Scenes/Minigames/PhoneCall/PhoneCall.tscn"),
+		"weight": 1
 	}
 }
 

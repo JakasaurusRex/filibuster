@@ -29,3 +29,11 @@ func _input(event: InputEvent) -> void:
 		print(result_object)
 		
 		phone.on_click(result_object)
+
+
+func on_phone_call_failed() -> void:
+	lose()
+
+
+func on_phone_call_successful() -> void:
+	win()

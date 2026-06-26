@@ -12,7 +12,20 @@ extends Node3D
 	$Nine: "nine",
 	$Zero: "zero",
 	$Clear:"clear",
-	$Call: "submit",
+	$Call: "call",
+}
+
+const string_to_num = {
+	"one": 1,
+	"two": 2,
+	"three": 3,
+	"four": 4,
+	"five": 5,
+	"six": 6,
+	"seven": 7,
+	"eight": 8,
+	"nine": 9,
+	"zero": 0,
 }
 
 @onready var animation_player = $AnimationPlayer
@@ -25,27 +38,28 @@ var called = false
 var current_string = ""
 var correct_string = "7674206967"
 
+func did_call():
+	called = true
+	if current_string == correct_string: emit_signal("call_successful")
+	else: emit_signal("call_failed")
+
 func on_click(object):
 	var number = numbers[object]
 	if !number: return
 	
+	if animation_player.is_playing(): return
 	animation_player.play(number)
 	if called: return
 	
 	if number == "clear":
 		current_string = ""
 		return
-	elif number =="submit":
-		if current_string == correct_string:
-			emit_signal("call_successful")
-		else:
-			emit_signal("call_failed")
-			
-		called = true
+	elif number =="call":
+		did_call()
 		return
 	
-	if len(current_string) < 9:
-		current_string += number
+	if len(current_string) < 10:
+		current_string += str(string_to_num[number])
 	
 
 func _process(delta: float) -> void:

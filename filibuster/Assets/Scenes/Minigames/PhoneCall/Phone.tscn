@@ -50,9 +50,11 @@ albedo_color = Color(0.1254902, 0.07058824, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_7614i"]
 font_names = PackedStringArray("Cascadia Code")
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_uobsy"]
 font_names = PackedStringArray("Leelawadee UI")
+subpixel_positioning = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xtg8h"]
 size = Vector3(0.040771484, 0.04711914, 0.038085938)
@@ -415,10 +417,11 @@ size = Vector3(0.1396289, 0.04, 0.04)
 material = SubResource("StandardMaterial3D_xtg8h")
 
 [node name="Number" type="Label3D" parent="Screen" unique_id=1360219543]
-transform = Transform3D(-0.31, 4.68087e-08, 2.0460733e-15, 0, -1.35505305e-08, 0.31, 4.68087e-08, 0.31, 1.35505305e-08, 0.06675338, 0.022620678, -0.0012974888)
+transform = Transform3D(-0.285, 4.3033804e-08, 1.8810673e-15, 0, -1.2457746e-08, 0.285, 4.3033804e-08, 0.285, 1.2457746e-08, 0.06675338, 0.022620678, -0.0012974888)
 texture_filter = 0
 modulate = Color(0.018875489, 0.060295425, 0.019244548, 1)
-text = "123456789"
+text = "1234567890
+"
 font = SubResource("SystemFont_7614i")
 font_size = 16
 outline_size = 0
