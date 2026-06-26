@@ -147,8 +147,6 @@ func spawn_minigame() -> void:
 
 	for tv in tvs[minigame_slot]:
 		tv.turnOn(new_minigame_viewport.get_path())
-	#tvs[minigame_slot].visible = true
-	#tvs[minigame_slot].mesh.material.albedo_texture.viewport_path = new_minigame_viewport.get_path()
 	
 func minigame_completed(completion_event, minigame_slot):
 	#current_rating += RATING_ON_MINIGAME_WIN
@@ -193,6 +191,7 @@ func on_rating_timer_timeout() -> void:
 	
 func on_completed_word(word: Variant) -> void:
 	current_rating += RATING_ON_WORD
+	current_rating = min(current_rating, MAX_RATING)
 
 func on_incorrect_letter() -> void:
 	current_rating -= RATING_ON_TYPO

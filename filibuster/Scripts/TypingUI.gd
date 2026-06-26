@@ -74,7 +74,7 @@ var current_document_tokens : Array
 var current_char_idx : int = 0
 var word_char_idx : int = 0
 
-var bad_characters := "-().,'\"*_—:;"
+var bad_characters := "-().,'\"*_—:;!?"
 var text_box_font
 var text_box_font_size
 var text_box_length
@@ -156,7 +156,7 @@ func advance_idx():
 	# First advance the character
 	if(current_sentence[current_char_idx] != " "):
 		word_char_idx += 1
-		AudioHandler.playSound("typing_sound")
+		AudioHandler.playSound("typing_sounds")
 		
 	current_char_idx += 1
 	emit_signal("correct_letter")
