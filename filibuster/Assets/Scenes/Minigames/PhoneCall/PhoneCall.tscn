@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bik541sfxykph"]
 
-[ext_resource type="Script" uid="uid://c8wgrpmwuba8" path="res://Scripts/Minigames/minigame_template_3d.gd" id="1_pvdcv"]
+[ext_resource type="Script" uid="uid://cerlg1tgscxdh" path="res://Scripts/Minigames/PhoneCall/phone_call.gd" id="1_7614i"]
 [ext_resource type="Script" uid="uid://bjnhoktdwjovk" path="res://Scripts/Minigames/PhoneCall/camera.gd" id="2_7614i"]
 [ext_resource type="Texture2D" uid="uid://bmc1rkp4eorfr" path="res://Assets/Graphics/phony-tonys.png" id="2_apmwa"]
 [ext_resource type="PackedScene" uid="uid://cmirgriuf0akq" path="res://Assets/Scenes/Minigames/PhoneCall/Phone.tscn" id="3_7gu1t"]
@@ -44,7 +44,7 @@ material = SubResource("StandardMaterial3D_lqxvg")
 size = Vector2(3.025, 2)
 
 [node name="PhoneCall" type="Node3D" unique_id=514623287]
-script = ExtResource("1_pvdcv")
+script = ExtResource("1_7614i")
 max_runtime = 15.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]

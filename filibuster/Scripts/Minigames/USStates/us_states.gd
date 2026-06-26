@@ -16,7 +16,6 @@ var selected_mesh : MeshInstance3D = null
 var flash_material
 var did_win = false
 
-
 @onready var state_text = $StateTextBox/StateText
 @onready var text_box = $StateTextBox/TextBox
 var picked_state
@@ -32,12 +31,12 @@ func _ready() -> void:
 	
 func win():
 	super.win()
-	emit_signal("completed", "PLAYER WON TEMPLATE GAME")
+	emit_signal("completed", "PLAYER WON STATES GAME")
 	close()
 
 func lose():
 	super.lose()
-	emit_signal("finished", "PLAYER LOST TEST GAME")
+	emit_signal("failed", "PLAYER LOST STATES GAME")
 	close()
 		
 

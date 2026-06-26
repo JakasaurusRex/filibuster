@@ -7,7 +7,7 @@ func win():
 
 func lose():
 	super.lose()
-	emit_signal("finished", "PLAYER LOST TEST GAME")
+	emit_signal("failed", "PLAYER LOST DOG PETTING GAME")
 	close()
 
 @export var camera_positions = [Vector3(0, 1.785, -4.76)]

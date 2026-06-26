@@ -152,11 +152,15 @@ func minigame_completed(completion_event, minigame_slot):
 	#current_rating += RATING_ON_MINIGAME_WIN
 	print("COMPLETED MINIGAME WITH EVENT: %s" % completion_event)
 	#animate_score("+" + str(RATING_ON_MINIGAME_WIN), minigame_slot)
+	AudioHandler.playSound("clapping")
+	
 	
 func minigame_failed(failure_event, minigame_slot):
+	print("here")
 	current_rating -= RATING_ON_MINIGAME_LOSS
 	print("FAILED MINIGAME WITH EVENT: %s" % failure_event)
 	animate_score("-" + str(RATING_ON_MINIGAME_LOSS), minigame_slot, true)
+	AudioHandler.playSound("Boos")
 	
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
