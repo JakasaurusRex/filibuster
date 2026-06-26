@@ -31,39 +31,85 @@ var minigame_timer_range_max = 5.0
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer
 @onready var camera_timer := $CameraTimer
+
+#on god idk what this is
 @export var game_over_time = 1
 
+@export var MAX_RATING := 60
+@export var STARTING_RATING := 50
+@export var RATING_LOSS_PER_SEC := 1
+@export var RATING_ON_WORD := 1
+@export var RATING_ON_TYPO := 1
+@export var RATING_ON_MINIGAME_WIN := 1
+@export var RATING_ON_MINIGAME_LOSS := 1
 @onready var rating_timer = $RatingTimer
-@export var STARTING_RATING = 50
-@export var RATING_LOSS_PER_SEC = -1
-@export var RATING_ON_WORD = 1
-@export var RATING_ON_MINIGAME_WIN = 1
-@export var RATING_ON_MINIGAME_LOSS = 1
-var current_rating : int = STARTING_RATING
+var current_rating : int
+
+const MINUTES_TO_24_HOURS := 1
+var start_time := 0.0 #TIME WE STARTED GAME AT
+var elapsed_time := 0.0 #TIME SINCE STARTING GAME IN SECONDS
+var time_ratio := 0.0 #RATIO OF REAL TIME TO IN GAME TIME
+@onready var digital_clock := $"../DigitalClock"
+@onready var analog_clock := $"../AnalogClock"
 
 var word_animation_scene2D = preload("res://Assets/Scenes/2DWordAnimation.tscn")
 
-var current_state = GameState.PLAYING
+var current_state = GameState.NOT_STARTED
 var current_camera_view = "defaultView"
 
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
 	camera_timer.timeout.connect(transition_camera)
 	
-	minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
-	camera_timer.start(7.5)
+	time_ratio = (MINUTES_TO_24_HOURS * 60.0) / 86400
+	
 	load_camera_views()
-	current_state = GameState.PLAYING
+	start_game()
+	
 
 func _process(delta: float) -> void:
-	if current_rating <= 0 and game_over_timer.is_stopped():
-		current_state = GameState.GAME_OVERING
-		print("GAME OVER WNAKDNSKL:NDAN")
-		game_over_timer.start(game_over_time)
+	#if current_rating <= 0 and game_over_timer.is_stopped():
+		#current_state = GameState.GAME_OVERING
+		#print("GAME OVER WNAKDNSKL:NDAN")
+		#game_over_timer.start(game_over_time)
 		
-	if current_state == GameState.GAME_OVER:
-		get_tree().quit()
+	#lose game to approval rating
+	if current_rating <= 0: lose_game()
 	
+	#win game by lasting 24 hours
+	if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
+
+func _physics_process(_delta: float) -> void:
+	get_current_time()
+	var elapsed_hours = elapsed_time_to_hours()
+	var elapsed_minutes = elapsed_hours - int(elapsed_hours)
+	digital_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
+	analog_clock.parse_time(int(elapsed_hours), int(elapsed_minutes*60))
+	
+func start_game():
+	current_rating = STARTING_RATING
+	rating_timer.start(1.0)
+	current_state = GameState.PLAYING
+	start_time = Time.get_ticks_msec()
+	#minigame_timer.start(randf_range(minigame_timer_range_min, minigame_timer_range_max))
+	#camera_timer.start(7.5)
+
+func win_game():
+	print("GAME WON, 24 HOURS BUSTED")
+	current_state = GameState.GAME_OVER
+	get_tree().paused = true
+	
+func lose_game():
+	print("GAME LOST, NO APPROVAL")
+	current_state = GameState.GAME_OVER
+	get_tree().quit()
+	
+func get_current_time():
+	elapsed_time = (Time.get_ticks_msec() - start_time)/1000
+
+func elapsed_time_to_hours():
+	var elapsed_hours = elapsed_time / time_ratio / 3600
+	return elapsed_hours
 
 func on_timer_timeout() -> void:
 	current_state = GameState.GAME_OVER
@@ -139,10 +185,14 @@ func transition_camera(duration:=2.0, view:=""):
 
 func on_rating_timer_timeout() -> void:
 	current_rating -= RATING_LOSS_PER_SEC
+	print(current_rating)
 	
 func on_completed_word(word: Variant) -> void:
 	current_rating += RATING_ON_WORD
-	
+
+func on_incorrect_letter() -> void:
+	current_rating -= RATING_ON_TYPO
+
 func animate_score(word: String, slot: String, lost: bool=false):
 	# Create instance and set the word and position of animation
 	var word_scene = word_animation_scene2D.instantiate()
@@ -163,4 +213,3 @@ func animate_score(word: String, slot: String, lost: bool=false):
 	word_scene.position = pos
 	word_scene.set_word(word)
 	if lost: word_scene.set_incorrect_material()
-	

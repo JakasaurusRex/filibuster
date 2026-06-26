@@ -38,20 +38,12 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="textBoxPanel" type="Panel" parent="UI/UIMargins" unique_id=1787153691]
-custom_minimum_size = Vector2(640, 90)
+custom_minimum_size = Vector2(640, 76)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 mouse_filter = 2
 theme_type_variation = &"textBoxPanel"
-
-[node name="NinePatchRect" type="NinePatchRect" parent="UI/UIMargins/textBoxPanel" unique_id=656952069]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="textLabel" type="RichTextLabel" parent="UI/UIMargins/textBoxPanel" unique_id=47775656]
 layout_mode = 1
@@ -64,12 +56,9 @@ mouse_filter = 2
 theme_type_variation = &"typingLabel"
 theme_override_styles/normal = SubResource("StyleBoxEmpty_c3hvi")
 bbcode_enabled = true
-text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
-
-[node name="labelPos" type="Node2D" parent="UI/UIMargins/textBoxPanel/textLabel" unique_id=1879333337]
 
 [node name="scoreLabel" type="Label" parent="UI" unique_id=51817857]
 layout_mode = 1
