@@ -3,9 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://wg14qkoomqsu" path="res://Assets/Scenes/AnalogClock.tscn" id="1_6ft20"]
 [ext_resource type="Theme" uid="uid://bk3ecn2ouoc5x" path="res://Assets/Themes/title_button.tres" id="1_7qpe2"]
 [ext_resource type="Script" uid="uid://8jd0fc8hc24a" path="res://Scripts/play_button.gd" id="1_a33en"]
+[ext_resource type="Script" uid="uid://drjl8ennx2kdx" path="res://Scripts/title_screen.gd" id="1_g57u2"]
 [ext_resource type="Script" uid="uid://h6ua7w137hud" path="res://Scripts/credits_button.gd" id="2_qnvjd"]
 [ext_resource type="FontFile" uid="uid://bu34oq0qhkpbm" path="res://Assets/Fonts/comic_sans.ttf" id="2_vu4bj"]
 [ext_resource type="Material" uid="uid://8iqpbbsxd6dg" path="res://Assets/Materials/3DWord.tres" id="3_a33en"]
+[ext_resource type="Script" uid="uid://bldldgrxgxbci" path="res://Scripts/button_animation.gd" id="5_qxa0e"]
 
 [sub_resource type="TextMesh" id="TextMesh_g4v7s"]
 material = ExtResource("3_a33en")
@@ -13,11 +15,245 @@ text = "CLOTURE"
 font = ExtResource("2_vu4bj")
 font_size = 20
 
+[sub_resource type="Animation" id="Animation_qxa0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hinge:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu/TitleButtons:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainMenu/CreditBackButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainMenu/CreditBackButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainMenu/TitleButtons:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g57u2"]
+resource_name = "credits"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -15, 2.465)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3.1415927, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hinge:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.5707964, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu/TitleButtons:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainMenu/CreditBackButton:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainMenu/CreditBackButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MainMenu/TitleButtons:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxa0e"]
+_data = {
+&"RESET": SubResource("Animation_qxa0e"),
+&"credits": SubResource("Animation_g57u2")
+}
+
+[sub_resource type="TextMesh" id="TextMesh_yf5fn"]
+material = ExtResource("3_a33en")
+text = "Credits:
+so here are the credits
+this is something else
+perhaps add google doc
+link"
+font = ExtResource("2_vu4bj")
+font_size = 72
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+
+[sub_resource type="Animation" id="Animation_vg1fd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0.9880019, 0, -0.15444161, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rp6fg"]
+resource_name = "light_pan"
+length = 3.0000000000000004
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Quaternion(0.9880019, 0, -0.15444161, 0), Quaternion(0.9797409, 0, 0.2002692, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7a2d0"]
+_data = {
+&"RESET": SubResource("Animation_vg1fd"),
+&"light_pan": SubResource("Animation_rp6fg")
+}
+
 [node name="TitleScreen" type="Node3D" unique_id=1245560389]
+script = ExtResource("1_g57u2")
+main_scene = &"uid://bqhmk4u6yxoyy"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1244337215]
+[node name="MainMenu" type="CanvasLayer" parent="." unique_id=1244337215]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1958448183]
+[node name="TitleButtons" type="VBoxContainer" parent="MainMenu" unique_id=1958448183]
 anchors_preset = -1
 anchor_left = 0.35
 anchor_top = 0.45
@@ -27,35 +263,81 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=621268638]
+[node name="PlayButton" type="Button" parent="MainMenu/TitleButtons" unique_id=621268638]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_7qpe2")
 text = "PLAY"
+flat = true
 script = ExtResource("1_a33en")
 
-[node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=640646247]
+[node name="CreditsButton" type="Button" parent="MainMenu/TitleButtons" unique_id=640646247]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_7qpe2")
 text = "CREDITS"
+flat = true
 script = ExtResource("2_qnvjd")
+
+[node name="CreditBackButton" type="Button" parent="MainMenu" unique_id=874254143]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.75
+anchor_right = 0.65
+anchor_bottom = 0.95
+theme = ExtResource("1_7qpe2")
+text = "Back"
+flat = true
+script = ExtResource("5_qxa0e")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1950422070]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.4375024, -0.84026736, -4.301531)
 
-[node name="3DSceneElements" type="Node3D" parent="." unique_id=320633356]
+[node name="Title" type="Node3D" parent="." unique_id=320633356]
 
-[node name="AnalogClock" parent="3DSceneElements" unique_id=1881720282 instance=ExtResource("1_6ft20")]
+[node name="AnalogClock" parent="Title" unique_id=1881720282 instance=ExtResource("1_6ft20")]
 transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.9999999, 1, -4.3711385e-08, 0, -4.371139e-08, -0.9999999, -4.3711385e-08, 0, 1.4297745, 1.50631)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="3DSceneElements" unique_id=1400141714]
-transform = Transform3D(0.80707645, 0.30465826, 0.5057776, 0, -0.85660124, 0.51597905, 0.59044695, -0.41643456, -0.6913427, 1.9496486, 1.4824893, -1.3016043)
-light_energy = 0.5
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="3DSceneElements" unique_id=56150514]
+[node name="TitleWords" type="MeshInstance3D" parent="Title" unique_id=56150514]
 transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -1.4986763, 1.481162, 1.3409934)
 mesh = SubResource("TextMesh_g4v7s")
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="CanvasLayer/VBoxContainer/PlayButton" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/CreditsButton" to="CanvasLayer/VBoxContainer/CreditsButton" method="_on_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1388188975]
+libraries/ = SubResource("AnimationLibrary_qxa0e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1400141714]
+transform = Transform3D(0.80707645, 0.30465826, 0.5057776, 0, -0.85660124, 0.51597905, 0.59044695, -0.41643456, -0.6913427, 1.9496486, 1.4824893, -1.3016043)
+light_energy = 0.5
+
+[node name="Hinge" type="Node3D" parent="." unique_id=105107370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29778183, 1.4906805, 5.0117683)
+
+[node name="Credits" type="Node3D" parent="Hinge" unique_id=365247097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.4859715)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/Credits" unique_id=873115363]
+transform = Transform3D(-1, 8.742276e-08, 8.643483e-15, 0, -4.371138e-08, 2.2618802, 8.742278e-08, 0.9999999, 9.8869926e-08, -1.1084838, 3.7751067, -5.658016)
+mesh = SubResource("TextMesh_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1680420124]
+transform = Transform3D(12.976642, 0, 0, 0, -0.00015816186, 7.1244893, 0, -0.9995413, -0.0011273397, -0.96823597, -0.97828245, 2.5686517)
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=694451851]
+transform = Transform3D(0.9522956, 0, -0.3051772, 0, -1, 0, -0.3051772, 0, -0.95229566, -1.10483, 0.7407868, -4.7471333)
+rotation_edit_mode = 1
+light_energy = 3.0
+spot_range = 15.0
+spot_angle = 24.0
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=1009033467]
+libraries/ = SubResource("AnimationLibrary_7a2d0")
+autoplay = &"light_pan"
+
+[connection signal="pressed" from="MainMenu/TitleButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/TitleButtons/PlayButton" to="MainMenu/TitleButtons/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/TitleButtons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenu/TitleButtons/CreditsButton" to="MainMenu/TitleButtons/CreditsButton" method="_on_pressed"]
+[connection signal="pressed" from="MainMenu/CreditBackButton" to="." method="_on_credit_back_button_pressed"]

@@ -35,6 +35,7 @@ const STUTTERS := [
 	"FUCK",
 	"Um...",
 	"So...",
+	"Well..."
 ]
 
 const TRANSITIONS := [
@@ -44,7 +45,7 @@ const TRANSITIONS := [
 	"However...",
 	"Within the context of...",
 	"Yet, we must also understand that...",
-	"And by the pythagorean theorum...",
+	"And by the pythagorean theorem...",
 	"Like my mom always said...",
 	"Let alone the subject of...",
 	"What really strikes me is...",
@@ -52,6 +53,10 @@ const TRANSITIONS := [
 	"Moving on...",
 	"As history will tell you...",
 	"But we mustn't forget...",
+	"On the other hand...",
+	"Back to my main point...",
+	"Another thing we must discuss is...",
+	"All this to say...",
 	"Now, look to the person sitting next to you and think...",
 	"The average person may say...",
 	"On the other hand...",
