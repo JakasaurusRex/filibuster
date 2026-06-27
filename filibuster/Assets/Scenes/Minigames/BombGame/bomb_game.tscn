@@ -1,9 +1,20 @@
 [gd_scene format=3 uid="uid://djytphmgks5dg"]
 
-[ext_resource type="Script" uid="uid://c8wgrpmwuba8" path="res://Scripts/Minigames/minigame_template_3d.gd" id="1_dik1k"]
+[ext_resource type="Script" uid="uid://dosvltebtxg11" path="res://Scripts/Minigames/BombGame/bomb_game.gd" id="1_50qxm"]
+[ext_resource type="Script" uid="uid://dr7ogwyxo1kht" path="res://Scripts/Minigames/BombGame/camera.gd" id="2_6xrgm"]
+[ext_resource type="PackedScene" uid="uid://cxpqn4r58fjj8" path="res://Assets/Scenes/Minigames/BombGame/bomb.tscn" id="2_j6tuk"]
 
-[node name="template3DMinigame" type="Node3D" unique_id=514623287]
-script = ExtResource("1_dik1k")
+[node name="BombGame" type="Node3D" unique_id=514623287]
+script = ExtResource("1_50qxm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.703419, -0.040732384)
+script = ExtResource("2_6xrgm")
+
+[node name="Bomb" parent="." unique_id=971829199 instance=ExtResource("2_j6tuk")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=738899279]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22.201973, 0)
+
+[connection signal="completed" from="Bomb" to="." method="on_bomb_completed"]
+[connection signal="exploded" from="Bomb" to="." method="on_bomb_exploded"]

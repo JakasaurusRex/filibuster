@@ -22,7 +22,6 @@ func _input(event: InputEvent) -> void:
 		if !ray_cast_result:
 			return
 			
-		var result_position = ray_cast_result.get("position")
 		var result_object = ray_cast_result.get("collider").get_parent()
 		
 		phone.on_click(result_object)
