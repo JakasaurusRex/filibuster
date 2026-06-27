@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	super._process(delta)
 	var space_state = camera.get_world_3d().direct_space_state
 	var mousepos = get_viewport().get_mouse_position()
 	var origin = camera.project_ray_origin(mousepos)
@@ -43,7 +44,6 @@ func _on_win_area_body_entered(body: Node3D) -> void:
 		score_particles.emitting = true
 		get_tree().create_timer(1).timeout.connect(close)
 	
-
 
 func _on_lose_area_body_entered(body: Node3D) -> void:
 	if body == puck:
