@@ -37,7 +37,7 @@ var minigame_timer_range_max = 25.0
 @onready var camera_timer := $CameraTimer
 
 #on god idk what this is
-@export var game_over_time = 1
+@export var game_over_time = 3
 
 @export var MAX_RATING := 60
 @export var STARTING_RATING := 50

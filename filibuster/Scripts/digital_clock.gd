@@ -31,7 +31,7 @@ func parse_time(hour, minute):
 	else:
 		am_or_pm = "AM"
 	
-	label.text = parsed_hour + ":" + parsed_minute + " " + am_or_pm
+	label.text = " " + parsed_hour + ":" + parsed_minute + " " + am_or_pm
 		
 
 # Called when the node enters the scene tree for the first time.
