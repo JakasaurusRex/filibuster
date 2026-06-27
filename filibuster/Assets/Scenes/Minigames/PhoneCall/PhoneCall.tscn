@@ -43,8 +43,70 @@ albedo_texture = ExtResource("2_apmwa")
 material = SubResource("StandardMaterial3D_lqxvg")
 size = Vector2(3.025, 2)
 
+[sub_resource type="Animation" id="Animation_v1xf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.20483422, -0.036486983, 0.1408011)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.2632895, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7614i"]
+resource_name = "animate_paper"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0.20483422, -0.036486983, 0.1408011), Vector3(-0.10499999, 0.279, 0.046000004)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, -1.2632895, 0), Vector3(1.5254178, 0.6195919, 1.7104226)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1xf3"]
+_data = {
+&"RESET": SubResource("Animation_v1xf3"),
+&"animate_paper": SubResource("Animation_7614i")
+}
+
 [node name="PhoneCall" type="Node3D" unique_id=514623287]
 script = ExtResource("1_7614i")
+minigame_size = Vector2(256, 256)
 max_runtime = 15.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=513575697]
@@ -96,6 +158,10 @@ mesh = SubResource("PlaneMesh_xtg8h")
 transform = Transform3D(-0.87356967, 0, 0.4866991, 0, 1, 0, -0.4866991, 0, -0.87356967, -0.08807826, 0, 0.022113651)
 
 [node name="Timer" type="Timer" parent="." unique_id=389579408]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=218422204]
+libraries/ = SubResource("AnimationLibrary_v1xf3")
+autoplay = &"animate_paper"
 
 [connection signal="call_failed" from="Phone" to="." method="on_phone_call_failed"]
 [connection signal="call_successful" from="Phone" to="." method="on_phone_call_successful"]
