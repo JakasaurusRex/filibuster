@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://i50vxw3pw7ni"]
+
+[ext_resource type="Texture2D" uid="uid://bu50vmapxltdr" path="res://Assets/Graphics/Thumb/thumb.png" id="1_33ylm"]
+[ext_resource type="Script" uid="uid://bv8tj4wr87r6u" path="res://Scripts/minigame_progress_bar.gd" id="1_nnw0l"]
+[ext_resource type="Texture2D" uid="uid://cqjyr2u5acscc" path="res://Assets/Graphics/Thumb/long.png" id="1_slrsj"]
+[ext_resource type="Texture2D" uid="uid://nv08u3u5qu8p" path="res://Assets/Graphics/Thumb/hand.png" id="2_33ylm"]
+
+[node name="minigameProgress" type="Control" unique_id=1617050730]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_nnw0l")
+
+[node name="progressVbox" type="VBoxContainer" parent="." unique_id=90813809]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="spacer" type="Control" parent="progressVbox" unique_id=1640174732]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="tip" type="TextureRect" parent="progressVbox" unique_id=144930041]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+texture = ExtResource("1_33ylm")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="thumb" type="TextureRect" parent="progressVbox" unique_id=95903795]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("1_slrsj")
+expand_mode = 1
+
+[node name="hand" type="TextureRect" parent="progressVbox" unique_id=1443840954]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_33ylm")
+expand_mode = 5
+stretch_mode = 4

@@ -29,8 +29,8 @@ enum GameState {
 
 @onready var skipLabel := $"../skipLabel"
 
-var minigame_timer_range_min = 15.0
-var minigame_timer_range_max = 30.0
+var minigame_timer_range_min = 2.5#15.0
+var minigame_timer_range_max = 2.5#30.0
 
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer
@@ -189,6 +189,9 @@ func spawn_minigame() -> void:
 	minigame_slots[minigame_slot].get_parent().find_child("gameBorder").size = new_minigame.minigame_size + minigame_border
 	minigame_slots[minigame_slot].get_parent().find_child("gameBorder").global_position = minigame_slots[minigame_slot].get_parent().global_position - new_minigame.minigame_size/2 - minigame_border/2
 	
+	minigame_slots[minigame_slot].find_child("minigameProgress").visible = true
+	new_minigame.progress_bar = minigame_slots[minigame_slot].find_child("minigameProgress")
+	
 	new_minigame.start()
 	new_minigame.completed.connect(minigame_completed.bind(minigame_slot))
 	new_minigame.failed.connect(minigame_failed.bind(minigame_slot))
@@ -213,6 +216,7 @@ func minigame_failed(failure_event, minigame_slot):
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
 	minigame_slots[slot].get_parent().find_child("gameBorder").visible = false
+	minigame_slots[slot].find_child("minigameProgress").visible = false
 	minigames[slot].queue_free() 
 	minigames[slot] = null
 	for tv in tvs[slot]:

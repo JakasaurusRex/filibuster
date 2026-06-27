@@ -57,6 +57,7 @@ func _ready() -> void:
 	camera.rotation = camera_rotations[current_camera_index]
 
 func _process(delta: float) -> void:
+	super._process(delta)
 	if glove.grabbing and looking_at_capy and current_mouse_delta:
 		current_scratch_time += delta
 		current_mouse_delta = null

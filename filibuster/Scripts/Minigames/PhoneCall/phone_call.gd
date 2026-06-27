@@ -3,9 +3,6 @@ extends Minigame
 @onready var phone = $Phone
 @onready var camera = $Camera3D
 @onready var timer = $Timer
-
-func _ready() -> void:
-	pass
 	
 func win():
 	super.win()

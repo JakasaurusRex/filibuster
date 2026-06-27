@@ -15,6 +15,7 @@ func _ready() -> void:
 	carrots_dropped = 0
 	
 func _process(_delta: float) -> void:
+	super._process(_delta)
 	if carrots_dropped == total_carrot_amount:
 		if timer.is_stopped(): timer.start(1)
 		particles.emitting = true

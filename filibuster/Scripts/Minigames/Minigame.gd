@@ -5,6 +5,9 @@ class_name Minigame
 @export var minigame_size := Vector2(192, 192)
 @export var max_runtime := 5.0
 
+var progress_bar
+var runtime_timer
+
 signal completed(completion_event)
 signal failed(failure_event)
 signal closed
@@ -13,8 +16,13 @@ signal closed
 #closing game during a win/lose animation due to timeout
 var is_done := false
 
+func _process(delta: float) -> void:
+	if progress_bar:
+		progress_bar.update_progress(1.0-(runtime_timer.time_left/max_runtime))
+	
 func start():
-	get_tree().create_timer(max_runtime).timeout.connect(minigame_timed_out)
+	runtime_timer = get_tree().create_timer(max_runtime)
+	runtime_timer.timeout.connect(minigame_timed_out)
 	
 #when you win the game
 func win():
@@ -34,4 +42,3 @@ func minigame_timed_out():
 func close():
 	emit_signal("closed")
 	queue_free()
-	

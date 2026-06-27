@@ -9,6 +9,7 @@ extends "res://Scripts/Minigames/minigame_template_2d.gd"
 @onready var button = $CanvasLayer/DrinkButton
 
 func _ready() -> void:
+	super._ready()
 	drink_progress_bar.max_value = total_drink
 	drink_progress_bar.value = total_drink
 
