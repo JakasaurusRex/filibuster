@@ -66,11 +66,6 @@ extends Node
 		"next": "transition_phrase",
 		"typed": false
 	},
-	"relations": {
-		"file": "relations.txt",
-		"next": "transition_phrase",
-		"typed": false
-	},
 	"fish": {
 		"file": "one_fish_two_fish.txt",
 		"next": "transition_phrase",

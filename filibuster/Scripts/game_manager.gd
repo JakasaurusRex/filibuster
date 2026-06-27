@@ -29,8 +29,8 @@ enum GameState {
 
 @onready var skipLabel := $"../skipLabel"
 
-var minigame_timer_range_min = 2.5#15.0
-var minigame_timer_range_max = 2.5#30.0
+var minigame_timer_range_min = 15.0
+var minigame_timer_range_max = 25.0
 
 @onready var game_over_timer = $GameOverTimer
 @onready var minigame_timer := $MinigameTimer

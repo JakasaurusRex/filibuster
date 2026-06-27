@@ -2,7 +2,7 @@ extends Node
 @onready var soundQueue := $soundEffectQueue
 @onready var bgMusicPlayer := $bgMusicPlayer
 @onready var players := []
-@onready var queue_length := 10
+@onready var queue_length := 20
 @onready var queue_index := 0
 @onready var queue_3d_index := 0
 
@@ -57,6 +57,9 @@ func togglePlayer(player, on):
 		"music": bgMusicPlayer.playing = on
 		pass
 
+func changeVolume(val):
+	AudioServer.set_bus_volume_db(0, linear_to_db(val))
+	
 #func setPlayerStream(player, stream):
 	#match player:
 		#"music": bgMusicPlayer.stream = AudioHandler.getAudio(stream)
