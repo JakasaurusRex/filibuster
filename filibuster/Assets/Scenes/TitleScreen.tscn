@@ -16,6 +16,15 @@ text = "CLOTURE"
 font = ExtResource("2_vu4bj")
 font_size = 20
 
+[sub_resource type="SystemFont" id="SystemFont_dq837"]
+font_names = PackedStringArray("Comic Sans MS")
+font_italic = true
+
+[sub_resource type="TextMesh" id="TextMesh_n1tug"]
+material = ExtResource("3_a33en")
+text = "spin your wheels"
+font = SubResource("SystemFont_dq837")
+
 [sub_resource type="Animation" id="Animation_qxa0e"]
 length = 0.001
 tracks/0/type = "value"
@@ -317,6 +326,10 @@ transform = Transform3D(1.9106855e-15, 4.3711385e-08, -0.9999999, 1, -4.3711385e
 [node name="TitleWords" type="MeshInstance3D" parent="Title" unique_id=56150514]
 transform = Transform3D(-10, 0, -1.509958e-06, 0, 10, 0, 1.509958e-06, 0, -10, -1.4986763, 1.481162, 1.3409934)
 mesh = SubResource("TextMesh_g4v7s")
+
+[node name="TitleWords2" type="MeshInstance3D" parent="Title" unique_id=183481685]
+transform = Transform3D(-5.14, 0, -7.761184e-07, 0, 5.14, 0, 7.761184e-07, 0, -5.14, -1.4986763, -0.16652215, 1.3409934)
+mesh = SubResource("TextMesh_n1tug")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1388188975]
 libraries/ = SubResource("AnimationLibrary_qxa0e")
