@@ -171,9 +171,9 @@ func spawn_minigame() -> void:
 	var new_minigame_viewport = SubViewport.new()
 	new_minigame_viewport.own_world_3d = true
 	new_minigame_viewport.physics_object_picking = true
-	#new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
-	#new_minigame_viewport.msaa_2d = Viewport.MSAA_8X
-	#new_minigame_viewport.msaa_3d = Viewport.MSAA_8X
+	new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	new_minigame_viewport.msaa_2d = Viewport.MSAA_4X
+	new_minigame_viewport.msaa_3d = Viewport.MSAA_4X
 	var minigame_slot = open_slots.pick_random()
 	
 	var random_minigame = MinigameHandler.get_random_minigame()

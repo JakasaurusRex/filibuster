@@ -9,6 +9,7 @@ resource_local_to_scene = true
 resource_name = "TVScreenPLACEHOLDER"
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_8bicx")
+uv1_triplanar = true
 disable_receive_shadows = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_v50r0"]
