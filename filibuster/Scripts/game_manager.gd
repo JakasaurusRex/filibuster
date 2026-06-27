@@ -83,7 +83,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_state == GameState.PLAYING:
 		#lose game to approval rating
-		if current_rating <= 0: lose_game()
+		#if current_rating <= 0: lose_game()
 		
 		#win game by lasting 24 hours
 		if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
@@ -171,9 +171,9 @@ func spawn_minigame() -> void:
 	var new_minigame_viewport = SubViewport.new()
 	new_minigame_viewport.own_world_3d = true
 	new_minigame_viewport.physics_object_picking = true
-	new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
-	new_minigame_viewport.msaa_2d = Viewport.MSAA_8X
-	new_minigame_viewport.msaa_3d = Viewport.MSAA_8X
+	#new_minigame_viewport.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	#new_minigame_viewport.msaa_2d = Viewport.MSAA_8X
+	#new_minigame_viewport.msaa_3d = Viewport.MSAA_8X
 	var minigame_slot = open_slots.pick_random()
 	
 	var random_minigame = MinigameHandler.get_random_minigame()
@@ -183,10 +183,12 @@ func spawn_minigame() -> void:
 	new_minigame_viewport.add_child(new_minigame)
 	minigames[minigame_slot] = new_minigame_viewport
 	
-	minigame_slots[minigame_slot].find_child("gameBorder").visible = true
-	minigame_slots[minigame_slot].find_child("gameBorder").size = new_minigame.minigame_size + minigame_border
-	minigame_slots[minigame_slot].find_child("gameBorder").global_position = minigame_slots[minigame_slot].get_parent().global_position - minigame_border/2
+	
 	new_minigame_viewport.size = new_minigame.minigame_size
+	minigame_slots[minigame_slot].get_parent().find_child("gameBorder").visible = true
+	minigame_slots[minigame_slot].get_parent().find_child("gameBorder").size = new_minigame.minigame_size + minigame_border
+	minigame_slots[minigame_slot].get_parent().find_child("gameBorder").global_position = minigame_slots[minigame_slot].get_parent().global_position - new_minigame.minigame_size/2 - minigame_border/2
+	
 	new_minigame.start()
 	new_minigame.completed.connect(minigame_completed.bind(minigame_slot))
 	new_minigame.failed.connect(minigame_failed.bind(minigame_slot))
@@ -203,7 +205,6 @@ func minigame_completed(completion_event, minigame_slot):
 	
 	
 func minigame_failed(failure_event, minigame_slot):
-	print("here")
 	current_rating -= RATING_ON_MINIGAME_LOSS
 	print("FAILED MINIGAME WITH EVENT: %s" % failure_event)
 	animate_score("-" + str(RATING_ON_MINIGAME_LOSS), minigame_slot, true)
@@ -211,7 +212,7 @@ func minigame_failed(failure_event, minigame_slot):
 	
 func minigame_closed(slot):
 	print("MINIGAME IN SLOT %s CLOSED" % slot)
-	minigame_slots[slot].find_child("gameBorder").visible = false
+	minigame_slots[slot].get_parent().find_child("gameBorder").visible = false
 	minigames[slot].queue_free() 
 	minigames[slot] = null
 	for tv in tvs[slot]:
@@ -238,7 +239,6 @@ func transition_camera(duration:=2.0, view:=""):
 
 func on_rating_timer_timeout() -> void:
 	current_rating -= RATING_LOSS_PER_SEC
-	print(current_rating)
 	
 func on_completed_word(word: Variant) -> void:
 	if not current_state == GameState.PLAYING: return

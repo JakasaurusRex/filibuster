@@ -49,7 +49,6 @@ func raiseRandomFil():
 	filRaiseTimer.start(randf_range(0.5, 1.0))
 	var down_fils = fils.keys().filter(func (f): return fil_status[f] == "down")
 	if down_fils == []: 
-		print("NO FILS") 
 		return
 	var new_up_fil = down_fils.pick_random()
 	fil_status[new_up_fil] = "transition"
@@ -76,8 +75,9 @@ func fillLowered(fil):
 	fil_status[fil] = "down"
 	
 func filWhacked(fil):
-	score += 1
+	AudioHandler.playSound("bonk")
 	AudioHandler.playSound("Hurt")
+	score += 1
 	if score >= 10:
 		win()
 	fil_status[fil] = "transition"
@@ -100,7 +100,6 @@ func ray_cast():
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_mouse"):
-		AudioHandler.playSound("bonk")
 		var ray_cast_result = ray_cast()
 		if not ray_cast_result: return
 		if ray_cast_result is StaticBody3D: return
