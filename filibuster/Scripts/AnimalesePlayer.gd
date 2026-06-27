@@ -102,7 +102,6 @@ func play_word(word: String):
 	await play_sounds(voice)
 
 func play_sounds(voice):
-	print(remaining_sounds)
 	while len(remaining_sounds) > 0:			
 		var next_symbol = remaining_sounds.pop_front()
 		# Skip to next sound if no sound exists for text

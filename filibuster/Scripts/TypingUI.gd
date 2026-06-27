@@ -102,7 +102,6 @@ var last_incorrect = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("DSAUDSADSA READSA")
 	open_red = "[color=%s]" % failure_color.to_html()
 	close_red = "[/color]"
 	open_green = "[color=%s]" % success_color.to_html()
@@ -149,7 +148,6 @@ func load_font_data(label):
 	text_box = label
 	text_box_font = label.get_theme_default_font()
 	text_box_font_size = label.get_theme_default_font_size()
-	#print("FONTER ", label.theme_override_font_sizes.normal_font_size)
 	text_box_length = label.size.x - 48
 	
 # Advance the index into the word

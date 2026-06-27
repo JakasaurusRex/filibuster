@@ -26,7 +26,6 @@ func lose():
 	
 #when you run out of time on the minigame
 func minigame_timed_out():
-	print("Minigame timed out")
 	if not is_done:
 		emit_signal("failed", null)
 		close()

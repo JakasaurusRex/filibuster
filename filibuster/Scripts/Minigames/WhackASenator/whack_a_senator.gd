@@ -60,7 +60,6 @@ func lowerRandomFil():
 	filLowerTimer.start(randf_range(1.0, 1.5))
 	var up_fils = fils.keys().filter(func (f): return fil_status[f] == "up")
 	if len(up_fils) <= 2: 
-		print("NO FILS") 
 		return
 	var new_down_fil = up_fils.pick_random()
 	fil_status[new_down_fil] = "transition"

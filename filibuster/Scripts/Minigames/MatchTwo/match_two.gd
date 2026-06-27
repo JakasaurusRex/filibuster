@@ -36,7 +36,6 @@ func _input(event:InputEvent) -> void:
 			else:
 				# CARDS MATCH
 				if card_selected.number == card_hovering.number:
-					print("ME MATCH")
 					card_selected.set_matched()
 					card_hovering.set_matched()
 					matches += 1
@@ -48,8 +47,6 @@ func _input(event:InputEvent) -> void:
 					card_selected.flip_down()
 					card_hovering.flip_down()
 				card_selected = null
-			print(card_hovering, " YUP")
 
 func _on_card_hover(card_num):
-	print(card_num)
 	card_hovering = card_num

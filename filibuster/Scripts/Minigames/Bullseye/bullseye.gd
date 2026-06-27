@@ -25,7 +25,6 @@ func _on_target_pressed() -> void:
 	targets_hit += 1
 	particles.emitting = true
 	AudioHandler.playSound("Bullseye")
-	print("Bullseye minigame: %s/%s target(s) hit" % [str(targets_hit), str(num_targets)])
 	if targets_hit >= num_targets:
 		target.visible = false
 		win()
