@@ -36,7 +36,7 @@ const STUTTERS := [
 	"Like...",
 	"Buh...",
 	"Let me think...",
-	"FUCK",
+	"DARN",
 	"Um...",
 	"So...",
 	"Well..."
