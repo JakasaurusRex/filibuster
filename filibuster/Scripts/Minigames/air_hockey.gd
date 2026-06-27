@@ -4,8 +4,8 @@ extends Minigame
 @onready var playerPaddle2 = $playerPaddle2
 @onready var puck = $puck
 @onready var camera = $Camera3D
-@onready var move_speed = 4
-
+@onready var move_speed = 5
+@onready var score_particles = $ScoreParticles
 
 func _ready() -> void:
 	pass
@@ -25,23 +25,27 @@ func _process(delta: float) -> void:
 	
 	if "position" in result:
 		pos = result["position"]
-		#playerPaddle.position = pos
 		playerPaddle.position = playerPaddle.position.move_toward(pos, move_speed*delta)
 	
 
 func win():
 	super.win()
 	emit_signal("completed", "PLAYER WON AIR HOCKEY")
-	close()
 
 func lose():
 	super.lose()
 	emit_signal("finished", "PLAYER LOST AIR HOCKEY")
-	close()
 
 func _on_win_area_body_entered(body: Node3D) -> void:
 	if body == puck:
 		AudioHandler.playSound("Correct")
 		win()
-		get_tree().create_timer(2).timeout.connect(close)
+		score_particles.emitting = true
+		get_tree().create_timer(1).timeout.connect(close)
 	
+
+
+func _on_lose_area_body_entered(body: Node3D) -> void:
+	if body == puck:
+		lose()
+		get_tree().create_timer(1).timeout.connect(close)
