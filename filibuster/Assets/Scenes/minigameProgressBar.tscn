@@ -21,8 +21,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = -1
 alignment = 2
+
+[node name="spacerTop" type="Control" parent="progressVbox" unique_id=1930194967]
+layout_mode = 2
+mouse_filter = 2
 
 [node name="spacer" type="Control" parent="progressVbox" unique_id=1640174732]
 layout_mode = 2
@@ -51,3 +55,8 @@ mouse_filter = 2
 texture = ExtResource("2_33ylm")
 expand_mode = 5
 stretch_mode = 4
+
+[node name="spacerBottom" type="Control" parent="progressVbox" unique_id=1358760344]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+mouse_filter = 2

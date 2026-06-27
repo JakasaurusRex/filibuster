@@ -1,7 +1,10 @@
 extends Control
 
 @onready var spacer := $progressVbox/spacer
+@onready var spacerBottom := $progressVbox/spacerBottom
 @onready var thumb := $progressVbox/thumb
+@onready var hand := $progressVbox/hand
+@onready var tip := $progressVbox/tip
 
 var thumb_val := 1.0
 var spacer_val := 0.0
@@ -16,3 +19,8 @@ func update_progress(prog):
 	#thumb.size_flags_stretch_ratio = 1.0-prog
 	#spacer.size_flags_stretch_ratio = prog
 	
+func thumbs_down():
+	tip.visible = false
+	thumb.visible = false
+	spacerBottom.visible = false
+	hand.texture = load("res://Assets/Graphics/Thumb/thumbs_down.png")

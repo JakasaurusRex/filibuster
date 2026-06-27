@@ -17,7 +17,7 @@ signal closed
 var is_done := false
 
 func _process(delta: float) -> void:
-	if progress_bar:
+	if progress_bar and not is_done:
 		progress_bar.update_progress(1.0-(runtime_timer.time_left/max_runtime))
 	
 func start():
@@ -35,7 +35,10 @@ func lose():
 #when you run out of time on the minigame
 func minigame_timed_out():
 	if not is_done:
+		is_done = true
 		emit_signal("failed", null)
+		if progress_bar: progress_bar.thumbs_down()
+		await get_tree().create_timer(1.0).timeout
 		close()
 
 #closing the minigame after winning/losing
