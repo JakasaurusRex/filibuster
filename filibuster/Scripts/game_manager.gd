@@ -29,6 +29,8 @@ enum GameState {
 
 @onready var skipLabel := $"../skipLabel"
 
+@onready var title_screen = "res://Assets/Scenes/TitleScreen.tscn"
+
 var minigame_timer_range_min = 15.0
 var minigame_timer_range_max = 25.0
 
@@ -40,7 +42,7 @@ var minigame_timer_range_max = 25.0
 @export var game_over_time = 3
 
 @export var MAX_RATING := 60
-@export var STARTING_RATING := 50
+@export var STARTING_RATING := 2
 @export var RATING_LOSS_PER_SEC := 1
 @export var RATING_ON_WORD := 1
 @export var RATING_ON_TYPO := 1
@@ -65,6 +67,7 @@ var minigame_border := Vector2(16,16)
 
 @export var DO_INTRO := true
 
+@onready var animation_player = $"../AnimationPlayer"
 
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
@@ -145,10 +148,9 @@ func win_game():
 	get_tree().paused = true
 	
 func lose_game():
-	print("GAME LOST, NO APPROVAL")
 	current_state = GameState.GAME_OVER
-	$"../loseLabel".visible = true
-	get_tree().paused = true
+	transition_camera(0.0, "fromTheFloor")
+	animation_player.play("fil_fall")
 	
 func get_current_time():
 	elapsed_time = (Time.get_ticks_msec() - start_time)/1000
@@ -274,3 +276,7 @@ func animate_score(word: String, slot: String, lost: bool=false):
 	word_scene.position = pos
 	word_scene.set_word(word)
 	if lost: word_scene.set_incorrect_material()
+
+
+func on_animation_player_animation_finished(anim_name: StringName) -> void:
+	SceneLoader.load_scene(title_screen)
