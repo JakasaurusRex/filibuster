@@ -24,3 +24,11 @@ func thumbs_down():
 	thumb.visible = false
 	spacerBottom.visible = false
 	hand.texture = load("res://Assets/Graphics/Thumb/thumbs_down.png")
+
+func reset():
+	tip.visible = true
+	thumb.visible = true
+	spacerBottom.visible = true
+	hand.texture = load("res://Assets/Graphics/Thumb/hand.png")
+	thumb_val = 1.0
+	spacer_val = 0.0
