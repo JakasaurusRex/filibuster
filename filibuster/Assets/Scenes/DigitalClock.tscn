@@ -21,4 +21,3 @@ offset_bottom = 34.0
 theme = ExtResource("2_2u23h")
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 24
-text = "ESC - SKIP INTRO "
