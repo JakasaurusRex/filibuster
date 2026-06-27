@@ -577,7 +577,7 @@ size = Vector3(0.04, 0.04, 0.048442382)
 
 [node name="Label3D11" type="Label3D" parent="Clear" unique_id=808763337]
 transform = Transform3D(-0.04, 6.0398317e-09, 2.6400945e-16, 0, -1.7484555e-09, 0.04, 6.0398317e-09, 0.04, 1.7484555e-09, 0.00013552979, 0.02049648, -0.001432687)
-text = "❌"
+text = "X"
 font = SubResource("SystemFont_uobsy")
 font_size = 147
 outline_size = 0
@@ -609,9 +609,9 @@ size = Vector3(0.04, 0.04, 0.048442382)
 
 [node name="Label3D12" type="Label3D" parent="Call" unique_id=1671346929]
 transform = Transform3D(-0.04, 6.0398317e-09, 2.6400945e-16, 0, -1.7484555e-09, 0.04, 6.0398317e-09, 0.04, 1.7484555e-09, -0.00087948516, 0.02049648, 0.001231879)
-text = "✔️"
+text = "call"
 font = SubResource("SystemFont_uobsy")
-font_size = 147
+font_size = 111
 outline_size = 0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Call" unique_id=1213704715]
