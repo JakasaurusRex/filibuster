@@ -39,6 +39,7 @@ func lose():
 
 func _on_win_area_body_entered(body: Node3D) -> void:
 	if body == puck:
+		puck.queue_free()
 		AudioHandler.playSound("Correct")
 		win()
 		score_particles.emitting = true
@@ -47,5 +48,6 @@ func _on_win_area_body_entered(body: Node3D) -> void:
 
 func _on_lose_area_body_entered(body: Node3D) -> void:
 	if body == puck:
+		puck.queue_free()
 		lose()
 		get_tree().create_timer(1).timeout.connect(close)
