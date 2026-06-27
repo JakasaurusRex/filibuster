@@ -25,9 +25,9 @@ func _process(delta: float) -> void:
 	if "position" in result:
 		pos = result["position"]
 		playerPaddle.position = pos
-		print(pos)
-		print(result["collider"].name)
-	
+		#print(pos)
+		#print(result["collider"].name)
+	#print(puck.position)
 	
 
 func win():
