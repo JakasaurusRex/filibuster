@@ -9,6 +9,8 @@ enum GameState {
 }
 
 @onready var typing_ui := $"../TypingUI"
+@onready var minigame_ui := $"../MinigameUI"
+@onready var progress_dial = $"../ProgressDial"
 @onready var minigame_anim := $minigameAnim
 @onready var minigame_slots := {
 	"slot_1": $"../MinigameUI/MinigameCont/slot1/minigameSlot1",
@@ -69,6 +71,8 @@ var minigame_border := Vector2(16,16)
 
 @onready var animation_player = $"../AnimationPlayer"
 
+
+
 func _ready() -> void:
 	minigame_timer.timeout.connect(time_for_minigame)
 	camera_timer.timeout.connect(transition_camera)
@@ -90,6 +94,11 @@ func _process(delta: float) -> void:
 		
 		#win game by lasting 24 hours
 		if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
+	elif current_state == GameState.GAME_OVERING or current_state == GameState.GAME_OVER:
+		minigame_ui.visible = false
+		progress_dial.visible = false
+		typing_ui.visible = false
+		DocumentHandler.reset()
 
 func _physics_process(_delta: float) -> void:
 	if current_state == GameState.PLAYING:
@@ -142,15 +151,16 @@ func start_game():
 	skipLabel.visible = false
 	
 func win_game():
-	print("GAME WON, 24 HOURS BUSTED")
 	current_state = GameState.GAME_OVER
-	$"../winLabel".visible = true
-	get_tree().paused = true
+	transition_camera(1, "courtBackView")
+	animation_player.play("fil_win")
+	AudioHandler.playSound("win_music")
 	
 func lose_game():
 	current_state = GameState.GAME_OVER
 	transition_camera(0.0, "fromTheFloor")
 	animation_player.play("fil_fall")
+	AudioHandler.playSound("lose_audio")
 	
 func get_current_time():
 	elapsed_time = (Time.get_ticks_msec() - start_time)/1000
