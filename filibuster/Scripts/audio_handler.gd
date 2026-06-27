@@ -6,7 +6,7 @@ extends Node
 @onready var queue_index := 0
 @onready var queue_3d_index := 0
 
-const HAS_MULTIPLE_FILES := ["test_sounds", "EnergyDrink", "Bullseye", "typing_sounds", "Boos", "Hurt", "Scratching", "Correct", "PhoneBeep"]
+const HAS_MULTIPLE_FILES := ["test_sounds", "ui_click", "EnergyDrink", "Bullseye", "typing_sounds", "Boos", "Hurt", "Scratching", "Correct", "PhoneBeep"]
 const SOUND_DIR := "res://Assets/Sounds/"
 var music_tween 
 

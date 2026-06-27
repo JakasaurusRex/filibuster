@@ -273,9 +273,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var typed_event = event as InputEventKey
 		
 		#handle shift
-		if typed_event.keycode == 4194325:
-			return
-		
+		if typed_event.keycode == 4194325 or typed_event.keycode == 4194305: return
 		var key_typed = PackedByteArray([typed_event.keycode]).get_string_from_utf8()
 		#if key_typed == "/" and Input.is_key_pressed(KEY_SHIFT):
 			#key_typed = "?"

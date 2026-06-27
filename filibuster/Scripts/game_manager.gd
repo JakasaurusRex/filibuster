@@ -191,6 +191,7 @@ func spawn_minigame() -> void:
 	
 	minigame_slots[minigame_slot].find_child("minigameProgress").visible = true
 	new_minigame.progress_bar = minigame_slots[minigame_slot].find_child("minigameProgress")
+	new_minigame.progress_bar.reset()
 	
 	new_minigame.start()
 	new_minigame.completed.connect(minigame_completed.bind(minigame_slot))
