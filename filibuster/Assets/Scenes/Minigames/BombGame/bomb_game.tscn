@@ -4,6 +4,15 @@
 [ext_resource type="Script" uid="uid://dr7ogwyxo1kht" path="res://Scripts/Minigames/BombGame/camera.gd" id="2_6xrgm"]
 [ext_resource type="PackedScene" uid="uid://cxpqn4r58fjj8" path="res://Assets/Scenes/Minigames/BombGame/bomb.tscn" id="2_j6tuk"]
 
+[sub_resource type="Environment" id="Environment_xtg8h"]
+fog_enabled = true
+fog_light_color = Color(0.007806608, 0.0094640115, 0.012420886, 1)
+fog_light_energy = 3.85
+fog_sun_scatter = 0.85
+fog_density = 0.0268
+fog_height = 597.91
+fog_height_density = -1.55
+
 [node name="BombGame" type="Node3D" unique_id=514623287]
 script = ExtResource("1_50qxm")
 
@@ -13,8 +22,18 @@ script = ExtResource("2_6xrgm")
 
 [node name="Bomb" parent="." unique_id=971829199 instance=ExtResource("2_j6tuk")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=738899279]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 22.201973, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1349028603]
+environment = SubResource("Environment_xtg8h")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1512919286]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5408487, 0)
+light_energy = 16.0
+spot_range = 15.285873
+spot_angle = 64.68749
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1948124829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4933062, 0)
+size = Vector3(23.327148, 1, 24.62793)
 
 [connection signal="completed" from="Bomb" to="." method="on_bomb_completed"]
 [connection signal="exploded" from="Bomb" to="." method="on_bomb_exploded"]

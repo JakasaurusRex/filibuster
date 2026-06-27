@@ -94,6 +94,26 @@ _data = {
 &"win": SubResource("Animation_4a732")
 }
 
+[sub_resource type="Gradient" id="Gradient_sm0ya"]
+offsets = PackedFloat32Array(0.006880734, 1)
+colors = PackedColorArray(0.60254145, 0.6839327, 0.22165942, 1, 1, 0.35435158, 0.20251608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lqxvg"]
+gradient = SubResource("Gradient_sm0ya")
+width = 68
+fill_from = Vector2(0.99161077, 0.8788801)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7iifw"]
+panorama = SubResource("GradientTexture2D_lqxvg")
+
+[sub_resource type="Sky" id="Sky_uobsy"]
+sky_material = SubResource("PanoramaSkyMaterial_7iifw")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_xtg8h"]
+background_mode = 2
+sky = SubResource("Sky_uobsy")
+
 [node name="EnergyDrink" type="Node3D" unique_id=719331435]
 script = ExtResource("1_kdylb")
 total_drink = 25
@@ -138,6 +158,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1503375, 3.470657)
 [node name="ScoreParticles" parent="." unique_id=1268238279 instance=ExtResource("3_sm0ya")]
 transform = Transform3D(1, 0, 0, 0, -0.10089846, -0.9948967, 0, 0.9948967, -0.10089846, 0, 1.6678166, -2.1317525)
 explosiveness = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=778994759]
+environment = SubResource("Environment_xtg8h")
 
 [connection signal="button_down" from="CanvasLayer/DrinkButton" to="." method="_on_drink_button_button_down"]
 [connection signal="pressed" from="CanvasLayer/DrinkButton" to="." method="_on_drink_button_pressed"]
