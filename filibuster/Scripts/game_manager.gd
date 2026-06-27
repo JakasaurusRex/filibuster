@@ -83,7 +83,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if current_state == GameState.PLAYING:
 		#lose game to approval rating
-		#if current_rating <= 0: lose_game()
+		if current_rating <= 0: lose_game()
 		
 		#win game by lasting 24 hours
 		if elapsed_time >= MINUTES_TO_24_HOURS * 60: win_game()
