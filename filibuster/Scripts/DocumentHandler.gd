@@ -254,13 +254,13 @@ func delete_intro_document():
 	current_document = ""
 	
 func reset():
-	documents.get_or_add("intro_speech", {
+	documents["intro_speech"] = {
 		"file": "intro_speech.txt",
 		"next": "intro_speech_finished",
 		"typed": false,
-	})
+	}
 	
 	current_document = "intro_speech"
 	for document in documents.keys():
-		documents[document] = false
+		documents[document]["typed"] = false
 	
